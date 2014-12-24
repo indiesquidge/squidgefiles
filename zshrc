@@ -12,5 +12,5 @@ fi
 
 # Customize to your needs...
 
-source .zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
