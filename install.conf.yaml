@@ -3,6 +3,8 @@
 - link:
     ~/.tmux.conf: tmux.conf
     ~/.vimrc: vimrc
+    ~/.zshrc: zshrc
+    ~/.zsh:   zsh/
 
 - shell:
-  - [git submodules update --init --recursive, Installing/updating submodules]
+  - [git submodule update --init --recursive, Installing/updating submodules]
