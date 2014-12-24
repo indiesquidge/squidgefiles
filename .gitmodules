@@ -1,3 +1,6 @@
 [submodule "dotbot"]
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
+[submodule "zsh-syntax-highlighting"]
+  path = zsh/zsh-syntax-highlighting
+  url = https://github.com/zsh-users/zsh-syntax-highlighting
