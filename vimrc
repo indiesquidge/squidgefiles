@@ -104,3 +104,10 @@ set wildignore+=*.gem
 set wildignore+=log/**
 set wildignore+=node_modules/**
 set wildignore+=tmp/**
+
+" ================ Local version ====================
+
+let $LOCALFILE=expand("~/.vimrc_local")
+if filereadable($LOCALFILE)
+  source $LOCALFILE
+endif
