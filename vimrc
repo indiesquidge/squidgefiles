@@ -15,14 +15,45 @@ set hidden
 " Syntax highlighting
 syntax on
 
+" Colorscheme
+set background=dark
+
+" Set 80 character ruler and colors
+let &colorcolumn=join(range(81,999),",")
+highlight ColorColumn cterm=NONE ctermbg=0
+
+" Highlight current line and colors
+set cursorline
+highlight CursorLine cterm=NONE ctermbg=233
+
+set sidescroll=1
+
 " ================ Vundle Initialization ============
 
-" This loads all the plugins specified in ~/.vim/vundles.vim
-" Use Vundle plugin to manage all other plugins
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
 
-if filereadable(expand("~/.vim/vundles.vim"))
-  source ~/.vim/vundles.vim
-endif
+" ================ Installed plugins ================
+
+" Ctrl p to quickly switch files
+Plugin 'kien/ctrlp.vim'
+
+" Nerdtree file viewer
+Plugin 'scrooloose/nerdtree'
+
+" Error linting
+Plugin 'scrooloose/syntastic'
+
+" Easily switch between vim and tmux
+Plugin 'christoomey/vim-tmux-navigator'
+
+" Base16 colorscheme
+Plugin 'chriskempson/base16-vim'
+
+call vundle#end()
+filetype plugin indent on
 
 " ================ Turn Off Swap Files ==============
 
@@ -73,7 +104,3 @@ set wildignore+=*.gem
 set wildignore+=log/**
 set wildignore+=node_modules/**
 set wildignore+=tmp/**
-
-" ================ Scrolling ========================
-
-set sidescroll=1
