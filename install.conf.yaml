@@ -9,4 +9,4 @@
     ~/.zsh:       zsh/
 
 - shell:
-  - [git submodule update --init --recursive, Installing/updating submodules]
+  - [git pull && git submodule update --init --recursive, Installing/updating submodules]
