@@ -3,10 +3,10 @@
 - link:
     ~/.gitconfig: .gitconfig
     ~/.tmux.conf: tmux.conf
-    ~/.vimrc: vimrc
-    ~/.vim:   vim/
-    ~/.zshrc: zshrc
-    ~/.zsh:   zsh/
+    ~/.vimrc:     vimrc
+    ~/.vim:       vim/
+    ~/.zshrc:     zshrc
+    ~/.zsh:       zsh/
 
 - shell:
   - [git submodule update --init --recursive, Installing/updating submodules]

@@ -8,6 +8,9 @@ fi
 
 source ~/.dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# Instantiate rbenv with shell
+eval "$(rbenv init -)"
+
 #  ================ Local version =====================
 
 if [ -f ~/.zsh_local ]; then

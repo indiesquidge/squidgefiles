@@ -49,8 +49,14 @@ Plugin 'scrooloose/syntastic'
 " Easily switch between vim and tmux
 Plugin 'christoomey/vim-tmux-navigator'
 
-" Base16 colorscheme
-Plugin 'chriskempson/base16-vim'
+" Easy to use, file-type sensitive comments
+Plugin 'tomtom/tcomment_vim'
+
+" Keyword completion system
+Plugin 'Shougo/neocomplete.vim'
+
+" Insert quotes, brackets, etc. in pairs
+Plugin 'jiangmiao/auto-pairs'
 
 call vundle#end()
 filetype plugin indent on
@@ -111,3 +117,15 @@ let $LOCALFILE=expand("~/.vimrc_local")
 if filereadable($LOCALFILE)
   source $LOCALFILE
 endif
+
+" ================ Status bar =======================
+
+" Enable status bar always
+set laststatus=2
+
+" Status bar format
+set statusline+=\     " blank space
+set statusline+=%f    " file
+set statusline+=%=    " gap
+set statusline+=%l/%L " current line/number of lines
+set statusline+=\     " blank space
