@@ -3,3 +3,5 @@
   email = i@austinwood.me
 [core]
 	excludesfile = /Users/austinwood/.gitignore
+[push]
+	default = simple
