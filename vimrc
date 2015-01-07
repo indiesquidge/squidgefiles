@@ -134,4 +134,11 @@ let g:airline_left_sep = '⮀'
 let g:airline_left_alt_sep = '⮁'
 let g:airline_right_sep = '⮂'
 let g:airline_right_alt_sep = '⮃'
-let g:airline_detect_modified=1
+let g:airline_symbols_branch = '⭠'
+
+let g:airline_detect_modified=0
+let g:airline_section_b = ''
+let g:airline_section_c = '%t'
+let g:airline_section_x = ''
+let g:airline_section_y = ''
+let g:airline_section_z = '%03l/%03L'
