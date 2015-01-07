@@ -16,7 +16,11 @@ set hidden
 syntax on
 
 " Colorscheme
+se t_Co=16
+let base16colorspace=256
 set background=dark
+let g:colors_name = 'base16-tomorrow'
+colorscheme base16-tomorrow
 
 " Set 80 character ruler and colors
 let &colorcolumn=join(range(81,999),",")
@@ -24,9 +28,13 @@ highlight ColorColumn cterm=NONE ctermbg=0
 
 " Highlight current line and colors
 set cursorline
-highlight CursorLine cterm=NONE ctermbg=233
+highlight CursorLine cterm=NONE ctermbg=235
 
 set sidescroll=1
+
+" Use TAB key to sift through completion from neocomplete
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
 " ================ Vundle Initialization ============
 
@@ -58,6 +66,12 @@ Plugin 'Shougo/neocomplete.vim'
 " Insert quotes, brackets, etc. in pairs
 Plugin 'jiangmiao/auto-pairs'
 
+" Show Git diff in gutter of file
+Plugin 'airblade/vim-gitgutter'
+
+" Statusbar
+Plugin 'bling/vim-airline'
+
 call vundle#end()
 filetype plugin indent on
 
@@ -68,7 +82,6 @@ set nobackup
 set nowb
 
 " ================ Persistent Undo ==================
-
 " Keep undo history across sessions, by storing in file.
 
 if has('persistent_undo')
@@ -78,7 +91,6 @@ if has('persistent_undo')
 endif
 
 " ================ Indentation ======================
-
 " Results in spaces being used for all indentation
 
 set expandtab
@@ -87,7 +99,6 @@ set softtabstop=2
 set tabstop=2
 
 " Detect filetypes
-
 filetype plugin on
 filetype indent on
 
@@ -100,7 +111,6 @@ set nofoldenable        "dont fold by default
 " ================ Completion =======================
 
 " Stuff to ignore when tab completing
-
 set wildmode=list:longest
 set wildignore=*.o,*.obj,*~
 set wildignore+=*vim/backups*
@@ -111,21 +121,17 @@ set wildignore+=log/**
 set wildignore+=node_modules/**
 set wildignore+=tmp/**
 
-" ================ Local version ====================
-
-let $LOCALFILE=expand("~/.vimrc_local")
-if filereadable($LOCALFILE)
-  source $LOCALFILE
-endif
+" Autocompletion
+let g:neocomplete#enable_at_startup = 1
 
 " ================ Status bar =======================
 
 " Enable status bar always
 set laststatus=2
 
-" Status bar format
-set statusline+=\     " blank space
-set statusline+=%f    " file
-set statusline+=%=    " gap
-set statusline+=%l/%L " current line/number of lines
-set statusline+=\     " blank space
+" Airline config
+let g:airline_left_sep = '⮀'
+let g:airline_left_alt_sep = '⮁'
+let g:airline_right_sep = '⮂'
+let g:airline_right_alt_sep = '⮃'
+let g:airline_detect_modified=1
