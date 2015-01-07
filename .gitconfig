@@ -2,6 +2,8 @@
   name = Austin Wood
   email = i@austinwood.me
 [core]
-	excludesfile = /Users/austinwood/.gitignore
+	excludesfile = ~/.gitignore
 [push]
 	default = simple
+[credential]
+	helper = osxkeychain

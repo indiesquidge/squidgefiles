@@ -1,6 +1,7 @@
 - clean: ['~']
 
 - link:
+    ~/.config:    config/
     ~/.gitconfig: .gitconfig
     ~/.pryrc:     pryrc
     ~/.tmux.conf: tmux.conf
