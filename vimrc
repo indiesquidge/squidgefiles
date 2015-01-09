@@ -4,8 +4,6 @@ set nocompatible
 " ================ General Config ===================
 
 set number                      "Line numbers
-set showmode                    "Show current mode down the bottom
-set gcr=a:blinkon0              "Disable cursor blink
 set visualbell                  "No sounds
 
 " buffers exist like in normal editors
@@ -22,15 +20,16 @@ set background=dark
 let g:colors_name = 'base16-tomorrow'
 colorscheme base16-tomorrow
 
+" Highlight current line and colors
+set cursorline
+
 " Set 80 character ruler and colors
 let &colorcolumn=join(range(81,999),",")
 highlight ColorColumn cterm=NONE ctermbg=0
 
-" Highlight current line and colors
-set cursorline
-highlight CursorLine cterm=NONE ctermbg=235
-
 set sidescroll=1
+
+" 8 line buffer when scrolling through file
 set scrolloff=8
 
 " Use TAB key to sift through completion from neocomplete
@@ -46,7 +45,7 @@ Plugin 'gmarik/Vundle.vim'
 
 " ================ Installed plugins ================
 
-" Ctrl p to quickly switch files
+" Fuzzy searcher
 Plugin 'kien/ctrlp.vim'
 
 " Nerdtree file viewer
@@ -155,6 +154,7 @@ let g:lightline = {
     \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
     \ }
 
+" Lightline functions
 function! MyReadonly()
   if &filetype == "help"
     return ""
