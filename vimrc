@@ -3,8 +3,14 @@ set nocompatible
 
 " ================ General Config ===================
 
-set number                      "Line numbers
-set visualbell                  "No sounds
+"No sounds
+set visualbell 
+
+" change global leader key to spacebar
+let mapleader = "\<Space>"
+
+" Set line numbers to be shown relatively by default
+set relativenumber
 
 " buffers exist like in normal editors
 " http://items.sjbach.com/319/configuring-vim-right
@@ -32,9 +38,24 @@ set sidescroll=1
 " 8 line buffer when scrolling through file
 set scrolloff=8
 
+" Run RSpec tests with pretty colors by default!
+let g:rspec_command = "!rspec --color {spec}"
+
+" ================ Key Mappings =====================
+
 " Use TAB key to sift through completion from neocomplete
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+
+" Toggle relative and normal line numbers
+nnoremap <silent><leader>r :set rnu! rnu? <cr>
+nnoremap <silent><leader>n :set nu! nu? <cr>
+
+" RSpec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
 
 " ================ Vundle Initialization ============
 
@@ -74,6 +95,12 @@ Plugin 'itchyny/lightline.vim'
 
 " Incredible Git wrapper
 Plugin 'tpope/vim-fugitive'
+
+" Lightweight RSpec runner for Vim
+Plugin 'thoughtbot/vim-rspec'
+
+" Multiple cursorlines (just like Sublime!)
+Plugin 'terryma/vim-multiple-cursors'
 
 call vundle#end()
 filetype plugin indent on
@@ -136,13 +163,13 @@ set laststatus=2
 let g:lightline = {
     \ 'colorscheme': 'wombat',
     \ 'active': {
-    \   'left': [ [ 'mode', ],
-    \             [ 'fugitive', 'readonly', 'filename' ] ],
+    \   'left': [ [ 'mode', ], [ 'fugitive', 'readonly', 'filename' ] ],
     \   'right': [ [ 'syntastic', 'lineinfo' ], [ 'filetype' ] ]
     \ },
     \ 'component_function': {
     \   'fugitive': 'MyFugitive',
-    \   'readonly': 'MyReadonly'
+    \   'readonly': 'MyReadonly',
+    \   'lineinfo': 'MyLineInfo'
     \ },
     \ 'component_expand': {
     \   'syntastic': 'SyntasticStatuslineFlag',
@@ -171,4 +198,8 @@ function! MyFugitive()
     return strlen(_) ? '⭠ '._ : ''
   endif
   return ''
+endfunction
+
+function! MyLineInfo()
+  return '⭡ ' . line('.') . '/' . line('$')
 endfunction
