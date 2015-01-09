@@ -31,6 +31,7 @@ set cursorline
 highlight CursorLine cterm=NONE ctermbg=235
 
 set sidescroll=1
+set scrolloff=8
 
 " Use TAB key to sift through completion from neocomplete
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -70,7 +71,10 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'airblade/vim-gitgutter'
 
 " Statusbar
-Plugin 'bling/vim-airline'
+Plugin 'itchyny/lightline.vim'
+
+" Incredible Git wrapper
+Plugin 'tpope/vim-fugitive'
 
 call vundle#end()
 filetype plugin indent on
@@ -129,16 +133,42 @@ let g:neocomplete#enable_at_startup = 1
 " Enable status bar always
 set laststatus=2
 
-" Airline config
-let g:airline_left_sep = '⮀'
-let g:airline_left_alt_sep = '⮁'
-let g:airline_right_sep = '⮂'
-let g:airline_right_alt_sep = '⮃'
-let g:airline_symbols_branch = '⭠'
+" Lightline config
+let g:lightline = {
+    \ 'colorscheme': 'wombat',
+    \ 'active': {
+    \   'left': [ [ 'mode', ],
+    \             [ 'fugitive', 'readonly', 'filename' ] ],
+    \   'right': [ [ 'syntastic', 'lineinfo' ], [ 'filetype' ] ]
+    \ },
+    \ 'component_function': {
+    \   'fugitive': 'MyFugitive',
+    \   'readonly': 'MyReadonly'
+    \ },
+    \ 'component_expand': {
+    \   'syntastic': 'SyntasticStatuslineFlag',
+    \ },
+    \ 'component_type': {
+    \   'syntastic': 'error',
+    \ },
+    \ 'separator': { 'left': '⮀', 'right': '⮂' },
+    \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
+    \ }
 
-let g:airline_detect_modified=0
-let g:airline_section_b = ''
-let g:airline_section_c = '%t'
-let g:airline_section_x = ''
-let g:airline_section_y = ''
-let g:airline_section_z = '%03l/%03L'
+function! MyReadonly()
+  if &filetype == "help"
+    return ""
+  elseif &readonly
+    return "⭤"
+  else
+    return ""
+  endif
+endfunction
+
+function! MyFugitive()
+  if exists('*fugitive#head')
+    let _ = fugitive#head()
+    return strlen(_) ? '⭠ '._ : ''
+  endif
+  return ''
+endfunction
