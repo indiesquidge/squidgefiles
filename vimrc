@@ -1,6 +1,18 @@
 " Use Vim settings, rather then Vi
 set nocompatible
 
+" ================ Colors ===========================
+
+" Syntax highlighting
+syntax on
+
+" Colorscheme
+se t_Co=16
+let base16colorspace=256
+set background=dark
+let g:colors_name = 'base16-tomorrow'
+colorscheme base16-tomorrow
+
 " ================ General Config ===================
 
 "No sounds
@@ -16,15 +28,8 @@ set relativenumber
 " http://items.sjbach.com/319/configuring-vim-right
 set hidden
 
-" Syntax highlighting
-syntax on
-
-" Colorscheme
-se t_Co=16
-let base16colorspace=256
-set background=dark
-let g:colors_name = 'base16-tomorrow'
-colorscheme base16-tomorrow
+" Line number color
+highlight LineNr ctermfg=014
 
 " Highlight current line and colors
 set cursorline
@@ -41,6 +46,9 @@ set scrolloff=8
 " Run RSpec tests with pretty colors by default!
 let g:rspec_command = "!rspec --color {spec}"
 
+" Hardtime on by default
+let g:hardtime_default_on = 1
+
 " ================ Key Mappings =====================
 
 " Use TAB key to sift through completion from neocomplete
@@ -48,8 +56,8 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
 " Toggle relative and normal line numbers
-nnoremap <silent><leader>r :set rnu! rnu? <cr>
-nnoremap <silent><leader>n :set nu! nu? <cr>
+" nnoremap <silent><leader>r :set rnu! rnu? <cr>
+" nnoremap <silent><leader>n :set nu! nu? <cr>
 
 " RSpec.vim mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
@@ -58,7 +66,6 @@ map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
 " ================ Vundle Initialization ============
-
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -107,6 +114,9 @@ Plugin 'tpope/vim-endwise'
 
 " Handy bracket mappings
 Plugin 'tpope/vim-unimpaired'
+
+" Break bad Vim habits
+Plugin 'takac/vim-hardtime'
 
 call vundle#end()
 filetype plugin indent on
@@ -170,7 +180,10 @@ let g:lightline = {
     \ 'colorscheme': 'wombat',
     \ 'active': {
     \   'left': [ [ 'mode', ], [ 'fugitive', 'readonly', 'filename' ] ],
-    \   'right': [ [ 'syntastic', 'lineinfo' ], [ 'filetype' ] ]
+    \   'right': [ [ 'syntastic', 'column', 'lineinfo' ], [ 'filetype' ] ]
+    \ },
+    \ 'component': {
+    \   'column': '%c'
     \ },
     \ 'component_function': {
     \   'fugitive': 'MyFugitive',
@@ -189,9 +202,7 @@ let g:lightline = {
 
 " Lightline functions
 function! MyReadonly()
-  if &filetype == "help"
-    return ""
-  elseif &readonly
+  if &readonly
     return "⭤"
   else
     return ""
@@ -208,4 +219,13 @@ endfunction
 
 function! MyLineInfo()
   return '⭡ ' . line('.') . '/' . line('$')
+endfunction
+
+augroup AutoSyntastic
+  autocmd!
+  autocmd BufWritePost *.rb,*.js,*.css,*.sh,*.coffee call s:syntastic()
+augroup END
+function! s:syntastic()
+  SyntasticCheck
+  call lightline#update()
 endfunction
