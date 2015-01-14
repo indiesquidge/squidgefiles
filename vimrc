@@ -102,6 +102,12 @@ Plugin 'thoughtbot/vim-rspec'
 " Multiple cursorlines (just like Sublime!)
 Plugin 'terryma/vim-multiple-cursors'
 
+" Add end statement automatically where needed
+Plugin 'tpope/vim-endwise'
+
+" Handy bracket mappings
+Plugin 'tpope/vim-unimpaired'
+
 call vundle#end()
 filetype plugin indent on
 
