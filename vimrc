@@ -10,8 +10,8 @@ syntax on
 se t_Co=16
 let base16colorspace=256
 set background=dark
-let g:colors_name = 'base16-tomorrow'
-colorscheme base16-tomorrow
+let g:colors_name = 'base16-default'
+colorscheme base16-default
 
 " ================ General Config ===================
 
@@ -48,8 +48,16 @@ let g:rspec_command = "!rspec --color {spec}"
 
 " Hardtime on by default
 let g:hardtime_default_on = 1
+let g:hardtime_allow_different_key = 1
+
+" Start NERDTree automatically if Vim is opened without a file
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " ================ Key Mappings =====================
+
+" Ctrl-s to and save
+inoremap <C-s> <esc>:w<CR>
 
 " Use TAB key to sift through completion from neocomplete
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -64,6 +72,9 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
+
+" Ruby debugging
+map <Leader>d orequire 'pry'<cr>binding.pry<esc>:w<cr>
 
 " ================ Vundle Initialization ============
 filetype off

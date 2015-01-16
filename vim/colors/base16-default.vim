@@ -1,4 +1,4 @@
-" Base16 Tomorrow (https://github.com/chriskempson/base16)
+" Base16 Default (https://github.com/chriskempson/base16)
 " Scheme: Chris Kempson (http://chriskempson.com)
 
 " This enables the coresponding base16-shell script to run so that
@@ -7,27 +7,27 @@
 "   let g:base16_shell_path=base16-builder/output/shell/
 if !has('gui_running')
   if exists("g:base16_shell_path")
-    execute "silent !/bin/sh ".g:base16_shell_path."/base16-tomorrow.".&background.".sh"
+    execute "silent !/bin/sh ".g:base16_shell_path."/base16-default.".&background.".sh"
   endif
 endif
 
 " GUI color definitions
-let s:gui00 = "1d1f21"
-let s:gui01 = "282a2e"
-let s:gui02 = "373b41"
-let s:gui03 = "969896"
-let s:gui04 = "b4b7b4"
-let s:gui05 = "c5c8c6"
-let s:gui06 = "e0e0e0"
-let s:gui07 = "ffffff"
-let s:gui08 = "cc6666"
-let s:gui09 = "de935f"
-let s:gui0A = "f0c674"
-let s:gui0B = "b5bd68"
-let s:gui0C = "8abeb7"
-let s:gui0D = "81a2be"
-let s:gui0E = "b294bb"
-let s:gui0F = "a3685a"
+let s:gui00 = "181818"
+let s:gui01 = "282828"
+let s:gui02 = "383838"
+let s:gui03 = "585858"
+let s:gui04 = "b8b8b8"
+let s:gui05 = "d8d8d8"
+let s:gui06 = "e8e8e8"
+let s:gui07 = "f8f8f8"
+let s:gui08 = "ab4642"
+let s:gui09 = "dc9656"
+let s:gui0A = "f7ca88"
+let s:gui0B = "a1b56c"
+let s:gui0C = "86c1b9"
+let s:gui0D = "7cafc2"
+let s:gui0E = "ba8baf"
+let s:gui0F = "a16946"
 
 " Terminal color definitions
 let s:cterm00 = "00"
@@ -59,7 +59,7 @@ endif
 " Theme setup
 hi clear
 syntax reset
-let g:colors_name = "base16-tomorrow"
+let g:colors_name = "base16-default"
 
 " Highlighting function
 fun <sid>hi(group, guifg, guibg, ctermfg, ctermbg, attr)
