@@ -13,6 +13,12 @@ set background=dark
 let g:colors_name = 'base16-default'
 colorscheme base16-default
 
+" Line number color
+highlight LineNr ctermfg=014
+
+" Matching brackets, parens, etc. color
+highlight MatchParen cterm=bold ctermfg=087
+
 " ================ General Config ===================
 
 "No sounds
@@ -28,15 +34,15 @@ set relativenumber
 " http://items.sjbach.com/319/configuring-vim-right
 set hidden
 
-" Line number color
-highlight LineNr ctermfg=014
-
 " Highlight current line and colors
 set cursorline
 
 " Set 80 character ruler and colors
 let &colorcolumn=join(range(81,999),",")
 highlight ColorColumn cterm=NONE ctermbg=0
+
+" Show Vim commands in write bar
+set showcmd
 
 set sidescroll=1
 
@@ -46,8 +52,8 @@ set scrolloff=8
 " Run RSpec tests with pretty colors by default!
 let g:rspec_command = "!rspec --color {spec}"
 
-" Hardtime on by default
-let g:hardtime_default_on = 1
+" Hardtime off by default
+let g:hardtime_default_on = 0
 let g:hardtime_allow_different_key = 1
 
 " Start NERDTree automatically if Vim is opened without a file
