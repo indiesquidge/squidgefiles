@@ -20,17 +20,6 @@ BASE16_SCHEME="default"
 BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
 [[ -s $BASE16_SHELL  ]] && source $BASE16_SHELL
 
-#  ================ Aliases ===========================
-
-alias pt="cd ~/Projects/Turing; "
-alias vimconfig="vim ~/.dotfiles/vimrc"
-alias zshconfig="vim ~/.dotfiles/zshrc"
-alias tmuxconfig="vim ~/.dotfiles/tmux.conf"
-alias cls='clear;ls'
-alias v='vim'
-alias dot='cd ~/.dotfiles'
-alias cd='cs'
-
 #  ================ Alias Functions ===================
 
 # ls automatically after cd
@@ -41,6 +30,17 @@ function cs() {
     cd "$*" && ls
   fi
 }
+alias cd='cs'
+
+#  ================ Aliases ===========================
+
+alias pt="cd ~/Projects/Turing; "
+alias vimconfig="vim ~/.dotfiles/vimrc"
+alias zshconfig="vim ~/.dotfiles/zshrc"
+alias tmuxconfig="vim ~/.dotfiles/tmux.conf"
+alias v='vim'
+alias c='clear;ls'
+alias dot='cd ~/.dotfiles'
 
 #  ================ Local version =====================
 
