@@ -63,21 +63,11 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " ================ Key Mappings =====================
 
 " Ctrl-s to and save
-inoremap <C-s> <esc>:w<CR>
+inoremap <C-c> <esc>:w<CR>
 
 " Use TAB key to sift through completion from neocomplete
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
-
-" Toggle relative and normal line numbers
-" nnoremap <silent><leader>r :set rnu! rnu? <cr>
-" nnoremap <silent><leader>n :set nu! nu? <cr>
-
-" RSpec.vim mappings
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
 
 " Ruby debugging
 map <Leader>d orequire 'pry'<cr>binding.pry<esc>:w<cr>
@@ -119,9 +109,6 @@ Plugin 'itchyny/lightline.vim'
 
 " Incredible Git wrapper
 Plugin 'tpope/vim-fugitive'
-
-" Lightweight RSpec runner for Vim
-Plugin 'thoughtbot/vim-rspec'
 
 " Multiple cursorlines (just like Sublime!)
 Plugin 'terryma/vim-multiple-cursors'
@@ -240,7 +227,7 @@ endfunction
 
 augroup AutoSyntastic
   autocmd!
-  autocmd BufWritePost *.rb,*.js,*.css,*.sh,*.coffee call s:syntastic()
+  autocmd BufWritePost *.rb,*.js,*.css,*.sh call s:syntastic()
 augroup END
 function! s:syntastic()
   SyntasticCheck
