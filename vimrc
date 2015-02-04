@@ -75,6 +75,9 @@ inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 " Ruby debugging
 map <Leader>d orequire 'pry'<cr>binding.pry<esc>:w<cr>
 
+" Running jasmine-node tests from Vim with Vimux
+map <Leader>rj :w %<cr>:call VimuxRunCommand("clear; jasmine-node --verbose " . bufname("%"))<cr>
+
 " ================ Vundle Initialization ============
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -124,6 +127,12 @@ Plugin 'tpope/vim-unimpaired'
 
 " Break bad Vim habits
 Plugin 'takac/vim-hardtime'
+
+" Interact with Tmux from Vim
+Plugin 'benmills/vimux'
+
+" Ruby-specific plugin for running tests
+Plugin 'jgdavey/vim-turbux'
 
 call vundle#end()
 filetype plugin indent on
