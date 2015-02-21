@@ -24,6 +24,9 @@ highlight MatchParen cterm=bold ctermfg=087
 "No sounds
 set visualbell 
 
+" Delete text present before insert mode (FIX THIS WITH SENSIBLE.VIM!!!)
+set backspace=2
+
 " change global leader key to spacebar
 let mapleader = "\<Space>"
 
@@ -48,9 +51,6 @@ set sidescroll=1
 
 " 8 line buffer when scrolling through file
 set scrolloff=8
-
-" Run RSpec tests with pretty colors by default!
-let g:rspec_command = "!rspec --color {spec}"
 
 " Hardtime off by default
 let g:hardtime_default_on = 0
@@ -115,9 +115,6 @@ Plugin 'itchyny/lightline.vim'
 
 " Incredible Git wrapper
 Plugin 'tpope/vim-fugitive'
-
-" Multiple cursorlines (just like Sublime!)
-Plugin 'terryma/vim-multiple-cursors'
 
 " Add end statement automatically where needed
 Plugin 'tpope/vim-endwise'
