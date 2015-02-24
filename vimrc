@@ -30,8 +30,8 @@ set backspace=2
 " change global leader key to spacebar
 let mapleader = "\<Space>"
 
-" Set line numbers to be shown relatively by default
-set relativenumber
+" Set line numbers to be shown by default
+set number
 
 " buffers exist like in normal editors
 " http://items.sjbach.com/319/configuring-vim-right
@@ -61,7 +61,9 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " Automatically remove trailing whitespace on save
-autocmd BufWritePre *.rb,*.js,*.py,*.go,*.swift :%s/\s\+$//e
+autocmd BufWritePre *.rb,*.js,*.py,*.go :%s/\s\+$//e
+
+let g:syntastic_ruby_checkers = ['rubocop']
 
 " ================ Key Mappings =====================
 
@@ -103,6 +105,10 @@ Plugin 'tomtom/tcomment_vim'
 
 " Keyword completion system
 Plugin 'Shougo/neocomplete.vim'
+
+" Complement to neocomplete for common snippets
+Plugin 'Shougo/neosnippet'
+Plugin 'Shougo/neosnippet-snippets'
 
 " Insert quotes, brackets, etc. in pairs
 Plugin 'jiangmiao/auto-pairs'
@@ -182,6 +188,25 @@ set wildignore+=tmp/**
 
 " Autocompletion
 let g:neocomplete#enable_at_startup = 1
+
+" Neosnippets example configuration
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: "\<TAB>"
+
+" For snippet_complete marker.
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endif
 
 " ================ Status bar =======================
 

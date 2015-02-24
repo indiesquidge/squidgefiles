@@ -34,7 +34,10 @@ alias cd='cs'
 
 #  ================ Aliases ===========================
 
+alias p="cd ~/Projects; "
 alias pt="cd ~/Projects/Turing; "
+alias m1="cd ~/Projects/Turing/1mod; "
+alias m2="cd ~/Projects/Turing/2mod; "
 alias vimconfig="vim ~/.dotfiles/vimrc"
 alias zshconfig="vim ~/.dotfiles/zshrc"
 alias tmuxconfig="vim ~/.dotfiles/tmux.conf"
