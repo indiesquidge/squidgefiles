@@ -14,7 +14,7 @@ let g:colors_name = 'base16-default'
 colorscheme base16-default
 
 " Line number color
-highlight LineNr ctermfg=014
+highlight LineNr ctermfg=246
 
 " Matching brackets, parens, etc. color
 highlight MatchParen cterm=bold ctermfg=087
@@ -47,6 +47,9 @@ highlight ColorColumn cterm=NONE ctermbg=0
 " Show Vim commands in write bar
 set showcmd
 
+" Hide current vim mode from write line
+set noshowmode
+
 set sidescroll=1
 
 " 8 line buffer when scrolling through file
@@ -63,22 +66,31 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " Automatically remove trailing whitespace on save
 autocmd BufWritePre *.rb,*.js,*.py,*.go :%s/\s\+$//e
 
-let g:syntastic_ruby_checkers = ['rubocop']
+" ================ Error Linting ====================
+
+" Check for both style flaws and syntax errors
+" let g:syntastic_ruby_checkers = ['rubocop', 'mri']
+" let g:syntastic_javascript_checkers = ['jshint']
+
+" Error symbols
+let g:syntastic_error_symbol = "✗"
+let g:syntastic_style_error_symbol = "✗"
+let g:syntastic_warning_symbol = "⚠"
+let g:syntastic_style_warning_symbol = "⚠"
 
 " ================ Key Mappings =====================
 
 " Ctrl-s to and save
 inoremap <C-c> <esc>:w<CR>
 
-" Use TAB key to sift through completion from neocomplete
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
-
 " Ruby debugging
 map <Leader>d orequire 'pry'<cr>binding.pry<esc>:w<cr>
 
 " Running jasmine-node tests from Vim with Vimux
 map <Leader>rj :w %<cr>:call VimuxRunCommand("clear; jasmine-node --verbose " . bufname("%"))<cr>
+
+" Rename files within Vim
+map <Leader>e :Rename<space>
 
 " ================ Vundle Initialization ============
 filetype off
@@ -106,10 +118,6 @@ Plugin 'tomtom/tcomment_vim'
 " Keyword completion system
 Plugin 'Shougo/neocomplete.vim'
 
-" Complement to neocomplete for common snippets
-Plugin 'Shougo/neosnippet'
-Plugin 'Shougo/neosnippet-snippets'
-
 " Insert quotes, brackets, etc. in pairs
 Plugin 'jiangmiao/auto-pairs'
 
@@ -131,11 +139,14 @@ Plugin 'tpope/vim-unimpaired'
 " Break bad Vim habits
 Plugin 'takac/vim-hardtime'
 
-" Interact with Tmux from Vim
-Plugin 'benmills/vimux'
+" Rename files from within Vim
+Plugin 'danro/rename.vim'
 
-" Ruby-specific plugin for running tests
-Plugin 'jgdavey/vim-turbux'
+" Snippet files for lots of languages
+Plugin 'honza/vim-snippets'
+
+" Helper for vim-snippets
+Plugin 'SirVer/ultisnips'
 
 call vundle#end()
 filetype plugin indent on
@@ -189,24 +200,16 @@ set wildignore+=tmp/**
 " Autocompletion
 let g:neocomplete#enable_at_startup = 1
 
-" Neosnippets example configuration
-" Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-" SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: "\<TAB>"
-
 " For snippet_complete marker.
 if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
+
+" Trigger configuration for snippets
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsListSnippets="<c-tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " ================ Status bar =======================
 
