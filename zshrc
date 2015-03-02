@@ -31,6 +31,17 @@ function cs() {
 }
 alias cd='cs'
 
+# mkdir and cd into it in one action
+function mkcd {
+  mkdir $1
+  cd $1
+}
+
+# clone and cd into repo
+function clone() {
+  git clone $1 && cd $(basename ${1%.*})
+}
+
 #  ================ Aliases ===========================
 
 alias p="cd ~/Projects; "
@@ -43,6 +54,7 @@ alias tmuxconfig="vim ~/.dotfiles/tmux.conf"
 alias v='vim'
 alias c='clear;ls'
 alias dot='cd ~/.dotfiles'
+alias rl='source ~/.zshrc'
 
 #  ================ Local version =====================
 
