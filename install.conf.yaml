@@ -9,7 +9,6 @@
     ~/.vimrc:     vimrc
     ~/.vim:       vim/
     ~/.zshrc:     zshrc
-    ~/.zsh:       zsh/
 
 - shell:
   - [git pull && git submodule update --init --recursive, Installing/updating submodules]
