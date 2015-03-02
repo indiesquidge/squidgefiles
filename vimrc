@@ -148,6 +148,9 @@ Plugin 'honza/vim-snippets'
 " Helper for vim-snippets
 Plugin 'SirVer/ultisnips'
 
+" Tells versions of vim-ruby where Ruby installs are located
+Plugin 'tpope/vim-rbenv'
+
 call vundle#end()
 filetype plugin indent on
 
@@ -199,6 +202,7 @@ set wildignore+=tmp/**
 
 " Autocompletion
 let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#force_overwrite_completefunc = 1
 
 " For snippet_complete marker.
 if has('conceal')
