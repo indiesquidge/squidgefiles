@@ -64,7 +64,7 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " Automatically remove trailing whitespace on save
-autocmd BufWritePre *.rb,*.js,*.py,*.go :%s/\s\+$//e
+autocmd BufWritePre * :%s/\s\+$//e
 
 " ================ Error Linting ====================
 

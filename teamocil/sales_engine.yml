@@ -1,9 +1,0 @@
-windows:
-  - name: sales_engine
-    root: ~/Projects/Turing
-    layout: main-vertical
-    panes:
-      - vim ~/Projects/Turing/sales_engine/test
-      - cd .
-      - git status
-

@@ -5,7 +5,6 @@
     ~/.gitconfig: .gitconfig
     ~/.pryrc:     pryrc
     ~/.tmux.conf: tmux.conf
-    ~/.teamocil:  teamocil/
     ~/.vimrc:     vimrc
     ~/.vim:       vim/
     ~/.zshrc:     zshrc

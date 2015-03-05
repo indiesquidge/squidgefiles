@@ -48,13 +48,18 @@ alias p="cd ~/Projects; "
 alias pt="cd ~/Projects/Turing; "
 alias m1="cd ~/Projects/Turing/1mod; "
 alias m2="cd ~/Projects/Turing/2mod; "
+
 alias vimconfig="vim ~/.dotfiles/vimrc"
 alias zshconfig="vim ~/.dotfiles/zshrc"
 alias tmuxconfig="vim ~/.dotfiles/tmux.conf"
+
 alias v='vim'
+
 alias c='clear;ls'
 alias dot='cd ~/.dotfiles'
 alias rl='source ~/.zshrc'
+
+alias hpr='gPb > /dev/null && hub pull-request | xargs open'
 
 #  ================ Local version =====================
 
