@@ -82,17 +82,19 @@ let g:syntastic_style_warning_symbol = "⚠"
 
 " ================ Key Mappings =====================
 
-" Ctrl-s to and save
-inoremap <C-c> <esc>:w<CR>
+" Ctrl-c to exit insert mode and save
+inoremap <C-c> <esc>:w<cr>
 
 " Ruby debugging
-map <Leader>d orequire 'pry'<cr>binding.pry<esc>:w<cr>
-
-" Running jasmine-node tests from Vim with Vimux
-map <Leader>rj :w %<cr>:call VimuxRunCommand("clear; jasmine-node --verbose " . bufname("%"))<cr>
+map <Leader>a orequire 'pry'<cr>binding.pry<esc>:w<cr>
 
 " Rename files within Vim
 map <Leader>e :Rename<space>
+
+" System yank, paste, and delete
+map <Leader>y "+y<cr>
+map <Leader>p "+p<cr>
+map <Leader>d "+d<cr>
 
 " ================ Vundle Initialization ============
 filetype off
