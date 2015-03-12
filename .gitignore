@@ -2,3 +2,4 @@ vim/bundle
 vim/backups
 vim/.netrwhist
 .gitconfig
+config/hub

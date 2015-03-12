@@ -8,10 +8,12 @@ syntax on
 
 " Colorscheme
 se t_Co=16
-let base16colorspace=256
-set background=dark
-let g:colors_name = 'base16-default'
-colorscheme base16-default
+let g:seoul256_background = 234
+colo seoul256
+
+" comment and visual mode highlight colors
+hi Comment ctermfg=DarkGrey
+hi Visual  ctermbg=239 ctermfg=253
 
 " Line number color
 highlight LineNr ctermfg=246
@@ -22,7 +24,7 @@ highlight MatchParen cterm=bold ctermfg=087
 " ================ General Config ===================
 
 "No sounds
-set visualbell 
+set visualbell
 
 " Delete text present before insert mode (FIX THIS WITH SENSIBLE.VIM!!!)
 set backspace=2
@@ -42,7 +44,7 @@ set cursorline
 
 " Set 80 character ruler and colors
 let &colorcolumn=join(range(81,999),",")
-highlight ColorColumn cterm=NONE ctermbg=0
+highlight ColorColumn cterm=NONE ctermbg=234
 
 " Show Vim commands in write bar
 set showcmd
