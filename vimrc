@@ -8,7 +8,7 @@ syntax on
 
 " Colorscheme
 se t_Co=16
-let g:seoul256_background = 234
+let g:seoul256_background = 233
 colo seoul256
 
 " comment and visual mode highlight colors
@@ -44,7 +44,7 @@ set cursorline
 
 " Set 80 character ruler and colors
 let &colorcolumn=join(range(81,999),",")
-highlight ColorColumn cterm=NONE ctermbg=234
+highlight ColorColumn cterm=NONE ctermbg=233
 
 " Show Vim commands in write bar
 set showcmd
