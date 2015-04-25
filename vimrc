@@ -115,10 +115,14 @@ call vundle#end()
 filetype plugin indent on
 
 " ================ Turn Off Swap Files ==============
-
 set noswapfile
 set nobackup
 set nowb
+
+" ================ Folds ============================
+set foldmethod=indent   "fold based on indent
+set foldnestmax=3       "deepest fold is 3 levels
+set nofoldenable        "dont fold by default
 
 " ================ Persistent Undo ==================
 " Keep undo history across sessions, by storing in file.
@@ -141,14 +145,7 @@ set tabstop=2
 filetype plugin on
 filetype indent on
 
-" ================ Folds ============================
-
-set foldmethod=indent   "fold based on indent
-set foldnestmax=3       "deepest fold is 3 levels
-set nofoldenable        "dont fold by default
-
 " ================ Completion =======================
-
 " Stuff to ignore when tab completing
 set wildmode=list:longest
 set wildignore=*.o,*.obj,*~
@@ -175,35 +172,49 @@ let g:UltiSnipsListSnippets="<c-tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
-" ================ Status bar =======================
+" ================ Ctrlp Statusbar ==================
+" No Statusbar upon entering Ctrlp
+let g:ctrlp_buffer_func = {
+  \ 'enter': 'Enter_ctrlp',
+  \ 'exit':  'Exit_ctrlp',
+  \ }
 
+func! Enter_ctrlp()
+  set laststatus=0
+endfunc
+
+func! Exit_ctrlp()
+  set laststatus=2
+endfunc
+
+" ================ Status bar =======================
 " Enable status bar always
 set laststatus=2
 
 " Lightline config
 let g:lightline = {
-    \ 'colorscheme': 'wombat',
-    \ 'active': {
-    \   'left': [ [ 'mode', ], [ 'fugitive', 'readonly', 'filename' ] ],
-    \   'right': [ [ 'syntastic', 'column', 'lineinfo' ], [ 'filetype' ] ]
-    \ },
-    \ 'component': {
-    \   'column': '%c'
-    \ },
-    \ 'component_function': {
-    \   'fugitive': 'MyFugitive',
-    \   'readonly': 'MyReadonly',
-    \   'lineinfo': 'MyLineInfo'
-    \ },
-    \ 'component_expand': {
-    \   'syntastic': 'SyntasticStatuslineFlag',
-    \ },
-    \ 'component_type': {
-    \   'syntastic': 'error',
-    \ },
-    \ 'separator': { 'left': '⮀', 'right': '⮂' },
-    \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
-    \ }
+  \ 'colorscheme': 'wombat',
+  \ 'active': {
+  \   'left': [ [ 'mode', ], [ 'fugitive', 'readonly', 'filename' ] ],
+  \   'right': [ [ 'syntastic', 'column', 'lineinfo' ], [ 'filetype' ] ]
+  \ },
+  \ 'component': {
+  \   'column': '%c'
+  \ },
+  \ 'component_function': {
+  \   'fugitive': 'MyFugitive',
+  \   'readonly': 'MyReadonly',
+  \   'lineinfo': 'MyLineInfo'
+  \ },
+  \ 'component_expand': {
+  \   'syntastic': 'SyntasticStatuslineFlag',
+  \ },
+  \ 'component_type': {
+  \   'syntastic': 'error',
+  \ },
+  \ 'separator': { 'left': '⮀', 'right': '⮂' },
+  \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
+  \ }
 
 " Lightline functions
 function! MyReadonly()
