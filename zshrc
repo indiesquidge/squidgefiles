@@ -32,9 +32,43 @@ function mkcd {
   cd $1
 }
 
+# create missing subfolders before touching file
+supervim() {
+    if [ $# -lt 1 ]; then
+        echo "Missing argument";
+        return 1;
+    fi
+
+    for f in "$@"; do
+        mkdir -p -- "$(dirname -- "$f")"
+        vim -- "$f"
+    done
+}
+
 # clone and cd into repo
 function clone() {
   git clone $1 && cd $(basename ${1%.*})
+}
+
+# Give it a # and a dir, it will cd to that dir, then `cd ..` however many times you've indicated with the number
+# The number defaults to 1, the dir, if not provided, defaults to the output of the previous command
+# This lets you find the dir on one line, then run the command on the next
+2dir() {
+  last_command="$(history | tail -2 | head -1 | sed 's/^ *[0-9]* *//')"
+  count="${1-1}"
+  name="${2:-$($last_command)}"
+  while [[ $count > 0 ]]
+  do
+    name="$(dirname "$name")"
+    ((count--))
+  done
+  echo "$name"
+  cd "$name"
+}
+
+# take you to the dir of a file in a gem. e.g. `2gem rspec`
+2gem () {
+  cd "$(dirname $(gem which $1))"
 }
 
 #  ================ Aliases ===========================
@@ -43,6 +77,7 @@ alias p="cd ~/Projects; "
 alias pt="cd ~/Projects/Turing; "
 alias m1="cd ~/Projects/Turing/1mod; "
 alias m2="cd ~/Projects/Turing/2mod; "
+alias m3="cd ~/Projects/Turing/3mod; "
 
 alias vimconfig="vim ~/.dotfiles/vimrc"
 alias zshconfig="vim ~/.dotfiles/zshrc"
