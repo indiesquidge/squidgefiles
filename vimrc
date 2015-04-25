@@ -73,6 +73,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 " Check for both style flaws and syntax errors
 " let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 " let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_mode_map = { 'passive_filetypes': ['sass', 'scss'] }
 
 " Error symbols
 let g:syntastic_error_symbol = "✗"
@@ -95,6 +96,9 @@ map <Leader>e :Rename<space>
 map <Leader>y "+y<cr>
 map <Leader>p "+p<cr>
 map <Leader>d "+d<cr>
+
+" Use leader-i to properly indent lines depending on filetype
+map <Leader>i mzgg=G`z<cr>
 
 " ================ Vundle Initialization ============
 filetype off
