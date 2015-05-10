@@ -1,20 +1,12 @@
-# ===================== EDITOR =====================
-Pry.config.editor = "vim"
-
 # ===================== CONFIG =====================
 Pry.config.color = true
-Pry.config.theme = "tomorrow"
+Pry.config.theme = "railscasts"
 
-# ===================== DEBUGGER ===================
-Pry.commands.alias_command 'c', 'continue' rescue nil
-Pry.commands.alias_command 's', 'step' rescue nil
-Pry.commands.alias_command 'n', 'next' rescue nil
-
-# ===================== CUSTOM PROMPT ==============
+# ================== CUSTOM PROMPT =================
 # wrap ANSI codes so Readline knows where the prompt ends
 def colour(name, text)
   if Pry.color
-    "\001#{Pry::Helpers::Text.send name, '{text}'}\002".sub '{text}', "\002#{text}\001"
+    "\001#{Pry::Helpers::Text.send name, "{text}"}\002".sub "{text}", "\002#{text}\001"
   else
     text
   end
@@ -22,44 +14,19 @@ end
 
 Pry.config.prompt = [
   proc do |object, nest_level, pry|
-    prompt  = colour :bright_black, Pry.view_clip(object)
+    prompt  = "#{RUBY_VERSION} "
+    prompt += colour :red, Pry.view_clip(object)
     prompt += ":#{nest_level}" if nest_level > 0
-    prompt += colour :cyan, ' » '
-  end, proc { |object, nest_level, pry| colour :cyan, '» ' }
+    prompt += colour :cyan, " » "
+  end, proc { |object, nest_level, pry| colour :cyan, "» " }
 ]
 
-# ===================== ALIASES ====================
-Pry.commands.alias_command "??", "whereami"
-
-# ===================== CUSTOM COMMANDS ============
-# from: https://gist.github.com/1297510
+# ================= CUSTOM COMMANDS ================
 default_command_set = Pry::CommandSet.new do
-  command "copy", "Copy argument to the clip-board" do |str|
-     IO.popen('pbcopy', 'w') { |f| f << str.to_s }
-  end
-
-  command "clear" do
-    system 'clear'
-    if ENV['RAILS_ENV']
-      output.puts "Rails Environment: " + ENV['RAILS_ENV']
-    end
-  end
-
-  command "sql", "Send sql over AR." do |query|
-    if ENV['RAILS_ENV'] || defined?(Rails)
-      pp ActiveRecord::Base.connection.select_all(query)
-    else
-      pp "No rails env defined"
-    end
-  end
-
-  command "caller_method" do |depth|
-    depth = depth.to_i || 1
-    if /^(.+?):(\d+)(?::in `(.*)')?/ =~ caller(depth+1).first
-      file   = Regexp.last_match[1]
-      line   = Regexp.last_match[2].to_i
-      method = Regexp.last_match[3]
-      output.puts [file, line, method]
+  command "cl" do
+    system "clear"
+    if ENV["RAILS_ENV"]
+      output.puts "Rails Environment: " + ENV["RAILS_ENV"]
     end
   end
 end
@@ -70,6 +37,6 @@ Pry.config.commands.import default_command_set
 begin
   require "ap"
   Pry.config.print = proc { |output, value| output.puts value.ai }
-rescue LoadError => err
+rescue LoadError
   puts "no awesome_print"
 end
