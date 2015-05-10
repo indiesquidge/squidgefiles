@@ -19,7 +19,7 @@ hi Visual  ctermbg=239 ctermfg=253
 highlight LineNr ctermfg=246
 
 " Matching brackets, parens, etc. color
-highlight MatchParen cterm=bold ctermfg=203
+highlight MatchParen cterm=bold ctermfg=215
 
 " ================ General Config ===================
 
