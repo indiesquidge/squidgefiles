@@ -70,10 +70,10 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " ================ Error Linting ====================
 
-" Check for both style flaws and syntax errors
-" let g:syntastic_ruby_checkers = ['rubocop', 'mri']
-" let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_mode_map = { 'passive_filetypes': ['sass', 'scss'] }
+let g:syntastic_mode_map = {
+      \ "mode": "passive",
+      \ "passive_filetypes": ["js", "sass", "scss"] }
 
 " Error symbols
 let g:syntastic_error_symbol = "✗"
