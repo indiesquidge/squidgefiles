@@ -177,9 +177,9 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 " ================ Ctrlp Statusbar ==================
 " No Statusbar upon entering Ctrlp
 let g:ctrlp_buffer_func = {
-  \ 'enter': 'Enter_ctrlp',
-  \ 'exit':  'Exit_ctrlp',
-  \ }
+      \ 'enter': 'Enter_ctrlp',
+      \ 'exit':  'Exit_ctrlp',
+      \ }
 
 func! Enter_ctrlp()
   set laststatus=0
@@ -195,28 +195,28 @@ set laststatus=2
 
 " Lightline config
 let g:lightline = {
-  \ 'colorscheme': 'wombat',
-  \ 'active': {
-  \   'left': [ [ 'mode', ], [ 'fugitive', 'readonly', 'filename' ] ],
-  \   'right': [ [ 'syntastic', 'column', 'lineinfo' ], [ 'filetype' ] ]
-  \ },
-  \ 'component': {
-  \   'column': '%c'
-  \ },
-  \ 'component_function': {
-  \   'fugitive': 'MyFugitive',
-  \   'readonly': 'MyReadonly',
-  \   'lineinfo': 'MyLineInfo'
-  \ },
-  \ 'component_expand': {
-  \   'syntastic': 'SyntasticStatuslineFlag',
-  \ },
-  \ 'component_type': {
-  \   'syntastic': 'error',
-  \ },
-  \ 'separator': { 'left': '⮀', 'right': '⮂' },
-  \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
-  \ }
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', ], [ 'fugitive', 'readonly', 'filename' ] ],
+      \   'right': [ [ 'syntastic', 'column', 'lineinfo' ], [ 'filetype' ] ]
+      \ },
+      \ 'component': {
+      \   'column': '%c'
+      \ },
+      \ 'component_function': {
+      \   'fugitive': 'MyFugitive',
+      \   'readonly': 'MyReadonly',
+      \   'lineinfo': 'MyLineInfo'
+      \ },
+      \ 'component_expand': {
+      \   'syntastic': 'SyntasticStatuslineFlag',
+      \ },
+      \ 'component_type': {
+      \   'syntastic': 'error',
+      \ },
+      \ 'separator': { 'left': '⮀', 'right': '⮂' },
+      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
+      \ }
 
 " Lightline functions
 function! MyReadonly()
