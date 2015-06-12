@@ -50,3 +50,6 @@ Plugin 'SirVer/ultisnips'
 
 " Tells versions of vim-ruby where Ruby installs are located
 Plugin 'tpope/vim-rbenv'
+
+" For working with mustache and handlebars templates
+Plugin 'mustache/vim-mustache-handlebars'
