@@ -70,7 +70,6 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " ================ Error Linting ====================
 
-let g:syntastic_mode_map = { 'passive_filetypes': ['sass', 'scss'] }
 let g:syntastic_mode_map = {
       \ "mode": "passive",
       \ "passive_filetypes": ["js", "sass", "scss"] }
