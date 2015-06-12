@@ -3,12 +3,14 @@
 - link:
     ~/.config:    config/
     ~/.gitconfig: .gitconfig
+    ~/.gitignore: .gitignore
     ~/.pryrc:     ruby/pryrc
     ~/.tmux.conf: tmux.conf
     ~/.vimrc:     vimrc
     ~/.vim:       vim/
     ~/.zshrc:     zshrc
     ~/.rspec:     ruby/rspec
+    ~/.jshintrc:  javascript/jshintrc
 
 - shell:
   - [git pull && git submodule update --init --recursive, Installing/updating submodules]
