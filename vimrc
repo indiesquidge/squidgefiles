@@ -124,8 +124,8 @@ set nofoldenable        "dont fold by default
 " Keep undo history across sessions, by storing in file.
 
 if has('persistent_undo')
-  if !isdirectory($HOME . "/.vim/backups")
-    call mkdir($HOME . ".vim/backups", "p")
+  if !isdirectory($HOME . '/.vim/backups')
+    call mkdir($HOME . '/.vim/backups', 'p')
   endif
   set undodir=~/.vim/backups
   set undofile
