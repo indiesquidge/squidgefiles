@@ -70,9 +70,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " ================ Error Linting ====================
 
-let g:syntastic_mode_map = {
-      \ "mode": "passive",
-      \ "passive_filetypes": ["js", "sass", "scss"] }
+let g:syntastic_mode_map = { "mode": "passive" }
 
 " Error symbols
 let g:syntastic_error_symbol = "✗"
