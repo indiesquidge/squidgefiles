@@ -68,6 +68,9 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " Automatically remove trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 
+" Spellchecking for markdown files
+autocmd BufRead,BufNewFile *.md setlocal spell
+
 " ================ Error Linting ====================
 
 let g:syntastic_mode_map = { "mode": "passive" }
