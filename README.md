@@ -130,6 +130,8 @@ Remove the emoji on line 113.
 
 _Note:_ to save and exit this file, you need to run `:wq!`
 
+It would also be wise to remove the `elseif` statement on line 115, and replace the `else` clause so that `GRAPH=""`.
+
 ## Configuration & Preferences
 
 ### Fonts & Colors
