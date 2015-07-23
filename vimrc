@@ -87,7 +87,7 @@ let g:syntastic_style_warning_symbol = "⚠"
 inoremap <C-c> <esc>:w<cr>
 
 " Ruby debugging
-map <Leader>a orequire 'pry'<cr>binding.pry<esc>:w<cr>
+map <Leader>a orequire "pry"<cr>binding.pry<esc>:w<cr>
 
 " Rename files within Vim
 map <Leader>e :Rename<space>
