@@ -43,7 +43,7 @@ Plugin 'takac/vim-hardtime'
 Plugin 'danro/rename.vim'
 
 " Snippet files for lots of languages
-Plugin 'honza/vim-snippets'
+Plugin 'indiesquidge/vim-snippets'
 
 " Helper for vim-snippets
 Plugin 'SirVer/ultisnips'
