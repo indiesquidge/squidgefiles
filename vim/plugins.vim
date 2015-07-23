@@ -53,3 +53,6 @@ Plugin 'tpope/vim-rbenv'
 
 " For working with mustache and handlebars templates
 Plugin 'mustache/vim-mustache-handlebars'
+
+" Swift syntax, indenting, etc.
+Plugin 'toyamarinyon/vim-swift'
