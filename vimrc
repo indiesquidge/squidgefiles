@@ -203,9 +203,11 @@ let g:lightline = {
       \   'column': '%c'
       \ },
       \ 'component_function': {
+      \   'mode': 'LightLineMode',
       \   'fugitive': 'MyFugitive',
       \   'readonly': 'MyReadonly',
-      \   'lineinfo': 'MyLineInfo'
+      \   'filetype': 'MyFiletype',
+      \   'lineinfo': 'MyLineInfo',
       \ },
       \ 'component_expand': {
       \   'syntastic': 'SyntasticStatuslineFlag',
@@ -218,30 +220,35 @@ let g:lightline = {
       \ }
 
 " Lightline functions
-function! MyReadonly()
-  if &readonly
-    return "⭤"
-  else
-    return ""
-  endif
+function! LightLineMode()
+  return winwidth(0) > 50 ? lightline#mode() : lightline#shortmode()
 endfunction
 
 function! MyFugitive()
   if exists('*fugitive#head')
     let _ = fugitive#head()
-    return strlen(_) ? '⭠ '._ : ''
+    return winwidth(0) > 70 ? (strlen(_) ? '⭠ '._ : '') : ''
   endif
   return ''
 endfunction
 
+function! MyReadonly()
+  return &readonly ? '⭤' : ''
+endfunction
+
+function! MyFiletype()
+  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
+endfunction
+
 function! MyLineInfo()
-  return '⭡ ' . line('.') . '/' . line('$')
+  return winwidth(0) > 60 ? '⭡ ' . line('.') . '/' . line('$') : ''
 endfunction
 
 augroup AutoSyntastic
   autocmd!
   autocmd BufWritePost *.rb,*.js,*.css,*.sh call s:syntastic()
 augroup END
+
 function! s:syntastic()
   SyntasticCheck
   call lightline#update()
