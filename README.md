@@ -15,16 +15,18 @@ Dotfiles focused heavily on Tmux, Vim, Zsh, and Prezto integration.
 
 ## Starting Fresh
 
-* Download [Xcode](https://itunes.apple.com/us/app/xcode/id497799835?ls=1&mt=12). Open it to agree to the Xcode license, or run
+* Download [Xcode](https://itunes.apple.com/us/app/xcode/id497799835?ls=1&mt=12).
+Open it to agree to the Xcode license, or run
 ```shell
 sudo xcodebuild -license
 ```
 * Download [iTerm2](https://www.iterm2.com/downloads.html)
-* Install [Homebrew](http://brew.sh/)
+* Install Homebrew:
 ```shell
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 * Install Zsh
+
 OS X ships with Zsh, but it is old (4.3.11). We want to install the latest version.
 ```shell
 brew install zsh
@@ -38,15 +40,22 @@ chsh -s /usr/local/bin/zsh
 ```shell
 brew install git
 ```
-To set the name, email, and editor for git
+Set the name, email, and editor for git
 ```shell
 git config --global user.name "Austin Wood"
 git config --global user.email "i@austinwood.me"
 git config --global core.editor vim
 ```
-Follow [this](https://help.github.com/articles/generating-ssh-keys/) article to be able to authenticate with GitHub from Git. This will grant you the action to clone using SSH (more secure), and also make it so that you don't have to enter in your GitHub username and password every time you push to a remote branch.
+Follow [this](https://help.github.com/articles/generating-ssh-keys/) article to
+be able to authenticate with GitHub from Git. This will grant you the action to
+clone using SSH (more secure), and also make it so that you don't have to enter
+in your GitHub username and password every time you push to a remote branch.
+
 * Install Vim
-OS X ships with Vim by default. However, just like Zsh, it is an outdated version (7.3). UltiSnips, one of the plugins for autocomplete, requires Vim >= 7.4 to work. Neocomplete also requires Vim to be installed with Lua as a dependency.
+
+OS X ships with Vim by default. However, just like Zsh, it is an outdated
+version (7.3). UltiSnips, one of the plugins for autocomplete, requires Vim >= 7.4
+to work. Neocomplete requires Vim to be installed with Lua as a dependency.
 ```shell
 brew install vim --with-lua
 ```
@@ -83,9 +92,9 @@ vim +PluginInstall +qall
 ```
 
 ### Prezto
-[Prezto](https://github.com/indiesquidge/prezto) is an amazing configuration
-framework for Zsh. It provides nice aliases, functions, auto-completetions, and
-pretty prompt themes.
+[Prezto](https://github.com/indiesquidge/prezto) is a configuration framework
+for Zsh. It provides nice aliases, functions, auto-completetions, and pretty
+prompt themes.
 
 clone the repo into ~/.zprezto
 ```shell
@@ -99,45 +108,64 @@ for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
   ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
 done
 ```
-It will probably return `ln: /Users/<username>/.zshrc: File exists`. This is fine. We have our own `.zshrc` file that we want to use anyway.
+It will probably return `ln: /Users/<username>/.zshrc: File exists`. This is
+fine. We have our own `.zshrc` file that we want to use anyway.
 
-Open a new terminal window to see the changes. You may see something like `Last login: Mon Jul 13 12:33:01 on ttys000`, which is ugly and annoying. Let's fix that.
+Open a new terminal window to see the changes. You may see something like
+`Last login: Mon Jul 13 12:33:01 on ttys000`, which is ugly and annoying.
+Let's fix that.
 ```shell
 touch ~/.hushlogin
 ```
-You may also see `/Users/<username>/.zshrc:15: command not found: rbenv`. This is because we have yet to install rbenv to manage our Ruby versions.
+You may also see `/Users/<username>/.zshrc:15: command not found: rbenv`. This
+is because we have yet to install rbenv to manage our Ruby versions.
 ```shell
 brew install rbenv ruby-build
 ```
-Now opening a new terminal tab should just show your prompt. Nice and clean :sparkles:.
+Opening a new terminal tab should show just your prompt. Nice and clean :sparkles:.
 
-### Tmux & terminal battery
-[Tmux](https://tmux.github.io/) is a terminal multiplexer, which is a fancy way of saying you can run multiple shell instances on different "panes" within the same terminal window, as well as create tabs. It eliminates the hassle of creating multiple windows and tabs on the application level.
+### Tmux & terminal battery (optional)
+[Tmux](https://tmux.github.io/) is a terminal multiplexer, which is a fancy way
+of saying you can run multiple shell instances on different "panes" within the
+same terminal window, as well as create tabs. It eliminates the hassle of
+creating multiple windows and tabs on the application level.
 ```shell
 brew install tmux
 ```
 
-[Battery](https://github.com/Goles/Battery) is a script to display the battery status on the tmux status bar.
+[Battery](https://github.com/Goles/Battery) is a script to display the battery
+status on the tmux status bar.
 ```shell
 brew tap Goles/battery
 brew install battery
 ```
-If you'd like to get rid of the :zap: that appears next to the battery when it's charging since its ugly
+If you'd like to get rid of the :zap: that appears next to the battery when it's
+charging (since its ugly)
 ```shell
 vim /usr/local/bin/battery
 ```
-Remove the emoji on line 113.
+Remove just the emoji on line 113. You could add in something else to signify
+a charging status. I like to use `++ `.
+
+It would also be wise to remove the `elseif` statement on line 115. The final
+`print_status()` function should look something like this
+```shell
+if ((connected)); then
+  GRAPH="++ "
+else
+  GRAPH=""
+fi
+```
 
 _Note:_ to save and exit this file, you need to run `:wq!`
-
-It would also be wise to remove the `elseif` statement on line 115, and replace the `else` clause so that `GRAPH=""`.
 
 ## Configuration & Preferences
 
 ### Fonts & Colors
 
 #### Fonts
-Both Vim and Tmux are using custom font icons for their status bars. To install the font, save it in Fontbook.app
+Both Vim and Tmux are using custom font icons for their status bars. To install
+the font, save it in Fontbook.app
 ```shell
 open ~/.dotfiles/config/fonts/PowerlineSymbols-Powerline.otf
 ```
@@ -146,19 +174,30 @@ Font for terminal text:
 open ~/.dotfiles/config/fonts/Sauce\ Code\ Powerline\ Light.otf
 ```
 
-_Note:_ if either of these `open` commands give you back an error, it is because Tmux, LSOpenURLsWithRole(), and/or OS X Yosemite do not play nicely together. To fix this, first try exiting out of your Tmux instance and re-running the command. If that does not work, you may need a dependency that worked for me as of July 13, 2015.
+_Note:_ if either of these `open` commands give you back an error, it is because
+Tmux, LSOpenURLsWithRole(), and/or OS X Yosemite do not play nicely together. To
+fix this, first try exiting out of your Tmux instance (if you're in one) and
+re-running the command. If that does not work, you may need a dependency that
+worked for me as of July 13, 2015.
 ```shell
 brew install reattach-to-user-namespace
 ```
-The line to use this is already in place in `.tmux.conf` on line 26.
+The line to use this is already in place in `tmux.conf` on line 26.
 
-To use these fonts, go to iTerm > Preferences > Profiles > Text. For both Regular Font and Non-ASCII Font choose 14pt Sauce Code Pro Powerline Light.
+To use these fonts, go to iTerm > Preferences > Profiles > Text. For both
+Regular Font and Non-ASCII Font choose 14pt Sauce Code Pro Powerline Light.
 
 #### Colors
-Vim ships from this repo already using seoul256. To use the same font within the iTerm2 app, do the following:
-* Under iTerm > Preferences > Profiles > Colors, choose "Load Presets... > Import", press ⇧⌘g (shift-cmd-g) and type in the file path for seoul256 colors `~/.dotfiles/config/`, and select `seoul256.itermcolors`. Unfortunately, the background color of seoul256 for iTerm does not match seoul256 for terminal Vim. To fix this, simply darken the background color under Basic Colors.
+Vim ships from this repo already using seoul256. To use the same font within the
+iTerm2 app, do the following: * Under iTerm > Preferences > Profiles > Colors,
+choose "Load Presets... > Import", press ⇧⌘g (shift-cmd-g) and type in the file
+path for seoul256 colors `~/.dotfiles/config/`, and select `seoul256.itermcolors`.
+Unfortunately, the background color of seoul256 for iTerm does not match seoul256
+for terminal Vim. To fix this, simply darken the background color under Basic
+Colors for iTerm.
 
-Now the color scheme should be coherent and seamless across both the editor and the terminal.
+Now the color scheme should be coherent and seamless across both the editor and
+the terminal.
 
 ### iTerm2
 
@@ -168,13 +207,20 @@ Open up preferences (iTerm > Preferences _-or-_ ⌘,)
 * Under Profile,
   * Under General, fill in Send text at start to "tmux"
   * Under Text, uncheck everything under Text Rendering
-  * Under Window, adjust transparency based on personal preference, and set the Settings for New Windows Style to       Fullscreen
+  * Under Window, adjust transparency based on personal preference, and set the
+    Settings for New Windows Style to       Fullscreen
   * Under Terminal, uncheck everything for Notifications
 * Under Keys
-  * Enable system-wide hotkey to whatever you like. Right now I'm digging `^e` since it's on home row.
-  * Under Global Shortcut Keys, add the following, all of which should have an action of ignore: ⌘t, ⌘r, ⌘w
+  * Enable system-wide hotkey to whatever you like. Right now I'm digging `^e`
+    since it's on home row.
+  * Under Global Shortcut Keys, add the following, all of which should have an
+    action of ignore: ⌘t, ⌘r, ⌘w
 
 ## Random Useful Packages
 * `brew install brew-rmtree` - uninstall all dependencies with a package (i.e. `brew rmtree python`)
 * `brew install ag` - the silver searcher for grepping amongst files (i.e. `ag hello`)
 * `brew install tree` - tree structure from given folder (i.e. `tree my-rails-app`)
+
+## Random Useful Gems
+* `gem install lolcat` - rainbows and unicorns! (i.e. `/usr/sbin/system_profiler SPHardwareDataType | lolcat`)
+* `gem install octodown` - github markdown previewing from the terminal (i.e. `octodown README.md`)
