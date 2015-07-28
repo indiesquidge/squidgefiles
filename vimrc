@@ -1,87 +1,33 @@
-" Use Vim settings, rather then Vi
-set nocompatible
+" ======================== General Config ========================
 
-" ================ Colors ===========================
-
-" Syntax highlighting
-syntax on
-
-" Colorscheme
-se t_Co=16
-let g:seoul256_background = 233
-colo seoul256
-
-" comment and visual mode highlight colors
-hi Comment ctermfg=DarkGrey
-hi Visual  ctermbg=239 ctermfg=253
-
-" Line number color
-highlight LineNr ctermfg=246
-
-" Matching brackets, parens, etc. color
-highlight MatchParen cterm=bold ctermbg=057 ctermfg=white
-
-" ================ General Config ===================
-
-"No sounds
-set visualbell
-
-" Delete text present before insert mode (FIX THIS WITH SENSIBLE.VIM!!!)
-set backspace=2
-
-" change global leader key to spacebar
-let mapleader = "\<Space>"
-
-" Set line numbers to be shown by default
-set number
+set visualbell            " No sounds
+set number                " Line numbers
+set showcmd               " Show Vim commands in write bar
+set noshowmode            " Hide current vim mode from write line
+set scrolloff=8           " 8 line vertical scroll buffer
 
 " buffers exist like in normal editors
 " http://items.sjbach.com/319/configuring-vim-right
 set hidden
 
-" Highlight current line and colors
-set cursorline
+" Spacebar as global leader
+let mapleader = "\<Space>"
 
-" Set 80 character ruler and colors
-let &colorcolumn=join(range(81,999),",")
-highlight ColorColumn cterm=NONE ctermbg=233
+" ===================== Vundle Initialization ====================
 
-" Show Vim commands in write bar
-set showcmd
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
 
-" Hide current vim mode from write line
-set noshowmode
+if filereadable(expand("~/.vim/plugins.vim"))
+  source ~/.vim/plugins.vim
+endif
 
-set sidescroll=1
+call vundle#end()
+filetype plugin indent on
 
-" 8 line buffer when scrolling through file
-set scrolloff=8
-
-" Hardtime off by default
-let g:hardtime_default_on = 0
-let g:hardtime_allow_different_key = 1
-
-" Start NERDTree automatically if Vim is opened without a file
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-" Automatically remove trailing whitespace on save
-autocmd BufWritePre * :%s/\s\+$//e
-
-" Spellchecking for markdown files
-autocmd BufRead,BufNewFile *.md setlocal spell
-
-" ================ Error Linting ====================
-
-let g:syntastic_mode_map = { "mode": "passive" }
-
-" Error symbols
-let g:syntastic_error_symbol = "✗"
-let g:syntastic_style_error_symbol = "✗"
-let g:syntastic_warning_symbol = "⚠"
-let g:syntastic_style_warning_symbol = "⚠"
-
-" ================ Key Mappings =====================
+" ========================= Key Mappings =========================
 
 " Ctrl-c to exit insert mode and save
 inoremap <C-c> <esc>:w<cr>
@@ -100,30 +46,7 @@ map <Leader>d "+d<cr>
 " Use leader-i to properly indent lines depending on filetype
 map <Leader>i mzgg=G`z<cr>
 
-" ================ Vundle Initialization ============
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
-
-if filereadable(expand("~/.vim/plugins.vim"))
-  source ~/.vim/plugins.vim
-endif
-
-call vundle#end()
-filetype plugin indent on
-
-" ================ Turn Off Swap Files ==============
-set noswapfile
-set nobackup
-set nowb
-
-" ================ Folds ============================
-set foldmethod=indent   "fold based on indent
-set foldnestmax=3       "deepest fold is 3 levels
-set nofoldenable        "dont fold by default
-
-" ================ Persistent Undo ==================
+" ======================== Persistent Undo =======================
 " Keep undo history across sessions, by storing in file.
 
 if has('persistent_undo')
@@ -134,7 +57,7 @@ if has('persistent_undo')
   set undofile
 endif
 
-" ================ Indentation ======================
+" ========================= Indentation ==========================
 " Results in spaces being used for all indentation
 
 set expandtab
@@ -142,114 +65,22 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 
-" Detect filetypes
-filetype plugin on
-filetype indent on
+" Delete text present before insert mode
+set backspace=2
 
-" ================ Completion =======================
-" Stuff to ignore when tab completing
-set wildmode=list:longest
-set wildignore=*.o,*.obj,*~
-set wildignore+=*vim/backups*
-set wildignore+=*sass-cache*
-set wildignore+=*DS_Store*
-set wildignore+=*.gem
-set wildignore+=log/**
-set wildignore+=node_modules/**
-set wildignore+=tmp/**
+" ============================ Folds =============================
 
-" Autocompletion
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#force_overwrite_completefunc = 1
+set foldmethod=indent           "fold based on indent
+set foldnestmax=3               "deepest fold is 3 levels
+set nofoldenable                "dont fold by default
 
-" For snippet_complete marker.
-if has('conceal')
-  set conceallevel=2 concealcursor=i
-endif
+" ====================== Turn Off Swap Files =====================
 
-" Trigger configuration for snippets
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsListSnippets="<c-tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+set noswapfile
+set nobackup
+set nowb
 
-" ================ Ctrlp Statusbar ==================
-" No Statusbar upon entering Ctrlp
-let g:ctrlp_buffer_func = {
-      \ 'enter': 'Enter_ctrlp',
-      \ 'exit':  'Exit_ctrlp',
-      \ }
+" ======================== Custom Config =========================
+" Colors, completion, statusbar, linting, etc.
 
-func! Enter_ctrlp()
-  set laststatus=0
-endfunc
-
-func! Exit_ctrlp()
-  set laststatus=2
-endfunc
-
-" ================ Status bar =======================
-" Enable status bar always
-set laststatus=2
-
-" Lightline config
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'left': [ [ 'mode', ], [ 'fugitive', 'readonly', 'filename' ] ],
-      \   'right': [ [ 'syntastic', 'column', 'lineinfo' ], [ 'filetype' ] ]
-      \ },
-      \ 'component': {
-      \   'column': '%c'
-      \ },
-      \ 'component_function': {
-      \   'mode': 'LightLineMode',
-      \   'fugitive': 'MyFugitive',
-      \   'readonly': 'MyReadonly',
-      \   'filetype': 'MyFiletype',
-      \   'lineinfo': 'MyLineInfo',
-      \ },
-      \ 'component_expand': {
-      \   'syntastic': 'SyntasticStatuslineFlag',
-      \ },
-      \ 'component_type': {
-      \   'syntastic': 'error',
-      \ },
-      \ 'separator': { 'left': '⮀', 'right': '⮂' },
-      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
-      \ }
-
-" Lightline functions
-function! LightLineMode()
-  return winwidth(0) > 50 ? lightline#mode() : lightline#shortmode()
-endfunction
-
-function! MyFugitive()
-  if exists('*fugitive#head')
-    let _ = fugitive#head()
-    return winwidth(0) > 70 ? (strlen(_) ? '⭠ '._ : '') : ''
-  endif
-  return ''
-endfunction
-
-function! MyReadonly()
-  return &readonly ? '⭤' : ''
-endfunction
-
-function! MyFiletype()
-  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
-endfunction
-
-function! MyLineInfo()
-  return winwidth(0) > 60 ? '⭡ ' . line('.') . '/' . line('$') : ''
-endfunction
-
-augroup AutoSyntastic
-  autocmd!
-  autocmd BufWritePost *.rb,*.js,*.css,*.sh call s:syntastic()
-augroup END
-
-function! s:syntastic()
-  SyntasticCheck
-  call lightline#update()
-endfunction
+source ~/.dotfiles/vim/settings.vim
