@@ -36,9 +36,6 @@ Plugin 'tpope/vim-endwise'
 " Handy bracket mappings
 Plugin 'tpope/vim-unimpaired'
 
-" Break bad Vim habits
-Plugin 'takac/vim-hardtime'
-
 " Rename files from within Vim
 Plugin 'danro/rename.vim'
 
