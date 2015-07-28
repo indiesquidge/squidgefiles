@@ -25,7 +25,7 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'airblade/vim-gitgutter'
 
 " Statusbar
-Plugin 'itchyny/lightline.vim'
+Plugin 'indiesquidge/lightline.vim'
 
 " Incredible Git wrapper
 Plugin 'tpope/vim-fugitive'
