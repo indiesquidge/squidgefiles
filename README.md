@@ -124,6 +124,30 @@ brew install rbenv ruby-build
 ```
 Opening a new terminal tab should show just your prompt. Nice and clean :sparkles:.
 
+#### Use "correct" Ruby in Vim
+By default, Vim will use your system ruby. You can check this by running
+```sh
+!echo $PATH
+```
+Note how the paths remains starting with `/usr/bin`.
+
+This is [a known problem introduced by Apple in OS X 10.5 Leopard](https://github.com/dotphiles/dotzsh#mac-os-x).
+
+Since we are using Zsh as our shell, it affects us. The `vim-rbenv` plugin will
+fix this.
+```sh
+sudo mv /etc/zshenv /etc/zshrc
+```
+is a great solution because it still enables the execution of the `path_helper`
+on interactive shells, and this plugin is already installed with these dotfiles. If
+you would prefer to not use the plugin, you can run
+```sh
+sudo chmod ugo-x /usr/libexec/path_helper
+```
+which should also fix the issue.
+
+Now `!echo $PATH` should return the rbenv ruby version from `~/.rbenv/shims`.
+
 ### Tmux & terminal battery (optional)
 [Tmux](https://tmux.github.io/) is a terminal multiplexer, which is a fancy way
 of saying you can run multiple shell instances on different "panes" within the
