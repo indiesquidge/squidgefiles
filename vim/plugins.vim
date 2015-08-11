@@ -1,5 +1,8 @@
 " ================ Installed plugins ================
 
+" Tells versions of vim-ruby where Ruby installs are located
+Plugin 'tpope/vim-rbenv'
+
 " Fuzzy searcher
 Plugin 'kien/ctrlp.vim'
 
@@ -44,9 +47,6 @@ Plugin 'indiesquidge/vim-snippets'
 
 " Helper for vim-snippets
 Plugin 'SirVer/ultisnips'
-
-" Tells versions of vim-ruby where Ruby installs are located
-Plugin 'tpope/vim-rbenv'
 
 " For working with mustache and handlebars templates
 Plugin 'mustache/vim-mustache-handlebars'
