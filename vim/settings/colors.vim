@@ -8,7 +8,7 @@ colo seoul256
 
 " comment and visual mode highlight colors
 hi Comment ctermfg=DarkGrey
-hi Visual  ctermbg=239 ctermfg=253
+hi Visual  ctermbg=215 ctermfg=232
 
 " Line number color
 highlight LineNr ctermfg=246
