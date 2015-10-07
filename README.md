@@ -93,7 +93,7 @@ vim +PluginInstall +qall
 
 ### Prezto
 [Prezto](https://github.com/indiesquidge/prezto) is a configuration framework
-for Zsh. It provides nice aliases, functions, auto-completetions, and pretty
+for Zsh. It provides nice aliases, functions, auto-completions, and pretty
 prompt themes.
 
 clone the repo into ~/.zprezto
