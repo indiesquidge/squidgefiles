@@ -1,0 +1,9 @@
+*.min.*
+js/jquery-*.js
+log
+node_modules
+public/generated
+public/javascripts/apitome
+tags
+tmp
+vendor
