@@ -73,25 +73,33 @@ function clone() {
 
 #  ================ Aliases ===========================
 
+# Project paths
 alias p="cd ~/Projects; "
-alias pt="cd ~/Projects/Turing; "
-alias m1="cd ~/Projects/Turing/1mod; "
-alias m2="cd ~/Projects/Turing/2mod; "
-alias m3="cd ~/Projects/Turing/3mod; "
-alias m4="cd ~/Projects/Turing/4mod; "
+alias pt="cd ~/Projects/turing; "
+alias m1="cd ~/Projects/turing/1mod; "
+alias m2="cd ~/Projects/turing/2mod; "
+alias m3="cd ~/Projects/turing/3mod; "
+alias m4="cd ~/Projects/turing/4mod; "
 
+# Env setup
 alias vimconfig="vim ~/.dotfiles/vimrc"
 alias zshconfig="vim ~/.dotfiles/zshrc"
 alias tmuxconfig="vim ~/.dotfiles/tmux.conf"
 
+# Editor
 alias v='vim'
+alias vi='vim'
 
+# File traversal
 alias c='clear;ls'
 alias cl='clear'
 alias dot='cd ~/.dotfiles'
 alias rl='source ~/.zshrc'
 
-alias hpr='gPb > /dev/null && hub pull-request | xargs open'
+# Pruning
+alias depry='ag -l "binding.pry" | xargs gsed --in-place "/binding.pry/d"'
+alias deconsole='ag -l "console.log" | xargs gsed --in-place "/console.log/d"'
+alias dedebug='ag -l "debugger" | xargs gsed --in-place "/debugger/d"'
 
 #  ================ Local version =====================
 
