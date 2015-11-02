@@ -248,3 +248,38 @@ Open up preferences (iTerm > Preferences _-or-_ ⌘,)
 ## Random Useful Gems
 * `gem install lolcat` - rainbows and unicorns! (i.e. `/usr/sbin/system_profiler SPHardwareDataType | lolcat`)
 * `gem install octodown` - github markdown previewing from the terminal (i.e. `octodown README.md`)
+
+---
+
+#### UPDATES
+
+_(10-20-2015):_ Something (I am not sure what yet) in the [2.1 Tmux](releases)
+update has broken some of my tmux settings. One of lesser importance (but still
+worth noting) is the `mouse` options. The lines
+
+[releases]: https://github.com/tmux/tmux/releases
+
+```conf
+setw -g mode-mouse off
+set -g mouse-select-pane off
+set -g mouse-resize-pane off
+set -g mouse-select-window off
+```
+
+Have been replaced with the global
+
+```conf
+set -g mouse off
+```
+
+There is a more important issue. When I am zoomed into a pane so that it takes
+up the whole screen, I no longer have the ability to switch panes directly from
+the zoomed in pane. I must explicitly zoom out of the pane before I can change
+to another pane. This is rather annoying since it's a whole extra step to get to
+another pane.
+
+After some digging, I found the [diff](https://github.com/tmux/tmux/commit/a05c27a7e1c4d43709817d6746a510f16c960b4b.diff)
+that created the issue, and have since created a patch that fixes the problem in
+2.1. It has been [merged](https://github.com/Homebrew/homebrew/pull/45230) into
+the stable Homebrew bottle for Tmux and shouldn't be a problem for any future
+download via Homebrew.
