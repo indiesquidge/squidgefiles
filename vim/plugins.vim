@@ -51,5 +51,6 @@ Plugin 'SirVer/ultisnips'
 " For working with mustache and handlebars templates
 Plugin 'mustache/vim-mustache-handlebars'
 
-" Swift syntax, indenting, etc.
-Plugin 'toyamarinyon/vim-swift'
+" Markdown syntax highlighting
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
