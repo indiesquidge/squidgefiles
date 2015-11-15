@@ -54,3 +54,9 @@ Plugin 'mustache/vim-mustache-handlebars'
 " Markdown syntax highlighting
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+
+" JavaScript syntax highlighting and indentation
+Plugin 'pangloss/vim-javascript'
+
+" JSX highlighting
+Plugin 'mxw/vim-jsx'
