@@ -1,6 +1,15 @@
 let g:syntastic_mode_map = { 'mode': 'passive' }
 let g:syntastic_stl_format = '%E{Err: %fe}%B{, }%W{Warn: %fw}'
 
+function! HasConfig(file, dir)
+  return findfile(a:file, escape(a:dir, ' ') . ';') !=# ''
+endfunction
+
+" If project has .eslintrc file, use eslint; else, default to jshint (faster)
+autocmd BufNewFile,BufReadPre *.js  let b:syntastic_checkers =
+      \ HasConfig('.eslintrc', expand('<amatch>:h')) ? ['eslint'] :
+      \     ['jshint']
+
 " Error symbols
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_style_error_symbol = '✗'
