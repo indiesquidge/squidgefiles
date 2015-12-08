@@ -1,4 +1,5 @@
-let g:syntastic_mode_map = { 'mode': 'passive' }
+let g:syntastic_mode_map = { 'mode': 'passive',
+  \ 'active_filetypes': ['typescript'], }
 let g:syntastic_stl_format = '%E{Err: %fe}%B{, }%W{Warn: %fw}'
 
 function! HasConfig(file, dir)
@@ -9,6 +10,8 @@ endfunction
 autocmd BufNewFile,BufReadPre *.js  let b:syntastic_checkers =
       \ HasConfig('.eslintrc', expand('<amatch>:h')) ? ['eslint'] :
       \     ['jshint']
+
+let g:syntastic_typescript_checkers = ['tslint', 'tsc']
 
 " Error symbols
 let g:syntastic_error_symbol = '✗'

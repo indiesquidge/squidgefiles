@@ -60,3 +60,6 @@ Plug 'pangloss/vim-javascript'
 
 " JSX highlighting
 Plug 'mxw/vim-jsx'
+
+" Syntax and other settings for TypeScript
+Plug 'leafgarland/typescript-vim'
