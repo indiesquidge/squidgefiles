@@ -17,14 +17,13 @@ let mapleader = "\<Space>"
 
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
+call plug#begin()
 
 if filereadable(expand("~/.vim/plugins.vim"))
   source ~/.vim/plugins.vim
 endif
 
-call vundle#end()
+call plug#end()
 filetype plugin indent on
 
 " ========================= Key Mappings =========================

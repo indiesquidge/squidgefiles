@@ -1,62 +1,62 @@
 " ================ Installed plugins ================
 
 " Tells versions of vim-ruby where Ruby installs are located
-Plugin 'tpope/vim-rbenv'
+Plug 'tpope/vim-rbenv'
 
 " Fuzzy searcher
-Plugin 'kien/ctrlp.vim'
+Plug 'kien/ctrlp.vim'
 
 " Nerdtree file viewer
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 
 " Error linting
-Plugin 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 
 " Easily switch between vim and tmux
-Plugin 'christoomey/vim-tmux-navigator'
+Plug 'christoomey/vim-tmux-navigator'
 
 " Easy to use, file-type sensitive comments
-Plugin 'tomtom/tcomment_vim'
+Plug 'tomtom/tcomment_vim'
 
 " Keyword completion system
-Plugin 'Shougo/neocomplete.vim'
+Plug 'Shougo/neocomplete.vim'
 
 " Insert quotes, brackets, etc. in pairs
-Plugin 'jiangmiao/auto-pairs'
+Plug 'jiangmiao/auto-pairs'
 
 " Show Git diff in gutter of file
-Plugin 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 
 " Statusbar
-Plugin 'indiesquidge/lightline.vim'
+Plug 'indiesquidge/lightline.vim'
 
 " Incredible Git wrapper
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
 " Add end statement automatically where needed
-Plugin 'tpope/vim-endwise'
+Plug 'tpope/vim-endwise'
 
 " Handy bracket mappings
-Plugin 'tpope/vim-unimpaired'
+Plug 'tpope/vim-unimpaired'
 
 " Rename files from within Vim
-Plugin 'danro/rename.vim'
+Plug 'danro/rename.vim'
 
 " Snippet files for lots of languages
-Plugin 'indiesquidge/vim-snippets'
+Plug 'indiesquidge/vim-snippets'
 
 " Helper for vim-snippets
-Plugin 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
 
 " For working with mustache and handlebars templates
-Plugin 'mustache/vim-mustache-handlebars'
+Plug 'mustache/vim-mustache-handlebars'
 
 " Markdown syntax highlighting
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 
 " JavaScript syntax highlighting and indentation
-Plugin 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript'
 
 " JSX highlighting
-Plugin 'mxw/vim-jsx'
+Plug 'mxw/vim-jsx'
