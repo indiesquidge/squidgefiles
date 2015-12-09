@@ -87,6 +87,7 @@ alias zshconfig="vim ~/.dotfiles/zshrc"
 alias tmuxconfig="vim ~/.dotfiles/tmux.conf"
 
 # Editor
+alias vim='nvim'
 alias v='vim'
 alias vi='vim'
 
