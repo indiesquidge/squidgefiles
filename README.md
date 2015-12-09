@@ -20,7 +20,7 @@ Open it to agree to the Xcode license, or run
 ```sh
 sudo xcodebuild -license
 ```
-* Download [iTerm2](https://www.iterm2.com/downloads.html)
+* Download [iTerm2](https://iterm2.com/nightly/latest)
 * Install Homebrew:
 ```sh
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
