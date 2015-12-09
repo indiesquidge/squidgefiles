@@ -19,7 +19,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'tomtom/tcomment_vim'
 
 " Keyword completion system
-Plug 'Shougo/neocomplete.vim'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.sh'  }
 
 " Insert quotes, brackets, etc. in pairs
 Plug 'jiangmiao/auto-pairs'
