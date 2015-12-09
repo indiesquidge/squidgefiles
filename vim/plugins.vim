@@ -10,7 +10,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 
 " Error linting
-Plug 'scrooloose/syntastic'
+Plug 'benekastah/neomake'
 
 " Easily switch between vim and tmux
 Plug 'christoomey/vim-tmux-navigator'

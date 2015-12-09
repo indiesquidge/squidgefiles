@@ -6,7 +6,7 @@ let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'active': {
       \   'left': [ [ 'mode', ], [ 'fugitive', 'readonly', 'filename' ] ],
-      \   'right': [ [ 'syntastic', 'column', 'lineinfo' ], [ 'filetype' ] ]
+      \   'right': [ [ 'column', 'lineinfo' ], [ 'filetype' ] ]
       \ },
       \ 'component': {
       \   'column': '%c'
@@ -17,12 +17,6 @@ let g:lightline = {
       \   'readonly': 'MyReadonly',
       \   'filetype': 'MyFiletype',
       \   'lineinfo': 'MyLineInfo',
-      \ },
-      \ 'component_expand': {
-      \   'syntastic': 'SyntasticStatuslineFlag',
-      \ },
-      \ 'component_type': {
-      \   'syntastic': 'error',
       \ },
       \ 'separator': { 'left': '⮀', 'right': '⮂' },
       \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
@@ -51,14 +45,4 @@ endfunction
 
 function! MyLineInfo()
   return winwidth(0) > 60 ? '⭡ ' . line('.') . '/' . line('$') : ''
-endfunction
-
-augroup AutoSyntastic
-  autocmd!
-  autocmd BufWritePost *.rb,*.js,*.css,*.sh call s:syntastic()
-augroup END
-
-function! s:syntastic()
-  SyntasticCheck
-  call lightline#update()
 endfunction
