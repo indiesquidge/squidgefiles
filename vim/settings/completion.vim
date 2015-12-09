@@ -13,6 +13,7 @@ set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
 set wildignore+=*.class,*.jar
 set wildignore+=*.pdf
+set wildignore+=*/tmp/*,*.o,*.so,*.swp,*.zip,*/node_modules/*,*/bower_components/*
 
 " Autocompletion
 let g:neocomplete#enable_at_startup = 1
