@@ -96,6 +96,7 @@ alias c='clear;ls'
 alias cl='clear'
 alias dot='cd ~/.dotfiles'
 alias rl='source ~/.zshrc'
+alias treejs='tree -I "node_modules|bower_components"'
 
 # Pruning
 alias depry='ag -l "binding.pry" | xargs gsed --in-place "/binding.pry/d"'
