@@ -63,3 +63,6 @@ Plug 'mxw/vim-jsx'
 
 " Syntax and other settings for TypeScript
 Plug 'leafgarland/typescript-vim'
+
+" CoffeeScript syntax, indenting, compiling, and more.
+Plug 'kchmck/vim-coffee-script'
