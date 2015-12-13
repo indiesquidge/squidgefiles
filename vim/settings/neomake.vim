@@ -13,7 +13,7 @@ let g:neomake_error_sign = {
       \ }
 
 if executable('eslint')
-  let g:neomake_javascript_enabled_makers = ['eslint']
+  let g:neomake_javascript_enabled_makers = ['eslint', 'jshint']
 else
   echoe 'No eslint executable detected. Install eslint for JavaScript syntax higlighting. `npm install -g eslint`'
 endif

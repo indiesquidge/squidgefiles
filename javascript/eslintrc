@@ -1,0 +1,27 @@
+{
+  "rules": {
+    "strict": 0,
+    "no-debugger": 1,
+    "no-console": 1,
+    "indent": [ 2, 2 ],
+    "quotes": [ 2, "single" ],
+    "linebreak-style": [ 2, "unix" ],
+    "semi": [ 2, "always" ]
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "amd": true
+  },
+  "globals": {
+    "angular": 1
+  },
+  "extends": "eslint:recommended",
+  "ecmaFeatures": {
+    "jsx": true,
+    "experimentalObjectRestSpread": true
+  },
+  "plugins": [
+    "react"
+  ]
+}
