@@ -41,7 +41,7 @@ supervim() {
 
     for f in "$@"; do
         mkdir -p -- "$(dirname -- "$f")"
-        vim -- "$f"
+        nvim -- "$f"
     done
 }
 
