@@ -236,7 +236,7 @@ Open up preferences (iTerm > Preferences _-or-_ ⌘,)
   * Under Terminal, uncheck everything for Notifications
 * Under Keys
   * Enable system-wide hotkey to whatever you like. Right now I'm digging `^e`
-    since it's on home row.
+    since it's on home row (`caps lock` mapped to `control`)
   * Under Global Shortcut Keys, add the following, all of which should have an
     action of ignore: ⌘t, ⌘r, ⌘w
 
