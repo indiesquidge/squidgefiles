@@ -12,17 +12,6 @@ let g:neomake_error_sign = {
       \ 'text': '✖',
       \ }
 
-let g:neomake_typescript_tsc_maker = {
-      \ 'args': [
-      \ '-m', 'commonjs', '--noEmit', '--target', 'ES5', '--experimentalDecorators'
-      \ ],
-      \ 'errorformat':
-      \ '%E%f %#(%l\,%c): error %m,' .
-      \ '%E%f %#(%l\,%c): %m,' .
-      \ '%Eerror %m,' .
-      \ '%C%\s%\+%m'
-      \ }
-
 if executable('eslint')
   let g:neomake_javascript_enabled_makers = ['eslint', 'jshint']
 else
@@ -30,7 +19,7 @@ else
 endif
 
 if executable('tslint')
-  let g:neomake_typescript_enabled_makers = ['tslint', 'tsc']
+  let g:neomake_typescript_enabled_makers = ['tslint']
 else
   echoe 'No tslint executable detected. Install tslint for TypeScript syntax higlighting. `npm install -g tslint`'
 endif
