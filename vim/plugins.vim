@@ -66,3 +66,9 @@ Plug 'leafgarland/typescript-vim'
 
 " CoffeeScript syntax, indenting, compiling, and more.
 Plug 'kchmck/vim-coffee-script'
+
+" Interactive command execution
+Plug 'Shougo/vimproc.vim', { 'do' : 'make' }
+
+" TypeScript omni-completion, definition locations, compilation errors, etc.
+Plug 'Quramy/tsuquyomi'
