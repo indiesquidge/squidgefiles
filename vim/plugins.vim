@@ -18,8 +18,8 @@ Plug 'christoomey/vim-tmux-navigator'
 " Easy to use, file-type sensitive comments
 Plug 'tomtom/tcomment_vim'
 
-" Keyword completion system
-Plug 'Valloric/YouCompleteMe', { 'do': './install.sh'  }
+" Asynchronous keyword completion
+Plug 'Shougo/deoplete.nvim'
 
 " Insert quotes, brackets, etc. in pairs
 Plug 'jiangmiao/auto-pairs'

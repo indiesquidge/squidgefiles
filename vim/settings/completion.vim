@@ -15,9 +15,12 @@ set wildignore+=*.class,*.jar
 set wildignore+=*.pdf
 set wildignore+=*/tmp/*,*.o,*.so,*.swp,*.zip,*/node_modules/*,*/bower_components/*
 
-" Autocompletion
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#force_overwrite_completefunc = 1
+" Autocompletion Deoplete
+" Enable deoplete at vim startup
+let g:deoplete#enable_at_startup = 1
+" Set patterns for TypeScript autocompletion
+let g:deoplete#omni#input_patterns = get(g:,'deoplete#omni#input_patterns',{})
+let g:deoplete#omni#input_patterns.typescript = ['[^. \t0-9]\.\w*']
 
 " For snippet_complete marker.
 if has('conceal')
