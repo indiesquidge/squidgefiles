@@ -14,6 +14,14 @@ stty stop undef
 # Instantiate rbenv with shell
 eval "$(rbenv init -)"
 
+# if [ "`docker-machine status development`" = "Running" ]; then
+#    eval "$(docker-machine env development)"
+# fi
+
+# export WORKON_HOME=$HOME/.virtualenvs # location where the virtual environments should live
+# export PROJECT_HOME=$HOME/Devel # location of your development project directories
+# source /usr/local/bin/virtualenvwrapper.sh # location of the script installed with package
+
 #  ================ Alias Functions ===================
 
 # ls automatically after cd
