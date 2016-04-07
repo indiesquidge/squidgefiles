@@ -72,3 +72,9 @@ Plug 'Shougo/vimproc.vim', { 'do' : 'make' }
 
 " TypeScript omni-completion, definition locations, compilation errors, etc.
 Plug 'Quramy/tsuquyomi'
+
+" Heuristically set buffer options
+Plug 'tpope/vim-sleuth'
+
+" 'ag' in Vim
+Plug 'rking/ag.vim'
