@@ -5,7 +5,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-#  ================ Customization =====================
+#  ================ Customization ====================
 
 # Disable flow control commands (keeps C-s from freezing everything)
 stty start undef
@@ -48,6 +48,20 @@ supervim() {
 # clone and cd into repo
 function clone() {
   git clone $1 && cd $(basename ${1%.*})
+}
+
+# create pull-request
+# first arg is branch you want to create PR against
+# second arg (optional) is your commit message; if no message provided, it will
+# open your editor so you can add a message there
+function hpr() {
+  hub pull-request -b $1 --browse -m ${2-''}
+}
+
+# first arg is the branch you're going to be working on
+# second arg is the branch which you want to rebase on
+function scpcrp() {
+  gst;gco $2;gp origin $2;gco $1;gr $2;gstp
 }
 
 # Give it a # and a dir, it will cd to that dir, then `cd ..` however many times you've indicated with the number
@@ -96,7 +110,7 @@ alias c='clear;ls'
 alias cl='clear'
 alias dot='cd ~/.dotfiles'
 alias rl='source ~/.zshrc'
-alias treejs='tree -I "node_modules|bower_components"'
+alias treets='tree -I "node_modules|bower_components|typings"'
 
 # Pruning
 alias depry='ag -l "binding.pry" | xargs gsed --in-place "/binding.pry/d"'

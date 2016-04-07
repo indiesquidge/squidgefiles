@@ -37,8 +37,17 @@ filetype plugin indent on
 " Ctrl-c to exit insert mode and save
 inoremap <C-c> <esc>:w<cr>
 
-" Ruby debugging
-map <Leader>a orequire "pry"; binding.pry<esc>:w<cr>
+" JavaScript debugging
+map <Leader>a odebugger;<esc>:w<CR>
+
+" TSLint disable wrapper
+map <Leader>t o/* tslint:disable */<CR>/* tslint:enable */<esc>O
+
+" 'ag' search
+map <Leader>s :Ag<space>
+
+" Toggle NERDTree sidebar
+map <Leader>n :NERDTreeToggle<CR>
 
 " Rename files within Vim
 map <Leader>e :Rename<space>
@@ -78,6 +87,6 @@ set nobackup
 set nowb
 
 " ======================== Custom Config =========================
-" Colors, completion, statusbar, linting, etc.
+" Colors, completion, statusbar, linting, and all other custom settings
 
 source ~/.dotfiles/vim/settings.vim
