@@ -1,7 +1,7 @@
 " Call Neomake on vim save
-if has('autocmd')
-  autocmd! BufWritePost * Neomake
-endif
+au BufNewFile,BufRead,BufWritePost * Neomake
+
+let g:neomake_verbose = 0
 
 " define Neomake warning/error symbols in gutter
 let g:neomake_warning_sign = {
@@ -23,3 +23,5 @@ if executable('tslint')
 else
   echoe 'No tslint executable detected. Install tslint for TypeScript syntax higlighting. `npm install -g tslint`'
 endif
+
+let g:neomake_html_enabled_makers = []

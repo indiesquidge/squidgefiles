@@ -18,6 +18,8 @@ set wildignore+=*/tmp/*,*.o,*.so,*.swp,*.zip,*/node_modules/*,*/bower_components
 " Autocompletion Deoplete
 " Enable deoplete at vim startup
 let g:deoplete#enable_at_startup = 1
+" Disable auto-insertion when typing
+set completeopt+=noinsert
 " Set patterns for TypeScript autocompletion
 let g:deoplete#omni#input_patterns = get(g:,'deoplete#omni#input_patterns',{})
 let g:deoplete#omni#input_patterns.typescript = ['[^. \t0-9]\.\w*']

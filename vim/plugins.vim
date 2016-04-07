@@ -9,7 +9,7 @@ Plug 'kien/ctrlp.vim'
 " Nerdtree file viewer
 Plug 'scrooloose/nerdtree'
 
-" Error linting
+" Asynchronous Error linting
 Plug 'benekastah/neomake'
 
 " Easily switch between vim and tmux
@@ -25,12 +25,12 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'jiangmiao/auto-pairs'
 
 " Show Git diff in gutter of file
-Plug 'airblade/vim-gitgutter'
+Plug 'sgur/vim-lazygutter'
 
 " Statusbar
 Plug 'indiesquidge/lightline.vim'
 
-" Incredible Git wrapper
+" Git wrapper
 Plug 'tpope/vim-fugitive'
 
 " Add end statement automatically where needed
@@ -61,7 +61,7 @@ Plug 'pangloss/vim-javascript'
 " JSX highlighting
 Plug 'mxw/vim-jsx'
 
-" Syntax and other settings for TypeScript
+" TypeScript Syntax
 Plug 'leafgarland/typescript-vim'
 
 " CoffeeScript syntax, indenting, compiling, and more.
