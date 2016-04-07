@@ -62,14 +62,6 @@ if has('persistent_undo')
   set undofile
 endif
 
-" ========================= Indentation ==========================
-" Results in spaces being used for all indentation
-
-set expandtab
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
-
 " Delete text present before insert mode
 set backspace=2
 
