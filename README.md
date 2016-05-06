@@ -80,16 +80,15 @@ cd ~/.dotfiles
 ./install
 ```
 
-### Vundle
-Vim Plugins are handled via [Vundle](https://github.com/gmarik/Vundle.vim),
-which can be installed and automatically symlinked with this command
+### Vim Plug
+Vim Plugins are handled via [Plug](https://github.com/junegunn/vim-plug),
+which can be installed with this command
 ```zsh
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
-After which, the custom plugins can be installed.
-```zsh
-vim +PluginInstall +qall
-```
+After which, the repository plugins can be installed. By opening a `vim` buffer
+and running `:PlugInstall`
 
 ### Prezto
 [Prezto](https://github.com/indiesquidge/prezto) is a configuration framework
