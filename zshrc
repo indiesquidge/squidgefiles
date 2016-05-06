@@ -7,10 +7,6 @@ fi
 
 #  ================ Customization ====================
 
-# Disable flow control commands (keeps C-s from freezing everything)
-stty start undef
-stty stop undef
-
 # Instantiate rbenv with shell
 eval "$(rbenv init -)"
 
@@ -94,14 +90,6 @@ function scpcrp() {
 }
 
 #  ================ Aliases ===========================
-
-# Project paths
-alias p="cd ~/Projects; "
-alias pt="cd ~/Projects/turing; "
-alias m1="cd ~/Projects/turing/1mod; "
-alias m2="cd ~/Projects/turing/2mod; "
-alias m3="cd ~/Projects/turing/3mod; "
-alias m4="cd ~/Projects/turing/4mod; "
 
 # Env setup
 alias vimconfig="vim ~/.dotfiles/vimrc"
