@@ -1,15 +1,20 @@
 {
   "rules": {
     "comma-dangle": 0,
-    "indent": [2, 2],
     "linebreak-style": [ 2, "unix" ],
     "no-console": 1,
     "no-debugger": 1,
     "no-undef": 1,
     "no-unused-vars": 1,
-    "quotes": [ 2, "single" ],
+    "quotes": [ 2, "single", {"allowTemplateLiterals": true} ],
     "semi": [ 2, "always" ],
     "strict": 0
+  },
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "15.0"
+    }
   },
   "env": {
     "amd": true,
@@ -17,17 +22,18 @@
     "es6": true,
     "jasmine": true,
     "jquery": true,
-    "mocha": true,
-    "node": true,
-    "qunit": true
+    "node": true
   },
-  "extends": "eslint:recommended",
-  "ecmaFeatures": {
-    "jsx": true,
-    "experimentalObjectRestSpread": true,
-    "modules": true
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
   },
   "plugins": [
     "react"
-  ]
+  ],
+  "extends": ["eslint:recommended", "plugin:react/recommended"]
 }
