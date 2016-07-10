@@ -1,8 +1,9 @@
 # ============= Dotfiles =============
+vim/.init.vim-rplugin~
+vim/.netrwhist
+vim/backups
 vim/bundle
 vim/plugged
-vim/backups
-vim/.netrwhist
 .gitconfig
 config/hub
 config/configstore

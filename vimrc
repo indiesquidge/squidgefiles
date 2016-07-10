@@ -19,10 +19,8 @@ if has('nvim')
   nmap <bs> :<c-u>TmuxNavigateLeft<cr>
 endif
 
-" ===================== Vundle Initialization ====================
+" ===================== Plug Initialization ====================
 
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
 call plug#begin()
 
 if filereadable(expand("~/.vim/plugins.vim"))
@@ -30,7 +28,6 @@ if filereadable(expand("~/.vim/plugins.vim"))
 endif
 
 call plug#end()
-filetype plugin indent on
 
 " ========================= Key Mappings =========================
 
