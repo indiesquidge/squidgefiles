@@ -1,12 +1,9 @@
 " ================ Installed plugins ================
 
-" Tells versions of vim-ruby where Ruby installs are located
-Plug 'tpope/vim-rbenv'
-
 " Fuzzy searcher
 Plug 'kien/ctrlp.vim'
 
-" Nerdtree file viewer
+" File tree view
 Plug 'scrooloose/nerdtree'
 
 " Asynchronous Error linting
@@ -19,13 +16,16 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'tomtom/tcomment_vim'
 
 " Asynchronous keyword completion
-Plug 'Shougo/deoplete.nvim'
+function! DoRemote(arg)
+  UpdateRemotePlugins
+endfunction
+Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 
 " Insert quotes, brackets, etc. in pairs
 Plug 'jiangmiao/auto-pairs'
 
 " Show Git diff in gutter of file
-Plug 'sgur/vim-lazygutter'
+Plug 'airblade/vim-gitgutter'
 
 " Statusbar
 Plug 'indiesquidge/lightline.vim'
@@ -33,45 +33,26 @@ Plug 'indiesquidge/lightline.vim'
 " Git wrapper
 Plug 'tpope/vim-fugitive'
 
-" Add end statement automatically where needed
-Plug 'tpope/vim-endwise'
-
-" Handy bracket mappings
-Plug 'tpope/vim-unimpaired'
-
-" Rename files from within Vim
-Plug 'danro/rename.vim'
-
-" Snippet files for lots of languages
-Plug 'indiesquidge/vim-snippets'
-
-" Helper for vim-snippets
-Plug 'SirVer/ultisnips'
-
-" For working with mustache and handlebars templates
-Plug 'mustache/vim-mustache-handlebars'
+" snippets
+Plug 'mattn/emmet-vim'
 
 " Markdown syntax highlighting
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
+Plug 'plasticboy/vim-markdown', { 'for': ['markdown', 'md'] }
 
 " JavaScript syntax highlighting and indentation
-Plug 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 
 " JSX highlighting
-Plug 'mxw/vim-jsx'
-
-" TypeScript Syntax
-Plug 'leafgarland/typescript-vim'
-
-" CoffeeScript syntax, indenting, compiling, and more.
-Plug 'kchmck/vim-coffee-script'
-
-" Interactive command execution
-Plug 'Shougo/vimproc.vim', { 'do' : 'make' }
+Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 
 " TypeScript omni-completion, definition locations, compilation errors, etc.
-Plug 'Quramy/tsuquyomi'
+Plug 'Quramy/tsuquyomi', { 'for': ['typescript', 'typescript.jsx'] }
+
+" TypeScript Syntax
+Plug 'leafgarland/typescript-vim', { 'for': ['typescript', 'typescript.tsx'] }
+
+" TSX highlighting
+Plug 'ianks/vim-tsx', { 'for': ['typescript', 'typescript.jsx'] }
 
 " Heuristically set buffer options
 Plug 'tpope/vim-sleuth'
