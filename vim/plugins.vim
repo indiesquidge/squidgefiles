@@ -16,10 +16,12 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'tomtom/tcomment_vim'
 
 " Asynchronous keyword completion
-function! DoRemote(arg)
-  UpdateRemotePlugins
-endfunction
-Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+if has('nvim')
+  function! DoRemote(arg)
+    UpdateRemotePlugins
+  endfunction
+  Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+endif
 
 " Insert quotes, brackets, etc. in pairs
 Plug 'jiangmiao/auto-pairs'
