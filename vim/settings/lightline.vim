@@ -3,7 +3,7 @@ set laststatus=2
 
 " Lightline config
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
+      \ 'colorscheme': 'seoul256',
       \ 'active': {
       \   'left': [ [ 'mode', ], [ 'fugitive', 'readonly', 'filename' ] ],
       \   'right': [ [ 'column', 'lineinfo' ], [ 'filetype' ] ]

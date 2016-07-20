@@ -34,12 +34,6 @@ call plug#end()
 " Ctrl-c to exit insert mode and save
 inoremap <C-c> <esc>:w<cr>
 
-" JavaScript debugging
-map <Leader>a odebugger;<esc>:w<CR>
-
-" TSLint disable wrapper
-map <Leader>t o/* tslint:disable */<CR>/* tslint:enable */<esc>O
-
 " 'ag' search
 map <Leader>s :Ag<space>
 

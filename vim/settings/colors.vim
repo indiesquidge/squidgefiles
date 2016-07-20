@@ -22,6 +22,3 @@ highlight ColorColumn cterm=NONE ctermbg=233
 
 " Highlight current line and colors (must come last)
 set cursorline
-
-" add jbuilder syntax highlighting
-au BufNewFile,BufRead *.json.jbuilder set ft=ruby
