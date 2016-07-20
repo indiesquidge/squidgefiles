@@ -2,7 +2,6 @@
 syntax on
 
 " Colorscheme
-se t_Co=16
 let g:seoul256_background = 233
 colo seoul256
 

@@ -1,7 +1,3 @@
-function! HasConfig(file, dir)
-  return findfile(a:file, escape(a:dir, ' ') . ';') !=# ''
-endfunction
-
 " Automatically remove trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 
