@@ -11,7 +11,7 @@
 
 Dotfiles focused heavily on Tmux, Vim, Zsh, and Prezto integration.
 ```
-![](http://i.imgur.com/LqxwqWo.jpg)
+![](http://i.imgur.com/HDRTgWf.png)
 
 ## Starting Fresh
 
@@ -27,7 +27,7 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 ```
 * Install Zsh
 
-OS X ships with Zsh, but it is old (4.3.11). We want to install the latest version.
+OS X ships with Zsh, but it is old (5.0.8). We want to install the latest version.
 ```zsh
 brew install zsh
 ```
@@ -45,25 +45,59 @@ Set the name, email, and editor for git
 git config --global user.name "Austin Wood"
 git config --global user.email "i@austinwood.me"
 git config --global core.editor vim
+git config --global core.excludesfile ~/.gitignore
 ```
 Follow [this](https://help.github.com/articles/generating-ssh-keys/) article to
 be able to authenticate with GitHub from Git. This will grant you the action to
 clone using SSH (more secure), and also make it so that you don't have to enter
 in your GitHub username and password every time you push to a remote branch.
 
+(Optional): Download and set up `gpg` to properly [sign your commits](https://help.github.com/articles/signing-commits-using-gpg/)
+```zsh
+git config --global commit.gpgsign true
+```
+
 * Install Vim
 
 OS X ships with Vim by default. However, just like Zsh, it is an outdated
-version (7.3). UltiSnips, one of the plugins for autocomplete, requires Vim >= 7.4
-to work. Neocomplete requires Vim to be installed with Lua as a dependency.
+version (7.3). Neocomplete requires Vim to be installed with Lua as a dependency.
 ```zsh
 brew install vim --with-lua
 ```
 Hide the system Vim so the new version is found first
 ```zsh
-sudo mv /usr/bin/vim /usr/bin/vim72
+sudo mv /usr/bin/vim /usr/bin/vim73
 ```
 Running `which vim` should now return `/usr/local/bin/vim`
+
+**NOTE**: If you're running OS X 10.11 (El Capitan) and are having issues with
+moving the system `vim`, please see this [Stack Exchange answer on the issue](http://apple.stackexchange.com/a/202969).
+
+* Install Neovim (optional)
+
+Neovim is the "next gen Vim". The main goals of creating this fork of Vim were
+to refactor the code to improve maintenance; implement new advanced features;
+expose a better, more powerful plugin system; and have a more open development
+model, where contributions are more easily accepted. So far, they've done a great
+job, and many plugins have come out that make active use of the new features,
+particularly the asynchronous nature of Neovim. Keep in mind that Neovim is still
+very new (v0.1.4). While it is being actively worked on, it may break at times.
+I personally have never run into any detrimental issues with it so far, and have
+loved reaping in the new benefits. To install, run
+```zsh
+brew install neovim/neovim/neovim
+```
+
+One of the plugins I use, `deoplete`, which is a asynchronous completion framework
+for neovim, requires Python3. To install this, run
+```zsh
+brew install python3
+```
+
+Then enable the `neovim` Python3 interface with pip:
+```zsh
+pip3 install neovim
+```
 
 ## Installation
 
@@ -97,7 +131,7 @@ prompt themes.
 
 clone the repo into ~/.zprezto
 ```zsh
-git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+git clone --recursive https://github.com/indiesquidge/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 ```
 
 Run the following on your command line to have prezto configure it's Zsh preferences
@@ -116,36 +150,7 @@ Let's fix that.
 ```zsh
 touch ~/.hushlogin
 ```
-You may also see `/Users/<username>/.zshrc:15: command not found: rbenv`. This
-is because we have yet to install rbenv to manage our Ruby versions.
-```zsh
-brew install rbenv ruby-build
-```
 Opening a new terminal tab should show just your prompt. Nice and clean :sparkles:.
-
-#### Use "correct" Ruby in Vim
-By default, Vim will use your system ruby. You can check this by running
-```zsh
-!echo $PATH
-```
-Note how the paths remains starting with `/usr/bin`.
-
-This is [a known problem introduced by Apple in OS X 10.5 Leopard](https://github.com/dotphiles/dotzsh#mac-os-x).
-
-Since we are using Zsh as our shell, it affects us. The `vim-rbenv` plugin will
-fix this.
-```zsh
-sudo mv /etc/zshenv /etc/zshrc
-```
-is a great solution because it still enables the execution of the `path_helper`
-on interactive shells, and this plugin is already installed with these dotfiles. If
-you would prefer to not use the plugin, you can run
-```zsh
-sudo chmod ugo-x /usr/libexec/path_helper
-```
-which should also fix the issue.
-
-Now `!echo $PATH` should return the rbenv ruby version from `~/.rbenv/shims`.
 
 ### Tmux & terminal battery (optional)
 [Tmux](https://tmux.github.io/) is a terminal multiplexer, which is a fancy way
@@ -155,6 +160,10 @@ creating multiple windows and tabs on the application level.
 ```zsh
 brew install tmux
 ```
+You should now be able to run `tmux` to enter a new session. The Tmux leader is
+set to `<C-a>`. A few basic commands to make sure it's working could be `<C-a> s`
+for horizontal splits and `<C-a> v` for vertical splits. For a full list of Tmux
+commands, see [this cheat sheet](https://gist.github.com/MohamedAlaa/2961058).
 
 [Battery](https://github.com/Goles/Battery) is a script to display the battery
 status on the tmux status bar.
@@ -170,8 +179,8 @@ vim /usr/local/bin/battery
 Remove just the emoji on line 113. You could add in something else to signify
 a charging status. I like to use `++ `.
 
-It would also be wise to remove the `elseif` statement on line 115. The final
-`print_status()` function should look something like this
+It would also be wise to remove the `elseif` statement. The final `print_status()`
+function should look something like this
 ```zsh
 if ((connected)); then
   GRAPH="++ "
@@ -180,7 +189,7 @@ else
 fi
 ```
 
-_Note:_ to save and exit this file, you need to run `:wq!`
+**NOTE**: to save and exit this file, you need to run `:wq!`
 
 ## Configuration & Preferences
 
@@ -197,7 +206,7 @@ Font for terminal text:
 open ~/.dotfiles/config/fonts/Sauce\ Code\ Powerline\ Light.otf
 ```
 
-_Note:_ if either of these `open` commands give you back an error, it is because
+**NOTE**: if either of these `open` commands give you back an error, it is because
 Tmux, LSOpenURLsWithRole(), and/or OS X Yosemite do not play nicely together. To
 fix this, first try exiting out of your Tmux instance (if you're in one) and
 re-running the command. If that does not work, you may need a dependency that
@@ -217,34 +226,37 @@ choose "Load Presets... > Import", press ⇧⌘g (shift-cmd-g) and type in the f
 path for seoul256 colors `~/.dotfiles/config/`, and select `seoul256.itermcolors`.
 Unfortunately, the background color of seoul256 for iTerm does not match seoul256
 for terminal Vim. To fix this, simply darken the background color under Basic
-Colors for iTerm.
+Colors for iTerm (something close to #131313 is good).
 
 Now the color scheme should be coherent and seamless across both the editor and
 the terminal.
 
-### iTerm2
+### iTerm2 Preferences
 
 Open up preferences (iTerm > Preferences _-or-_ ⌘,)
 * Under General,
-  * Uncheck "Use Lion-style Fullscreen windows
+  * Uncheck "Native full screen windows" to allow full screen without window switching
 * Under Profile,
-  * Under General, fill in Send text at start to "tmux"
-  * Under Text, uncheck everything under Text Rendering
-  * Under Window, adjust transparency based on personal preference, and set the
-    Settings for New Windows Style to       Fullscreen
+  * Under General, fill in "tmux" for "Send text at start" to start tmux for new windows automatically
+  * Under Text, uncheck everything under "Text Rendering"
+  * Under Window,
+    * Adjust transparency based on personal preference
+    * Set the settings for "Style" to Fullscreen
   * Under Terminal, uncheck everything for Notifications
 * Under Keys
   * Enable system-wide hotkey to whatever you like. Right now I'm digging `^e`
     since it's on home row (`caps lock` mapped to `control`)
-  * Under Global Shortcut Keys, add the following, all of which should have an
-    action of ignore: ⌘t, ⌘r, ⌘w
+  * Under "Key Mappings", add the following, all of which should have an action of ignore: ⌘t, ⌘r, ⌘w
 
 ## Random Useful Packages
-* `brew install brew-rmtree` - uninstall all dependencies with a package (e.g. `brew rmtree python`)
+* `brew tap beeftornado/rmtree && brew install beeftornado/rmtree/brew-rmtree` uninstall all dependencies with a package (e.g. `brew rmtree python`)
 * `brew install ag` - the silver searcher for grepping amongst files (e.g. `ag "hello world" some/file/path`)
+* `brew install hub` - GitHub CLI commands (e.g. `hub create`, `hub pull-request`)
 * `brew install tree` - tree structure from given folder (e.g. `tree my-rails-app`)
 * `brew install httpie` - human-friendly, command line HTTP client (e.g. `http httpie.org`)
-* `brew install jq` - `sed` for JSON data (e.g. `curl https://api.github.com/repos/homebrew/homebrew/commits?per_page=5 | jq '.[0]'`)
+* `brew install gnu-sed` - text transformation and filterting (e.g. `sed -i -- 's/foo/bar/g' *`)
+* `brew install jq` - `sed` for JSON data (e.g. `http swapi.co/api/planets/1/ | jq '.'`)
+* `brew install youtube-dl` - YouTube CLI (e.g. `youtube-dl https://youtu.be/dQw4w9WgXcQ`)
 
 ## Random Useful Gems
 * `gem install lolcat` - rainbows and unicorns! (i.e. `/usr/sbin/system_profiler SPHardwareDataType | lolcat`)
