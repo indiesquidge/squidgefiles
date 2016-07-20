@@ -97,9 +97,12 @@ alias zshconfig="vim ~/.dotfiles/zshrc"
 alias tmuxconfig="vim ~/.dotfiles/tmux.conf"
 
 # Editor
-alias vim='nvim'
-alias v='vim'
-alias vi='vim'
+alias vi='/usr/local/bin/vim'
+# if neovim installed, alias vim to neovim
+if hash nvim 2>/dev/null; then
+  alias vim='nvim'
+  alias v='vim'
+fi
 
 # File traversal
 alias c='clear;ls'
