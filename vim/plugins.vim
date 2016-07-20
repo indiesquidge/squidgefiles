@@ -47,8 +47,8 @@ Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 " JSX highlighting
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 
-" TypeScript omni-completion, definition locations, compilation errors, etc.
-Plug 'Quramy/tsuquyomi', { 'for': ['typescript', 'typescript.jsx'] }
+" TypeScript omni-completion, definition locations, compilation errors, etc. (depends on vimproc)
+Plug 'shougo/vimproc.vim', { 'do': 'make' } | Plug 'Quramy/tsuquyomi', { 'for': ['typescript', 'typescript.jsx'] }
 
 " TypeScript Syntax
 Plug 'leafgarland/typescript-vim', { 'for': ['typescript', 'typescript.tsx'] }
