@@ -201,9 +201,9 @@ the font, save it in Fontbook.app
 ```zsh
 open ~/.dotfiles/config/fonts/PowerlineSymbols-Powerline.otf
 ```
-Font for terminal text:
+Font for custom terminal and vim text:
 ```zsh
-open ~/.dotfiles/config/fonts/Sauce\ Code\ Powerline\ Light.otf
+open ~/.dotfiles/config/fonts/OperatorMono-XLight.otf
 ```
 
 **NOTE**: if either of these `open` commands give you back an error, it is because
@@ -216,8 +216,10 @@ brew install reattach-to-user-namespace
 ```
 The line to use this is already in place in `tmux.conf` on line 26.
 
-To use these fonts, go to iTerm > Preferences > Profiles > Text. For both
-Regular Font and Non-ASCII Font choose 14pt Sauce Code Pro Powerline Light.
+To use these fonts, go to iTerm > Preferences > Profiles > Text.
+For Font, choose 14pt Operator Mono XLight
+Select "Anti-aliased", select "Use a different font for non-ASCII text"
+For Non-ASCII Font, choose 14pt Sauce Code Powerline Light
 
 #### Colors
 Vim ships from this repo already using seoul256. To use the same font within the
@@ -238,15 +240,22 @@ Open up preferences (iTerm > Preferences _-or-_ ⌘,)
   * Uncheck "Native full screen windows" to allow full screen without window switching
 * Under Profile,
   * Under General, fill in "tmux" for "Send text at start" to start tmux for new windows automatically
-  * Under Text, uncheck everything under "Text Rendering"
+  * Under Text, check "Italic text allowed"; uncheck everything else
   * Under Window,
     * Adjust transparency based on personal preference
     * Set the settings for "Style" to Fullscreen
-  * Under Terminal, uncheck everything for Notifications
+  * Under Terminal
+    * Under Terminal Emulation, choose "xterm-256color-italic" for "Report Terminal Type" (manually type in if needed)
+    * Under Notifications, check "Silence bell"; uncheck everything else
 * Under Keys
   * Enable system-wide hotkey to whatever you like. Right now I'm digging `^e`
     since it's on home row (`caps lock` mapped to `control`)
   * Under "Key Mappings", add the following, all of which should have an action of ignore: ⌘t, ⌘r, ⌘w
+
+**NOTE**: load and compile the "xterm-256color-italic" file for terminal use, run
+```sh
+tic ~/.dotfiles/config/iterm2/xterm-256color-italic.terminfo
+```
 
 ## Random Useful Packages
 * `brew tap beeftornado/rmtree && brew install beeftornado/rmtree/brew-rmtree` uninstall all dependencies with a package (e.g. `brew rmtree python`)
