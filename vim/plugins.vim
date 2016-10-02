@@ -35,6 +35,9 @@ Plug 'indiesquidge/lightline.vim'
 " Git wrapper
 Plug 'tpope/vim-fugitive'
 
+" Rename files from within Vim
+Plug 'danro/rename.vim'
+
 " snippets
 Plug 'mattn/emmet-vim'
 
