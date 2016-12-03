@@ -7,6 +7,10 @@ fi
 
 #  ================== Custom Setup ====================
 
+# Set default shell editor
+export VISUAL=vim
+export EDITOR=VISUAL
+
 # Initialize rbenv on startup
 eval "$(rbenv init -)"
 
