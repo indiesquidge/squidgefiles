@@ -1,9 +1,10 @@
-# ===================== CONFIG =====================
-Pry.config.color = true
-Pry.config.theme = "railscasts"
+# ====================== EDITOR ====================
+
+Pry.config.editor = proc { |file, line| "vim +#{line} #{file} -c 'normal zt'" }
 
 # ================== CUSTOM PROMPT =================
 # wrap ANSI codes so Readline knows where the prompt ends
+
 def colour(name, text)
   if Pry.color
     "\001#{Pry::Helpers::Text.send name, "{text}"}\002".sub "{text}", "\002#{text}\001"
@@ -15,28 +16,18 @@ end
 Pry.config.prompt = [
   proc do |object, nest_level, pry|
     prompt  = "#{RUBY_VERSION} "
-    prompt += colour :red, Pry.view_clip(object)
+    prompt += colour :yellow, Pry.view_clip(object)
     prompt += ":#{nest_level}" if nest_level > 0
-    prompt += colour :cyan, " » "
-  end, proc { |object, nest_level, pry| colour :cyan, "» " }
+    prompt += colour :white, " » "
+  end
 ]
 
 # ================= CUSTOM COMMANDS ================
+
 default_command_set = Pry::CommandSet.new do
   command "cl" do
     system "clear"
-    if ENV["RAILS_ENV"]
-      output.puts "Rails Environment: " + ENV["RAILS_ENV"]
-    end
   end
 end
 
 Pry.config.commands.import default_command_set
-
-# ===================== PLUGINS ====================
-begin
-  require "ap"
-  Pry.config.print = proc { |output, value| output.puts value.ai }
-rescue LoadError
-  puts "no awesome_print"
-end
