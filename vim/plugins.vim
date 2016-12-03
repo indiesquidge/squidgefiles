@@ -30,7 +30,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'airblade/vim-gitgutter'
 
 " Statusbar
-Plug 'indiesquidge/lightline.vim'
+Plug 'itchyny/lightline.vim'
 
 " Git wrapper
 Plug 'tpope/vim-fugitive'
