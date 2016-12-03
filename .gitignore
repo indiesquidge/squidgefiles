@@ -1,6 +1,7 @@
 # ============= Dotfiles =============
 vim/.init.vim-rplugin~
 vim/.netrwhist
+vim/autoload/plug.vim*
 vim/backups
 vim/bundle
 vim/plugged
