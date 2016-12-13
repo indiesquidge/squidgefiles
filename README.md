@@ -56,6 +56,7 @@ in your GitHub username and password every time you push to a remote branch.
 ```zsh
 git config --global commit.gpgsign true
 ```
+([Follow this gist to learn how to setup GPG](https://gist.github.com/bmhatfield/cc21ec0a3a2df963bffa3c1f884b676b))
 
 * Install Vim
 
