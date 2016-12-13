@@ -58,7 +58,7 @@ git config --global commit.gpgsign true
 ```
 ([Follow this gist to learn how to setup GPG](https://gist.github.com/bmhatfield/cc21ec0a3a2df963bffa3c1f884b676b))
 
-* Install Vim
+* Install Vim (optional)
 
 OS X ships with Vim by default. However, just like Zsh, it is an outdated
 version (7.3). Neocomplete requires Vim to be installed with Lua as a dependency.
@@ -74,7 +74,7 @@ Running `which vim` should now return `/usr/local/bin/vim`
 **NOTE**: If you're running OS X 10.11 (El Capitan) and are having issues with
 moving the system `vim`, please see this [Stack Exchange answer on the issue](http://apple.stackexchange.com/a/202969).
 
-* Install Neovim (optional)
+* Install Neovim
 
 Neovim is the "next gen Vim". The main goals of creating this fork of Vim were
 to refactor the code to improve maintenance; implement new advanced features;
@@ -261,6 +261,7 @@ tic ~/.dotfiles/config/iterm2/xterm-256color-italic.terminfo
 ## Random Useful Packages
 * `brew tap beeftornado/rmtree && brew install beeftornado/rmtree/brew-rmtree` uninstall all dependencies with a package (e.g. `brew rmtree python`)
 * `brew install ag` - the silver searcher for grepping amongst files (e.g. `ag "hello world" some/file/path`)
+* `brew install node` - Node.js (e.g. `node some-file.js`)
 * `brew install hub` - GitHub CLI commands (e.g. `hub create`, `hub pull-request`)
 * `brew install tree` - tree structure from given folder (e.g. `tree my-rails-app`)
 * `brew install httpie` - human-friendly, command line HTTP client (e.g. `http httpie.org`)
@@ -268,8 +269,13 @@ tic ~/.dotfiles/config/iterm2/xterm-256color-italic.terminfo
 * `brew install jq` - `sed` for JSON data (e.g. `http swapi.co/api/planets/1/ | jq '.'`)
 * `brew install youtube-dl` - YouTube CLI (e.g. `youtube-dl https://youtu.be/dQw4w9WgXcQ`)
 
+### Useful JS Linting Packages
+**NOTE**: these can instead be installed locally per project if desired
+
+* `npm i -g eslint` - configurable JavaScript linter (e.g. `eslint some-file.js`)
+* `npm i -g babel-eslint` - ES6+ linting helper
+
 ## Random Useful Gems
-* `gem install lolcat` - rainbows and unicorns! (i.e. `/usr/sbin/system_profiler SPHardwareDataType | lolcat`)
 * `gem install octodown` - github markdown previewing from the terminal (i.e. `octodown README.md`)
 
 ---
