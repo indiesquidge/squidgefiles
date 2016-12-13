@@ -6,15 +6,3 @@
   path = zsh/zsh-syntax-highlighting
   url = https://github.com/zsh-users/zsh-syntax-highlighting
   ignore = dirty
-[submodule "base-16-iterm2"]
-  path = config/base16-iterm2
-  url = https://github.com/chriskempson/base16-iterm2
-  ignore = dirty
-[submodule "base-16-shell"]
-  path = config/base16-shell
-  url = https://github.com/chriskempson/base16-shell
-  ignore = dirty
-[submodule "base-16-vim"]
-  path = vim/colors/base16-vim
-  url = https://github.com/chriskempson/base16-vim
-  ignore = dirty
