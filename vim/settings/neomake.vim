@@ -4,13 +4,18 @@ if has('nvim')
 
   let g:neomake_verbose = 0
 
-  " define Neomake warning/error symbols in gutter
+  " define Neomake warning/error colors and symbols in gutter
+  :highlight NeomakeWarningMsg ctermfg=227 ctermbg=237 " yellow
+  :highlight NeomakeErrorMsg ctermfg=202 ctermbg=237   " red
+
   let g:neomake_warning_sign = {
         \ 'text': '✹',
+        \ 'texthl': 'NeomakeWarningMsg',
         \ }
 
   let g:neomake_error_sign = {
         \ 'text': '✖',
+        \ 'texthl': 'NeomakeErrorMsg',
         \ }
 
   if executable('eslint')
