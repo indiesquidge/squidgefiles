@@ -5,15 +5,16 @@ syntax on
 let g:seoul256_background = 233
 colo seoul256
 
-" comment and visual mode highlight colors
-hi Comment ctermfg=DarkGrey
-hi Visual  ctermbg=215 ctermfg=232
+" General custom highlighting
+hi MatchParen cterm=reverse ctermbg=220 ctermfg=232
+hi Comment cterm=italic ctermfg=DarkGrey
+hi Include cterm=italic
+hi Visual ctermbg=220 ctermfg=232
+hi Search cterm=reverse ctermfg=220 ctermbg=234
+hi LineNr ctermfg=246
 
-" Line number color
-highlight LineNr ctermfg=246
-
-" Matching brackets, parens, etc. color
-highlight MatchParen cterm=bold ctermbg=057 ctermfg=white
+" Language-specific custom highlighting
+hi xmlAttrib cterm=italic ctermfg=179
 
 " Set 80 character ruler and colors
 let &colorcolumn=join(range(81,999),",")
