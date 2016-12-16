@@ -284,24 +284,20 @@ fi
 
 #### Fonts
 
-Both Vim and Tmux are using custom font icons for their status bars. To install
-the font, save it in Fontbook.app
+Install the three included fonts
 
 ```
-open ~/.dotfiles/config/fonts/PowerlineSymbols-Powerline.otf
+open ~/.dotfiles/config/*
 ```
 
-Font for custom terminal and vim text:
+Main Fonts: `OperatorMono-XLight*.otf`
+Powerline symbols: `PowerlineSymbols-Powerline.otf`
 
-```
-open ~/.dotfiles/config/fonts/OperatorMono-XLight.otf
-```
-
-⚠️ **NOTE**: if either of these `open` commands give you back an error, it is because
-Tmux, LSOpenURLsWithRole(), and/or OS X Yosemite do not play nicely together. To
-fix this, first try exiting out of your Tmux instance (if you're in one) and
-re-running the command. If that does not work, you may need a dependency that
-worked for me as of July 13, 2015.
+⚠️ **NOTE**: if the `open` command give you back an error, it is because Tmux,
+LSOpenURLsWithRole(), and/or macOS are not playing nicely together. To fix this,
+first try exiting out of your Tmux instance (if you're in one) and re-running
+the command. If that does not work, you may need a dependency that worked for me
+(July 13, 2015).
 
 ```
 brew install reattach-to-user-namespace
@@ -310,13 +306,7 @@ brew install reattach-to-user-namespace
 The line to use this is already in place in `tmux.conf` on line 29.
 
 To use these fonts, go to iTerm > Preferences > Profiles > Text.
-For Font, choose 14pt Operator Mono XLight
-Select "Anti-aliased", select "Use a different font for non-ASCII text"
-For Non-ASCII Font, choose 14pt Sauce Code Powerline Light
-
-```
-open ~/.dotfiles/config/fonts/Sauce\ Code\ Powerline\ Light.otf
-```
+For Font, choose 14pt Operator Mono XLight; select "Anti-aliased"
 
 #### Colors
 
