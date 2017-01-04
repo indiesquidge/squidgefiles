@@ -3,11 +3,8 @@
 - link:
     ~/.agignore:      .agignore
     ~/.config:        config/
-    ~/.gemrc:         ruby/gemrc
     ~/.gitignore:     .gitignore
     ~/.pryrc:         ruby/pryrc
-    ~/.rspec:         ruby/rspec
-    ~/.spaceman-diff: .spaceman-diff
     ~/.tmux.conf:     tmux.conf
     ~/.vim:           vim/
     ~/.vimrc:         vimrc
