@@ -17,10 +17,7 @@ Plug 'tomtom/tcomment_vim'
 
 " Asynchronous keyword completion
 if has('nvim')
-  function! DoRemote(arg)
-    UpdateRemotePlugins
-  endfunction
-  Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 endif
 
 " Insert quotes, brackets, etc. in pairs
