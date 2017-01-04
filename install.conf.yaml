@@ -5,7 +5,6 @@
     ~/.config:        config/
     ~/.gemrc:         ruby/gemrc
     ~/.gitignore:     .gitignore
-    ~/.eslintrc:      javascript/eslintrc
     ~/.pryrc:         ruby/pryrc
     ~/.rspec:         ruby/rspec
     ~/.spaceman-diff: .spaceman-diff
