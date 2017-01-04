@@ -21,10 +21,6 @@ if has('nvim')
   let g:deoplete#enable_smart_case = 1
   let g:deoplete#auto_complete_start_length = 2
 
-  " Set patterns for TypeScript autocompletion
-  let g:deoplete#omni#input_patterns = get(g:,'deoplete#omni#input_patterns',{})
-  let g:deoplete#omni#input_patterns.typescript = ['[^. \t0-9]\.\w*']
-
   " Disable autocompletion for markdown
   autocmd FileType markdown let b:deoplete_disable_auto_complete = 1
 endif
