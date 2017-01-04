@@ -357,13 +357,6 @@ tic ~/.dotfiles/config/iterm2/xterm-256color-italic.terminfo
 * `brew install jq` - `sed` for JSON data (e.g. `http swapi.co/api/planets/1/ | jq '.'`)
 * `brew install youtube-dl` - YouTube CLI (e.g. `youtube-dl https://youtu.be/dQw4w9WgXcQ`)
 
-### Useful JS Linting Packages
-
-⚠️ **NOTE**: these can instead be installed locally per project if desired
-
-* `npm i -g eslint` - configurable JavaScript linter (e.g. `eslint some-file.js`)
-* `npm i -g babel-eslint` - ES6+ linting helper
-
 ## Random Useful Gems
 
 * `gem install octodown` - github markdown previewing from the terminal (i.e. `octodown README.md`)
