@@ -14,6 +14,9 @@ export EDITOR=VISUAL
 # Initialize rbenv on startup
 # eval "$(rbenv init -)"
 
+# Add SSH identity
+{ ssh-add -K ~/.ssh/id_rsa } &> /dev/null
+
 # Start gpg-agent or set up the GPG_AGENT_INFO variable if it's already running
 if [ -f ~/.gnupg/.gpg-agent-info ] && [ -n "$(pgrep gpg-agent)" ]; then
     source ~/.gnupg/.gpg-agent-info
@@ -89,11 +92,6 @@ alias c='clear;ls'
 alias cl='clear'
 alias dot='cd ~/.dotfiles'
 alias rl='source ~/.zshrc'
-
-# Pruning
-alias depry='ag -l "binding.pry" | xargs gsed --in-place "/binding.pry/d"'
-alias deconsole='ag -l "console.log" | xargs gsed --in-place "/console.log/d"'
-alias dedebug='ag -l "debugger" | xargs gsed --in-place "/debugger/d"'
 
 #  ================ Local version =====================
 
