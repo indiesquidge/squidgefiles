@@ -40,9 +40,6 @@ map <Leader>s :Ag<space>
 " Toggle NERDTree sidebar
 map <Leader>n :NERDTreeToggle<CR>
 
-" Rename files within Vim
-map <Leader>e :Rename<space>
-
 " System yank, paste, and delete
 map <Leader>y "+y<cr>
 map <Leader>p "+p<cr>

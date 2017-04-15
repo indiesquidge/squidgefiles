@@ -6,18 +6,18 @@ Plug 'kien/ctrlp.vim'
 " File tree view
 Plug 'scrooloose/nerdtree'
 
-" Asynchronous Error linting
-Plug 'benekastah/neomake'
-
-" Easily switch between vim and tmux
+" Tmux bindings for Vim
 Plug 'christoomey/vim-tmux-navigator'
 
-" Easy to use, file-type sensitive comments
+" Filetype-sensitive comments
 Plug 'tomtom/tcomment_vim'
 
-" Asynchronous keyword completion
 if has('nvim')
+  " Asynchronous keyword completion
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+  " Asynchronous Error linting
+  Plug 'benekastah/neomake'
 endif
 
 " Insert quotes, brackets, etc. in pairs
@@ -32,12 +32,6 @@ Plug 'itchyny/lightline.vim'
 " Git wrapper
 Plug 'tpope/vim-fugitive'
 
-" Rename files from within Vim
-Plug 'danro/rename.vim'
-
-" snippets
-Plug 'mattn/emmet-vim'
-
 " Markdown syntax highlighting
 Plug 'plasticboy/vim-markdown', { 'for': ['markdown', 'md'] }
 
@@ -45,9 +39,9 @@ Plug 'plasticboy/vim-markdown', { 'for': ['markdown', 'md'] }
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 
 " JSX highlighting
-Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'mxw/vim-jsx', { 'for': ['javascript', 'jsx', 'javascript.jsx'] }
 
-" Heuristically set buffer options
+" Heuristically set buffer indentation
 Plug 'tpope/vim-sleuth'
 
 " 'ag' in Vim
