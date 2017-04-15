@@ -7,3 +7,4 @@ public/javascripts/apitome
 tags
 tmp
 vendor
+yarn.lock

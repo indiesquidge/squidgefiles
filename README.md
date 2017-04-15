@@ -11,7 +11,7 @@
 
 Dotfiles focused heavily on Zsh, Neovim, and Tmux.
 ```
-![](http://i.imgur.com/HDRTgWf.png)
+![](http://i.imgur.com/9uXFru1.jpg)
 
 # Table of Contents
 
@@ -48,7 +48,7 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 
 ### Install Zsh
 
-OS X ships with Zsh, but it is old (5.0.8). We want to install the latest version.
+macOS ships with Zsh, but it is old (5.0.8). We want to install the latest version.
 
 ```
 brew install zsh
@@ -114,9 +114,7 @@ expose a better, more powerful plugin system; and have a more open development
 model, where contributions are more easily accepted. So far, they've done a great
 job, and many plugins have come out that make active use of the new features,
 particularly the asynchronous nature of Neovim. Keep in mind that Neovim is still
-very new (v0.1.4). While it is being actively worked on, it may break at times.
-I personally have never run into any detrimental issues with it so far, and have
-loved reaping in the new benefits. To install, run
+very new (v0.1.7). While it is being actively worked on, it may break at times.
 
 ```
 brew install neovim/neovim/neovim
@@ -141,22 +139,16 @@ At this point, I have fully transfered all of my editing tools over to Neovim
 and thus don't really need Vim around anymore. If you'd like it as a fallback
 though, here is the best way to get it.
 
-OS X ships with Vim by default. However, just like Zsh, it is an outdated
-version (7.3). Neocomplete requires Vim to be installed with Lua as a dependency.
+macOS ships with Vim by default. However, just like Zsh, it is an outdated
+version.
 
 ```
-brew install vim --with-lua
-```
-
-Hide the system Vim so the new version is found first
-
-```
-sudo mv /usr/bin/vim /usr/bin/vim73
+brew install vim
 ```
 
 Running `which vim` should now return `/usr/local/bin/vim`
 
-⚠️ **NOTE**: If you're running OS X 10.11 (El Capitan) and are having issues with
+⚠️ **NOTE**: If you're running macOS 10.11 (El Capitan) and are having issues with
 moving the system `vim`, please see this [Stack Exchange answer on the issue](http://apple.stackexchange.com/a/202969).
 
 ## <a name="dotfiles"></a>Dotfiles Installation
@@ -201,7 +193,7 @@ Clone the repo into ~/.zprezto
 git clone --recursive https://github.com/indiesquidge/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 ```
 
-Run the following on your command line to have prezto configure it's Zsh preferences
+Run the following to have prezto configure its Zsh preferences
 
 ```
 setopt EXTENDED_GLOB
@@ -226,8 +218,10 @@ Opening a new terminal tab should show just your prompt. Nice and clean :sparkle
 ### Tmux & Terminal Battery (optional)
 [Tmux](https://tmux.github.io/) is a terminal multiplexer, which is a fancy way
 of saying you can run multiple shell instances on different "panes" within the
-same terminal window, as well as create tabs. It eliminates the hassle of
-creating multiple windows and tabs on the application level.
+same terminal window, as well as create tabs. Some users prefer this over their
+terminal's window and tab features because it provides more granular control.
+However, most modern terminals (as well as Vim buffers) can perform window and
+pane splitting.
 
 ```
 brew install tmux
@@ -236,7 +230,8 @@ brew install tmux
 You should now be able to run `tmux` to enter a new session. The Tmux leader is
 set to `<C-a>`. A few basic commands to make sure it's working could be `<C-a> s`
 for horizontal splits and `<C-a> v` for vertical splits. For a full list of Tmux
-commands, see [this cheat sheet](https://gist.github.com/MohamedAlaa/2961058).
+commands, see [this cheat sheet](https://gist.github.com/MohamedAlaa/2961058), or check out the tmux config file
+`vim ~/.tmux.conf`.
 
 ⚠️ **NOTE**: if when you run `tmux`, you get an `[exited]` return and do not enter a
 Tmux session, installing this will fix the issue.
@@ -262,8 +257,8 @@ charging (since its ugly)
 vim /usr/local/bin/battery
 ```
 
-Remove just the emoji on line 113. You could add in something else to signify
-a charging status. I like to use `++ `.
+Remove just the emoji around line 113. You could add in something else to
+signify a charging status. I like to use `++ `.
 
 It would also be wise to remove the `elseif` statement. The first conditional of
 the `print_status()` function should now look something like this
@@ -328,8 +323,13 @@ Open up preferences (iTerm > Preferences _-or-_ ⌘,)
   * Uncheck "Native full screen windows" to allow full screen without window switching
 * Under Profile,
   * Under General, fill in "tmux" for "Send text at start" to start tmux for new windows automatically
-  * Under Text, check "Italic text allowed"; uncheck everything else
-  * Under Window,
+  * Under Colors, check "Smart Cursor Color"
+  * Under Text
+    * check "Italic text allowed" under Text Rendering
+    * check "Draw bold text in bold font" under Text Rendering
+    * check "Anti-aliased" under Font
+    * uncheck everything else
+  * Under Window
     * Adjust transparency based on personal preference
     * Set the settings for "Style" to Fullscreen
   * Under Terminal
@@ -347,16 +347,14 @@ tic ~/.dotfiles/config/iterm2/xterm-256color-italic.terminfo
 
 ## <a name="packages"></a>Random Useful Packages
 
-* `brew tap beeftornado/rmtree && brew install beeftornado/rmtree/brew-rmtree` uninstall all dependencies with a package (e.g. `brew rmtree python`)
-* `brew install ag` - the silver searcher for grepping amongst files (e.g. `ag "hello world" some/file/path`)
-* `brew install node` - Node.js (e.g. `node some-file.js`)
+* `brew install ag` - better faster stronger `grep` (e.g. `ag "daft punk" some/file/path`)
+* `brew install node` - NodeJS
 * `brew install hub` - GitHub CLI commands (e.g. `hub create`, `hub pull-request`)
-* `brew install tree` - tree structure from given folder (e.g. `tree my-rails-app`)
-* `brew install httpie` - human-friendly, command line HTTP client (e.g. `http httpie.org`)
-* `brew install gnu-sed` - text transformation and filterting (e.g. `sed -i -- 's/foo/bar/g' *`)
+* `brew install tree` - CLI directory structure (e.g. `tree ~/Downloads`)
+* `brew install httpie` - CLI HTTP client (e.g. `http swapi.co/api/planets/1/`)
 * `brew install jq` - `sed` for JSON data (e.g. `http swapi.co/api/planets/1/ | jq '.'`)
 * `brew install youtube-dl` - YouTube CLI (e.g. `youtube-dl https://youtu.be/dQw4w9WgXcQ`)
 
 ## Random Useful Gems
 
-* `gem install octodown` - github markdown previewing from the terminal (i.e. `octodown README.md`)
+* `gem install octodown` - GitHub CLI markdown previewing (i.e. `octodown README.md`)
