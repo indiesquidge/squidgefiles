@@ -80,7 +80,7 @@ alias zshconfig="vim ~/.dotfiles/zshrc"
 alias tmuxconfig="vim ~/.dotfiles/tmux.conf"
 
 # Editor
-alias vi='/usr/local/bin/vim'
+
 # if neovim installed, alias vim to neovim
 if hash nvim 2>/dev/null; then
   alias vim='nvim'

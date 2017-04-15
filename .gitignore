@@ -8,6 +8,7 @@ vim/plugged
 .gitconfig
 config/hub
 config/configstore
+config/heroku
 
 # =============== Ruby ===============
 *.gem
