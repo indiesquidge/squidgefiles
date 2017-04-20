@@ -67,13 +67,24 @@ chsh -s /usr/local/bin/zsh
 brew install git
 ```
 
-Set the name, email, and editor for git
+Personal configuration of git
 
 ```
 git config --global user.name "Austin Wood"
-git config --global user.email "i@austinwood.me"
 git config --global core.editor nvim
 git config --global core.excludesfile ~/.gitignore
+```
+
+As a matter of personal taste, I prefer to [hide my email address](https://help.github.com/articles/keeping-your-email-address-private/)
+on GitHub. I also like to work with different email addresses for different Git
+repositories, generally to separate vocational and personal projects.
+
+As of Git 2.8, I can tell Git not to guess, but rather to insist that I set
+`user.name` and `user.email` explicitly before it will let me commit to a new
+repository. To ensure this happens, I set the following global config flag.
+
+```
+git config --global user.useconfigonly true
 ```
 
 Follow [this](https://help.github.com/articles/generating-ssh-keys/) article to
@@ -96,10 +107,11 @@ install it through brew (it's just called `pinentry` on the install).
 ⚠️ **NOTE**: the contents of `.profile` from the gist mentioned above are already
 in place in the `zshrc` of this repository, so no need to worry about that.
 
-Then you can set your git config to require a signature
+Then you can set your git config to require a signature using GPG
 
 ```
 git config --global commit.gpgsign true
+git config --global gpg.program /usr/local/bin/gpg
 ```
 
 Now when you make some changes in a git directory, committing those changes will
