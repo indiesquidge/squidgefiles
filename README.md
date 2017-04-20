@@ -118,6 +118,37 @@ Now when you make some changes in a git directory, committing those changes will
 open an in-terminal dialog for you to enter your GPG key password that you set
 up when following the GitHub tutorials linked to above.
 
+⚠️ **NOTE**: if you plan on using different GPG keys associated with work and
+personal emails, but have instantiated the keys on different computers, you can
+follow these steps to get external keys onto another machine.
+
+You can use this command to see which keys you currently have on your machine
+
+```
+gpg --list-secret-keys --keyid-format LONG
+```
+
+Export your personal key to a file called `personal.asc`. Then send this file to
+your other computer.
+
+```
+gpg --export-secret-keys --armor --output "personal.asc"
+```
+
+Import the personal key onto your work computer.
+
+```
+gpg --import "personal.asc"
+```
+
+Sign the new key to validate it.
+
+```
+gpg --sign-key <keyid>
+```
+
+Repeat the above steps to migrate keys between machines at your leisure.
+
 ### Install Neovim
 
 Neovim is the "next gen Vim". The main goals of creating this fork of Vim were
