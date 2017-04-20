@@ -4,7 +4,6 @@
     ~/.agignore:      .agignore
     ~/.config:        config/
     ~/.gitignore:     .gitignore
-    ~/.pryrc:         ruby/pryrc
     ~/.tmux.conf:     tmux.conf
     ~/.vim:           vim/
     ~/.vimrc:         vimrc
