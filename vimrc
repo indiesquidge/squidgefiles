@@ -13,12 +13,6 @@ set hidden
 " Spacebar as global leader
 let mapleader = "\<Space>"
 
-" ================ (Temp) Fix for Tmux Nav in NVIM ===============
-" https://github.com/neovim/neovim/issues/2048#issuecomment-78546108
-if has('nvim')
-  nmap <bs> :<c-u>TmuxNavigateLeft<cr>
-endif
-
 " ===================== Plug Initialization ====================
 
 call plug#begin()
