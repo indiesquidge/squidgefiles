@@ -27,6 +27,7 @@ if has('nvim')
   let g:neomake_javascript_enabled_makers = ['standard']
   let g:neomake_jsx_enabled_makers = ['standard']
 
+  " if an eslintrc file found in project root, prefer it over standard
   if findfile('.eslintrc', '.;') !=# ''
     let g:neomake_javascript_enabled_makers = ['eslint']
     let g:neomake_jsx_enabled_makers = ['eslint']

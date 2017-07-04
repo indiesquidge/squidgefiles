@@ -21,8 +21,9 @@ if has('nvim')
   let g:deoplete#enable_smart_case = 1
   let g:deoplete#auto_complete_start_length = 2
 
-  " Disable autocompletion for markdown
+  " Disable autocompletion for markdown and CSS files
   autocmd FileType markdown let b:deoplete_disable_auto_complete = 1
+  autocmd FileType css let b:deoplete_disable_auto_complete = 1
 endif
 
 " For snippet_complete marker.
