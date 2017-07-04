@@ -39,8 +39,8 @@ map <Leader>y "+y<cr>
 map <Leader>p "+p<cr>
 map <Leader>d "+d<cr>
 
-" Use leader-i to properly indent lines depending on filetype
-map <Leader>i mzgg=G`z<cr>
+" Properly indent file contents
+map <Leader>i mzgg=G`z
 
 " ======================== Persistent Undo =======================
 " Keep undo history across sessions, by storing in file.

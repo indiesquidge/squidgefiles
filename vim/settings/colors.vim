@@ -9,6 +9,7 @@ colo seoul256
 hi MatchParen cterm=reverse ctermbg=220 ctermfg=232
 hi Comment cterm=italic ctermfg=DarkGrey
 hi Include cterm=italic
+hi jsFuncArgs cterm=italic ctermfg=217
 hi Visual ctermbg=220 ctermfg=232
 hi Search cterm=reverse ctermfg=220 ctermbg=234
 hi LineNr ctermfg=246
