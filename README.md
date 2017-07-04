@@ -392,11 +392,12 @@ tic ~/.dotfiles/config/iterm2/xterm-256color-italic.terminfo
 
 * `brew install ag` - better faster stronger `grep` (e.g. `ag "daft punk" some/file/path`)
 * `brew install node` - NodeJS
+* `brew install yarn` - JS package manager
 * `brew install hub` - GitHub CLI commands (e.g. `hub create`, `hub pull-request`)
 * `brew install tree` - CLI directory structure (e.g. `tree ~/Downloads`)
 * `brew install httpie` - CLI HTTP client (e.g. `http swapi.co/api/planets/1/`)
 * `brew install jq` - `sed` for JSON data (e.g. `http swapi.co/api/planets/1/ | jq '.'`)
-* `brew install youtube-dl` - YouTube CLI (e.g. `youtube-dl https://youtu.be/dQw4w9WgXcQ`)
+* `brew install youtube-dl` - download YouTube videos from the CLI (e.g. `youtube-dl https://youtu.be/dQw4w9WgXcQ`)
 
 ## Random Useful Gems
 
