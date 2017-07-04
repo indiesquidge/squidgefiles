@@ -28,6 +28,9 @@ fi
 # Export the GPG_TTY variable every time a new TTY start
 export GPG_TTY=$(tty)
 
+# Add yarn global installs to PATH
+export PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin"
+
 #  ================ Alias Functions ===================
 
 # ls automatically after cd
