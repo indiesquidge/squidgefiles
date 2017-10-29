@@ -36,10 +36,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'plasticboy/vim-markdown', { 'for': ['markdown', 'md'] }
 
 " JavaScript syntax highlighting and indentation
-Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx', 'markdown', 'md'] }
 
 " JSX highlighting
-Plug 'mxw/vim-jsx', { 'for': ['javascript', 'jsx', 'javascript.jsx'] }
+Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx', 'markdown', 'md'] }
 
 " Heuristically set buffer indentation
 Plug 'tpope/vim-sleuth'
