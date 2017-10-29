@@ -398,6 +398,7 @@ tic ~/.dotfiles/config/iterm2/xterm-256color-italic.terminfo
 * `brew install httpie` - CLI HTTP client (e.g. `http swapi.co/api/planets/1/`)
 * `brew install jq` - `sed` for JSON data (e.g. `http swapi.co/api/planets/1/ | jq '.'`)
 * `brew install youtube-dl` - download YouTube videos from the CLI (e.g. `youtube-dl https://youtu.be/dQw4w9WgXcQ`)
+* `brew install homebrew/dupes/less` - upgraded version of `less` in order to [display emoji in git logs!](http://www.recursion.org/2016/6/19/displaying-emoji-in-git-log)
 
 ## Random Useful Gems
 
