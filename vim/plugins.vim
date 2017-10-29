@@ -46,3 +46,6 @@ Plug 'tpope/vim-sleuth'
 
 " 'ag' in Vim
 Plug 'rking/ag.vim'
+
+" Make Vim autoread option work properly in Tmux session
+Plug 'tmux-plugins/vim-tmux-focus-events'

@@ -5,6 +5,7 @@ set number                " Line numbers
 set showcmd               " Show Vim commands in write bar
 set noshowmode            " Hide current vim mode from write line
 set scrolloff=8           " 8 line vertical scroll buffer
+set autoread              " Update contents when file changes outside of buffer
 
 " buffers exist like in normal editors
 " http://items.sjbach.com/319/configuring-vim-right
