@@ -1,8 +1,8 @@
 {
   "dependencies": {
-    "babel-eslint": "^8.0.1",
+    "babel-eslint": "^8.2.2",
     "create-react-app": "^1.4.1",
-    "standard": "^10.0.3",
+    "standard": "^11.0.0",
     "vtop": "^0.5.7"
   }
 }
