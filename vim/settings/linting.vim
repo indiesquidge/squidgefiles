@@ -27,8 +27,8 @@ if has('nvim')
   let g:neomake_javascript_enabled_makers = ['standard']
   let g:neomake_jsx_enabled_makers = ['standard']
 
-  " if an eslintrc file found in project root, prefer it over standard
-  if findfile('.eslintrc', '.;') !=# ''
+  " if a project has a custom eslint config, prefer it over standard
+  if findfile('.eslintrc', '.') !=# '' || (filereadable('package.json') && match(readfile('package.json'), 'eslintConfig') != -1)
     let g:neomake_javascript_enabled_makers = ['eslint']
     let g:neomake_jsx_enabled_makers = ['eslint']
     let g:neomake_javascript_eslint_exe = $PWD . '/node_modules/.bin/eslint'
