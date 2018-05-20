@@ -27,8 +27,8 @@ call plug#end()
 
 " ========================= Key Mappings =========================
 
-" Ctrl-c to exit insert mode and save
-inoremap <C-c> <esc>:w<cr>
+" Ctrl-c to exit insert mode
+inoremap <C-c> <esc>
 
 " 'ag' search
 map <Leader>s :Ag<space>
@@ -37,9 +37,9 @@ map <Leader>s :Ag<space>
 map <Leader>n :NERDTreeToggle<CR>
 
 " System yank, paste, and delete
-map <Leader>y "+y<cr>
-map <Leader>p "+p<cr>
-map <Leader>d "+d<cr>
+map <Leader>y "+y
+map <Leader>p "+p
+map <Leader>d "+d
 
 " Properly indent file contents
 map <Leader>i mzgg=G`z

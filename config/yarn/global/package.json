@@ -1,8 +1,14 @@
 {
   "dependencies": {
-    "babel-eslint": "^8.2.2",
-    "create-react-app": "^1.4.1",
-    "standard": "^11.0.0",
+    "babel-eslint": "^7.2.3",
+    "create-react-app": "^1.5.2",
+    "eslint": "^4.1.1",
+    "eslint-config-react-app": "^2.1.0",
+    "eslint-plugin-flowtype": "^2.34.1",
+    "eslint-plugin-import": "^2.6.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.1.0",
+    "prettier": "^1.12.1",
     "vtop": "^0.5.7"
   }
 }

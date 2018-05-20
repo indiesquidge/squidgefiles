@@ -16,8 +16,8 @@ if has('nvim')
   " Asynchronous keyword completion
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
-  " Asynchronous Error linting
-  Plug 'benekastah/neomake'
+  " Asynchronous Lint Engine
+  Plug 'w0rp/ale'
 endif
 
 " Insert quotes, brackets, etc. in pairs
