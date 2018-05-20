@@ -4,37 +4,35 @@ autocmd BufWritePre * :%s/\s\+$//e
 " Spellchecking for markdown files
 autocmd BufRead,BufNewFile *.md setlocal spell
 
-" Call Neomake on vim save
-if has('nvim')
-  " show Standard linting as errors by default
-  let g:neomake_javascript_standard_maker = { 'errorformat': '%E %f:%l:%c: %m' }
-  let g:neomake_jsx_standard_maker = { 'errorformat': '%E %f:%l:%c: %m' }
+" Gutter signs
+let g:ale_sign_error = '✖'
+let g:ale_sign_warning = '✹'
 
-  " define Neomake warning/error colors and symbols in gutter
-  :highlight NeomakeWarningMsg ctermfg=227 ctermbg=237 " yellow
-  :highlight NeomakeErrorMsg ctermfg=202 ctermbg=237   " red
+" Gutter sign colors
+highlight ALEWarningSign ctermfg=227
+highlight ALEErrorSign ctermfg=202
 
-  let g:neomake_warning_sign = {
-        \ 'text': '✹',
-        \ 'texthl': 'NeomakeWarningMsg',
-        \ }
+" Use StandardJS if binary found, otherwise prefer global ESLint and Prettier
+let local_standard = finddir('node_modules', '.;') . '/.bin/standard'
+if executable(local_standard)
+  let g:ale_linters = {
+  \ 'javascript': ['standard'],
+  \ }
 
-  let g:neomake_error_sign = {
-        \ 'text': '✖',
-        \ 'texthl': 'NeomakeErrorMsg',
-        \ }
+  let local_babel_eslint = finddir('node_modules', '.;') . '/babel-eslint'
 
-  let g:neomake_javascript_enabled_makers = ['standard']
-  let g:neomake_jsx_enabled_makers = ['standard']
-
-  " if a project has a custom eslint config, prefer it over standard
-  if findfile('.eslintrc', '.') !=# '' || (filereadable('package.json') && match(readfile('package.json'), 'eslintConfig') != -1)
-    let g:neomake_javascript_enabled_makers = ['eslint']
-    let g:neomake_jsx_enabled_makers = ['eslint']
-    let g:neomake_javascript_eslint_exe = $PWD . '/node_modules/.bin/eslint'
+  if isdirectory(local_babel_eslint)
+    let g:ale_javascript_standard_options = '--parser babel-eslint'
   endif
+else
+  let g:ale_linters = {
+  \ 'javascript': ['eslint'],
+  \ }
 
-  let g:neomake_html_enabled_makers = []
-
-  autocmd! BufWritePost * Neomake
+  let g:ale_fixers = {
+  \ 'javascript': ['prettier'],
+  \}
 endif
+
+" Fix linting errors automatically on buffer save
+let g:ale_fix_on_save = 1

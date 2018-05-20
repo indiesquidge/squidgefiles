@@ -3,6 +3,7 @@
 - link:
     ~/.agignore:      .agignore
     ~/.config:        config/
+    ~/.eslintrc:      .eslintrc
     ~/.gitignore:     .gitignore
     ~/.tmux.conf:     tmux.conf
     ~/.vim:           vim/
