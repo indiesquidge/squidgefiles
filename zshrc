@@ -11,21 +11,7 @@ fi
 export VISUAL=vim
 export EDITOR=VISUAL
 
-# Initialize rbenv on startup
-# eval "$(rbenv init -)"
-
-# Add SSH identity
-{ ssh-add -K ~/.ssh/id_rsa } &> /dev/null
-
-# Start gpg-agent or set up the GPG_AGENT_INFO variable if it's already running
-if [ -f ~/.gnupg/.gpg-agent-info ] && [ -n "$(pgrep gpg-agent)" ]; then
-    source ~/.gnupg/.gpg-agent-info
-    export GPG_AGENT_INFO
-else
-    eval $(gpg-agent --daemon --write-env-file ~/.gnupg/.gpg-agent-info)
-fi
-
-# Export the GPG_TTY variable every time a new TTY start
+# Let pinentry know about my current shell
 export GPG_TTY=$(tty)
 
 # Add yarn global installs to PATH
