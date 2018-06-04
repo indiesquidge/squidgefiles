@@ -352,9 +352,6 @@ Vim ships from this repo already using seoul256. To use the same font within the
 iTerm2 app, do the following: * Under iTerm > Preferences > Profiles > Colors,
 choose "Load Presets... > Import", press ⇧⌘g (shift-cmd-g) and type in the file
 path for seoul256 colors `~/.dotfiles/config/`, and select `seoul256.itermcolors`.
-Unfortunately, the background color of seoul256 for iTerm does not match seoul256
-for terminal Vim. To fix this, simply darken the background color under Basic
-Colors for iTerm (something close to #131313 is good).
 
 Now the color scheme should be coherent and seamless across both the editor and
 the terminal.
