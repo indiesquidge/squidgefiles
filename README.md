@@ -11,15 +11,16 @@
 
 Dotfiles focused heavily on Zsh, Neovim, and Tmux.
 ```
+
 ![](http://i.imgur.com/9uXFru1.jpg)
 
 # Table of Contents
 
-- [Dependencies](#dependencies)
-- [Dotfile Installation](#dotfiles)
-- [Configuration & Preferences](#configuration)
-- [iTerm2 Preferences](#iterm-preferences)
-- [Random Useful Packages](#packages)
+* [Dependencies](#dependencies)
+* [Dotfile Installation](#dotfiles)
+* [Configuration & Preferences](#configuration)
+* [iTerm2 Preferences](#iterm-preferences)
+* [Random Useful Packages](#packages)
 
 ---
 
@@ -95,7 +96,7 @@ in your GitHub username and password every time you push to a remote branch.
 ### Install GPG to sign commits (optional)
 
 Git allows you to sign your commits, which is a super cool feature in that it
-allows you to prove that you're, well, really *you*. To get started, follow the
+allows you to prove that you're, well, really _you_. To get started, follow the
 5-6 related articles [here](https://help.github.com/articles/signing-commits-using-gpg/) that will help you set up a new GPG key, add it to
 GitHub, etc.
 
@@ -314,7 +315,7 @@ For Font, choose 14pt Operator Mono XLight; select "Anti-aliased"
 #### Colors
 
 Vim ships from this repo already using seoul256. To use the same font within the
-iTerm2 app, do the following: * Under iTerm > Preferences > Profiles > Colors,
+iTerm2 app, do the following: \* Under iTerm > Preferences > Profiles > Colors,
 choose "Load Presets... > Import", press ⇧⌘g (shift-cmd-g) and type in the file
 path for seoul256 colors `~/.dotfiles/config/`, and select `seoul256.itermcolors`.
 
@@ -324,6 +325,7 @@ the terminal.
 ## <a name="iterm-preferences"></a>iTerm2 Preferences
 
 Open up preferences (iTerm > Preferences _-or-_ ⌘,)
+
 * Under General,
   * Uncheck "Native full screen windows" to allow full screen without window switching
 * Under Profile,

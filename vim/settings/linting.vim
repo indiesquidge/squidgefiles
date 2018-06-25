@@ -31,7 +31,8 @@ else
 
   let g:ale_fixers = {
   \ 'javascript': ['prettier'],
-  \}
+  \ 'markdown': ['prettier'],
+  \ }
 endif
 
 " Fix linting errors automatically on buffer save
