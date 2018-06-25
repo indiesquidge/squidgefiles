@@ -104,8 +104,8 @@ what's provided in that gist is to use `pinentry-curses` in place of
 `pinentry-mac` in `gpg-agent.conf`. If you don't have `pinentry`, you can
 install it through brew (it's just called `pinentry` on the install).
 
-⚠️ **NOTE**: the contents of `.profile` from the gist mentioned above are already
-in place in the `zshrc` of this repository, so no need to worry about that.
+_**NOTE**: the contents of `.profile` from the gist mentioned above are already
+in place in the `zshrc` of this repository, so no need to worry about that._
 
 Then you can set your git config to require a signature using GPG
 
@@ -118,9 +118,9 @@ Now when you make some changes in a git directory, committing those changes will
 open an in-terminal dialog for you to enter your GPG key password that you set
 up when following the GitHub tutorials linked to above.
 
-⚠️ **NOTE**: if you plan on using different GPG keys associated with work and
+_**NOTE**: if you plan on using different GPG keys associated with work and
 personal emails, but have instantiated the keys on different computers, you can
-follow these steps to get external keys onto another machine.
+follow these steps to get external keys onto another machine._
 
 You can use this command to see which keys you currently have on your machine
 
@@ -163,6 +163,14 @@ very new (v0.1.7). While it is being actively worked on, it may break at times.
 brew install neovim/neovim/neovim
 ```
 
+There are reported issues with some system commands (e.g. `pbcopy`) when running
+a tmux session. It is recommended to also install this wrapper program to allow
+for tmux and the OS to play nicely together. [Read more here](https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard/blob/master/README.md).
+
+```
+brew install reattach-to-user-namespace
+```
+
 One of the plugins I use, `deoplete`, which is a asynchronous completion framework
 for neovim, requires Python3. To install this, run
 
@@ -191,8 +199,8 @@ brew install vim
 
 Running `which vim` should now return `/usr/local/bin/vim`
 
-⚠️ **NOTE**: If you're running macOS 10.11 (El Capitan) and are having issues with
-moving the system `vim`, please see this [Stack Exchange answer on the issue](http://apple.stackexchange.com/a/202969).
+_**NOTE**: If you're running macOS 10.11 (El Capitan) and are having issues with
+moving the system `vim`, please see this [Stack Exchange answer on the issue](http://apple.stackexchange.com/a/202969)._
 
 ## <a name="dotfiles"></a>Dotfiles Installation
 
@@ -256,9 +264,10 @@ Let's fix that.
 touch ~/.hushlogin
 ```
 
-Opening a new terminal tab should show just your prompt. Nice and clean :sparkles:.
+Opening a new terminal tab should show just your prompt. Nice and clean :sparkles:
 
-### Tmux & Terminal Battery (optional)
+### Tmux (optional)
+
 [Tmux](https://tmux.github.io/) is a terminal multiplexer, which is a fancy way
 of saying you can run multiple shell instances on different "panes" within the
 same terminal window, as well as create tabs. Some users prefer this over their
@@ -276,46 +285,6 @@ for horizontal splits and `<C-a> v` for vertical splits. For a full list of Tmux
 commands, see [this cheat sheet](https://gist.github.com/MohamedAlaa/2961058), or check out the tmux config file
 `vim ~/.tmux.conf`.
 
-⚠️ **NOTE**: if when you run `tmux`, you get an `[exited]` return and do not enter a
-Tmux session, installing this will fix the issue.
-
-```
-brew install reattach-to-user-namespace
-```
-
-You can read more about this issue [here.](http://bit.ly/1HOk6o3)
-
-[Battery](https://github.com/Goles/Battery) is a script to display the battery
-status on the tmux status bar.
-
-```
-brew tap Goles/battery
-brew install battery
-```
-
-If you'd like to get rid of the :zap: that appears next to the battery when it's
-charging (since its ugly)
-
-```
-vim /usr/local/bin/battery
-```
-
-Remove just the emoji around line 113. You could add in something else to
-signify a charging status. I like to use `++ `.
-
-It would also be wise to remove the `elseif` statement. The first conditional of
-the `print_status()` function should now look something like this
-
-```
-if ((connected)); then
-  GRAPH="++ "
-else
-  GRAPH=""
-fi
-```
-
-⚠️ **NOTE**: to save and exit this file, you need to run `:wq!`
-
 ## <a name="configuration"></a>Configuration & Preferences
 
 ### Fonts & Colors
@@ -331,11 +300,7 @@ open ~/.dotfiles/config/*
 Main Fonts: `OperatorMono-XLight*.otf`
 Powerline symbols: `PowerlineSymbols-Powerline.otf`
 
-⚠️ **NOTE**: if the `open` command give you back an error, it is because Tmux,
-LSOpenURLsWithRole(), and/or macOS are not playing nicely together. To fix this,
-first try exiting out of your Tmux instance (if you're in one) and re-running
-the command. If that does not work, you may need a dependency that worked for me
-(July 13, 2015).
+Install the included fonts:
 
 ```
 brew install reattach-to-user-namespace
@@ -380,8 +345,9 @@ Open up preferences (iTerm > Preferences _-or-_ ⌘,)
     since it's on home row (`caps lock` mapped to `control`)
   * Under "Key Mappings", add the following, all of which should have an action of ignore: ⌘t, ⌘r, ⌘w
 
-⚠️ **NOTE**: load and compile the "xterm-256color-italic" file for terminal use, run
-```sh
+_**NOTE**: load and compile the "xterm-256color-italic" file for terminal use, run:_
+
+```
 tic ~/.dotfiles/config/iterm2/xterm-256color-italic.terminfo
 ```
 
