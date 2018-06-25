@@ -1,15 +1,12 @@
 ```
-                              __                     ___      ___
-                       __    /\ \                  /'___\ __ /\_ \
-  ____     __   __  __/\_\   \_\ \     __      __ /\ \__//\_\\//\ \      __    ____
- /',__\  /'__`\/\ \/\ \/\ \  /'_` \  /'_ `\  /'__`\ \ ,__\/\ \ \ \ \   /'__`\ /',__\
-/\__, `\/\ \ \ \ \ \_\ \ \ \/\ \ \ \/\ \ \ \/\  __/\ \ \_/\ \ \ \_\ \_/\  __//\__, `\
-\/\____/\ \___, \ \____/\ \_\ \___,_\ \____ \ \____\\ \_\  \ \_\/\____\ \____\/\____/
- \/___/  \/___/\ \/___/  \/_/\/__,_ /\/___ \ \/____/ \/_/   \/_/\/____/\/____/\/___/
-              \ \_\                    /\____/
-               \/_/                    \_/__/
+  ____              _     _             __ _ _
+ / ___|  __ _ _   _(_) __| | __ _  ___ / _(_) | ___  ___
+ \___ \ / _` | | | | |/ _` |/ _` |/ _ \ |_| | |/ _ \/ __|
+  ___) | (_| | |_| | | (_| | (_| |  __/  _| | |  __/\__ \
+ |____/ \__, |\__,_|_|\__,_|\__, |\___|_| |_|_|\___||___/
+           |_|              |___/
 
-Dotfiles focused heavily on Zsh, Neovim, and Tmux.
+Opinionated dotfiles for Zsh, Neovim, and Tmux
 ```
 
 ![](http://i.imgur.com/9uXFru1.jpg)
@@ -32,19 +29,22 @@ Dotfiles focused heavily on Zsh, Neovim, and Tmux.
 xcode-select --install
 ```
 
-(Alternatively, if you'd like to use Xcode, you can [download it here](https://itunes.apple.com/us/app/xcode/id497799835?ls=1&mt=12).
-Open it to agree to the Xcode license, or run
+### Download iTerm2
 
 ```
-sudo xcodebuild -license
+cd ~/Downloads && { \
+  curl -O https://iterm2.com/downloads/stable/iTerm2-3_1_6.zip; \
+  unzip -q iTerm2-3_1_6.zip; \
+  mv iTerm.app /Applications; \
+  rm iTerm3-3_1_6.zip; \
+  cd -; \
+}
 ```
-
-### Download [iTerm2](https://iterm2.com/nightly/latest)
 
 ### Install Homebrew
 
 ```
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
 ### Install Zsh
@@ -230,8 +230,11 @@ curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
-After which, the repository plugins can be installed. By opening a `vim` buffer
-and running `:PlugInstall`
+After which, the repository plugins can be installed.
+
+```
+vim +PlugInstall +qall
+```
 
 ### Prezto
 
@@ -245,7 +248,7 @@ Clone the repo into ~/.zprezto
 git clone --recursive https://github.com/indiesquidge/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 ```
 
-Run the following to have prezto configure its Zsh preferences
+Run the following in zsh to have prezto configure its preferences
 
 ```
 setopt EXTENDED_GLOB
@@ -257,9 +260,8 @@ done
 It will probably return `ln: /Users/<username>/.zshrc: File exists`. This is
 fine. We have our own `.zshrc` file that we want to use anyway.
 
-Open a new terminal window to see the changes. You may see something like
-`Last login: Mon Jul 13 12:33:01 on ttys000`, which is ugly and annoying.
-Let's fix that.
+Lastly, let's get rid of the login prompt seen when a new terminal tab or window
+is opened.
 
 ```
 touch ~/.hushlogin
@@ -292,25 +294,17 @@ commands, see [this cheat sheet](https://gist.github.com/MohamedAlaa/2961058), o
 
 #### Fonts
 
-Install the three included fonts
-
-```
-open ~/.dotfiles/config/*
-```
-
 Main Fonts: `OperatorMono-XLight*.otf`
 Powerline symbols: `PowerlineSymbols-Powerline.otf`
 
 Install the included fonts:
 
 ```
-brew install reattach-to-user-namespace
+cp ~/.dotfiles/config/fonts/* ~/Library/Fonts
 ```
 
-The line to use this is already in place in `tmux.conf` on line 29.
-
-To use these fonts, go to iTerm > Preferences > Profiles > Text.
-For Font, choose 14pt Operator Mono XLight; select "Anti-aliased"
+To use the Operator Mono font, go to iTerm > Preferences > Profiles > Text and
+choose Operator Mono XLight.
 
 #### Colors
 
@@ -337,7 +331,6 @@ Open up preferences (iTerm > Preferences _-or-_ ⌘,)
     * check "Anti-aliased" under Font
     * uncheck everything else
   * Under Window
-    * Adjust transparency based on personal preference
     * Set the settings for "Style" to Fullscreen
   * Under Terminal
     * Under Terminal Emulation, choose "xterm-256color-italic" for "Report Terminal Type" (manually type in if needed)
