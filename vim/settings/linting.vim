@@ -1,9 +1,6 @@
 " Automatically remove trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 
-" Spellchecking for markdown files
-autocmd BufRead,BufNewFile *.md setlocal spell
-
 " Gutter signs
 let g:ale_sign_error = '✖'
 let g:ale_sign_warning = '✹'
