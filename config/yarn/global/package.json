@@ -9,6 +9,7 @@
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.1.0",
     "prettier": "^1.12.1",
+    "tern": "^0.21.0",
     "vtop": "^0.5.7"
   }
 }
