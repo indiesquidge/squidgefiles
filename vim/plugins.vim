@@ -4,21 +4,10 @@
 Plug 'kien/ctrlp.vim'
 
 " File tree view
-Plug 'scrooloose/nerdtree'
-
-" Tmux bindings for Vim
-Plug 'christoomey/vim-tmux-navigator'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 " Filetype-sensitive comments
 Plug 'tomtom/tcomment_vim'
-
-if has('nvim')
-  " Asynchronous keyword completion
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
-  " Asynchronous Lint Engine
-  Plug 'w0rp/ale'
-endif
 
 " Insert quotes, brackets, etc. in pairs
 Plug 'jiangmiao/auto-pairs'
@@ -47,5 +36,19 @@ Plug 'tpope/vim-sleuth'
 " 'ag' in Vim
 Plug 'rking/ag.vim'
 
-" Make Vim autoread option work properly in Tmux session
-Plug 'tmux-plugins/vim-tmux-focus-events'
+if executable('tmux')
+  " Tmux bindings for Vim
+  Plug 'christoomey/vim-tmux-navigator'
+
+  " Make Vim autoread option work properly in Tmux session
+  Plug 'tmux-plugins/vim-tmux-focus-events'
+endif
+
+" Async plugins work in Vim8 or Neovim
+if v:version >= 800 || has('nvim')
+  " Asynchronous keyword completion, requires (neo)vim python module and ternJS
+  Plug 'maralla/completor.vim', { 'do': 'make js' }
+
+  " Asynchronous Lint Engine
+  Plug 'w0rp/ale'
+endif

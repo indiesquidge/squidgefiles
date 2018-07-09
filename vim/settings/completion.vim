@@ -15,18 +15,10 @@ set wildignore+=*.class,*.jar
 set wildignore+=*.pdf
 set wildignore+=*/tmp/*,*.o,*.so,*.swp,*.zip,*/node_modules/*,*/bower_components/*
 
-if has('nvim')
-  " Autocompletion Deoplete
-  let g:deoplete#enable_at_startup = 1
-  let g:deoplete#enable_smart_case = 1
-  let g:deoplete#auto_complete_start_length = 2
-
-  " Disable autocompletion for markdown and CSS files
-  autocmd FileType markdown let b:deoplete_disable_auto_complete = 1
-  autocmd FileType css let b:deoplete_disable_auto_complete = 1
-endif
-
 " For snippet_complete marker.
 if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
+
+" Explicitly ignore completions for file types specified in this list.
+let g:completor_blacklist = ['markdown']

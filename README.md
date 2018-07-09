@@ -172,14 +172,14 @@ for tmux and the OS to play nicely together. [Read more here](https://github.com
 brew install reattach-to-user-namespace
 ```
 
-One of the plugins I use, `deoplete`, which is a asynchronous completion framework
-for neovim, requires Python3. To install this, run
+Some Neovim plugins are written in or have build setups in Python, so we need to
+install python.
 
 ```
 brew install python3
 ```
 
-Then enable the `neovim` Python3 interface with pip:
+Then enable the neovim Python3 interface with pip:
 
 ```
 pip3 install neovim
