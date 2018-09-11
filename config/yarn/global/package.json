@@ -1,15 +1,15 @@
 {
   "dependencies": {
-    "babel-eslint": "^7.2.3",
-    "create-react-app": "^1.5.2",
-    "eslint": "^4.1.1",
+    "babel-eslint": "^9.0.0",
+    "eslint": "^5.5.0",
     "eslint-config-react-app": "^2.1.0",
-    "eslint-plugin-flowtype": "^2.34.1",
-    "eslint-plugin-import": "^2.6.0",
-    "eslint-plugin-jsx-a11y": "^5.1.1",
-    "eslint-plugin-react": "^7.1.0",
-    "prettier": "^1.12.1",
-    "tern": "^0.21.0",
-    "vtop": "^0.5.7"
+    "eslint-plugin-flowtype": "^2.50.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^5.0.0",
+    "eslint-plugin-react": "^7.11.1",
+    "prettier": "^1.14.2",
+    "serve": "^10.0.0",
+    "tern": "^0.22.0",
+    "vtop": "^0.6.1"
   }
 }
