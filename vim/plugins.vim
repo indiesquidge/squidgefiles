@@ -4,7 +4,7 @@
 Plug 'kien/ctrlp.vim'
 
 " File tree view
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree'
 
 " Filetype-sensitive comments
 Plug 'tomtom/tcomment_vim'

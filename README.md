@@ -294,17 +294,20 @@ commands, see [this cheat sheet](https://gist.github.com/MohamedAlaa/2961058), o
 
 #### Fonts
 
-Main Fonts: `OperatorMono-XLight*.otf`
+_**NOTE**: The following Fonts section is based on fonts I have personally._
+
+Main Fonts: `DankMono-*.otf`
 Powerline symbols: `PowerlineSymbols-Powerline.otf`
 
-Install the included fonts:
+Install the fonts:
 
 ```
-cp ~/.dotfiles/config/fonts/* ~/Library/Fonts
+cp ~/Dropbox/fonts/DankMono* ~/Library/Fonts
+cp ~/Dropbox/fonts/PowerlineSymbols* ~/Library/Fonts
 ```
 
-To use the Operator Mono font, go to iTerm > Preferences > Profiles > Text and
-choose Operator Mono XLight.
+To use the Dank Mono font, go to iTerm > Preferences > Profiles > Text and
+choose 14pt Dank Mono Regular.
 
 #### Colors
 
@@ -326,9 +329,8 @@ Open up preferences (iTerm > Preferences _-or-_ ⌘,)
   * Under General, fill in "tmux" for "Send text at start" to start tmux for new windows automatically
   * Under Colors, check "Smart Cursor Color"
   * Under Text
-    * check "Italic text allowed" under Text Rendering
-    * check "Draw bold text in bold font" under Text Rendering
-    * check "Anti-aliased" under Font
+    * check "Italic text allowed" and "Draw bold text in bold font" under Text Rendering
+    * check "Anti-aliased" and "Use ligatures" under Font
     * uncheck everything else
   * Under Window
     * Set the settings for "Style" to Fullscreen
