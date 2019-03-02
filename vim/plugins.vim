@@ -1,7 +1,8 @@
 " ================ Installed plugins ================
 
-" Fuzzy searcher
-Plug 'kien/ctrlp.vim'
+" General-purpose fuzzy finder
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " File tree view
 Plug 'scrooloose/nerdtree'
@@ -33,8 +34,8 @@ Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx', 'markdown', 'md'] 
 " Heuristically set buffer indentation
 Plug 'tpope/vim-sleuth'
 
-" 'ag' in Vim
-Plug 'rking/ag.vim'
+" ripgrep in Vim
+Plug 'jremmen/vim-ripgrep'
 
 if executable('tmux')
   " Tmux bindings for Vim

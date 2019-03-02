@@ -36,8 +36,8 @@ let mapleader = "\<Space>"
 " Ctrl-c to exit insert mode
 inoremap <C-c> <esc>
 
-" 'ag' search
-map <Leader>s :Ag<space>
+" ripgrep search
+map <Leader>s :Rg<space>
 
 " Toggle NERDTree sidebar
 map <Leader>n :NERDTreeToggle<CR>
@@ -49,6 +49,11 @@ map <Leader>d "+d
 
 " Properly indent file contents
 map <Leader>i mzgg=G`z
+
+" FZF fuzzy finder controls
+nnoremap <Leader>b :Buffers<cr>
+nnoremap <Leader>f :BLines<cr>
+nnoremap <C-p> :FZF<cr>
 
 " ======================== Persistent Undo =======================
 " Keep undo history across sessions, by storing in file.
