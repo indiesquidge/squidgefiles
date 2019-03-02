@@ -7,13 +7,11 @@ set noshowmode            " Hide current vim mode from write line
 set scrolloff=8           " 8 line vertical scroll buffer
 set autoread              " Update contents when file changes outside of buffer
 set mouse=a               " Enable mouse support
+set encoding=utf-8        " Always use UTF-8 character encoding
 
 " buffers exist like in normal editors
 " http://items.sjbach.com/319/configuring-vim-right
 set hidden
-
-" Spacebar as global leader
-let mapleader = "\<Space>"
 
 " ===================== Plug Initialization ====================
 
@@ -23,9 +21,17 @@ if filereadable(expand("~/.vim/plugins.vim"))
   source ~/.vim/plugins.vim
 endif
 
+" Machine-specific settings (e.g. work vs. home computer, remote server, etc.)
+if !empty(glob("$HOME/.vimrc_local"))
+  source $HOME/.vimrc_local
+endif
+
 call plug#end()
 
 " ========================= Key Mappings =========================
+
+" Spacebar as global leader
+let mapleader = "\<Space>"
 
 " Ctrl-c to exit insert mode
 inoremap <C-c> <esc>

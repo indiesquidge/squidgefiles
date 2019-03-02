@@ -340,7 +340,7 @@ Open up preferences (iTerm > Preferences _-or-_ ⌘,)
 * Under Keys
   * Enable system-wide hotkey to whatever you like. Right now I'm digging `^e`
     since it's on home row (`caps lock` mapped to `control`)
-  * Under "Key Mappings", add the following, all of which should have an action of ignore: ⌘t, ⌘r, ⌘w
+  * Under "Key Mappings", add the following, all of which should have an action of ignore: ⌘t, ⌘r, ⌘w, ⌘k
 
 _**NOTE**: load and compile the "xterm-256color-italic" file for terminal use, run:_
 

@@ -84,6 +84,8 @@ alias rl='source ~/.zshrc'
 
 #  ================ Local version =====================
 
-if [ -f ~/.zsh_local ]; then
+if [ -f ~/.zshrc_local ]; then
   source ~/.zshrc_local
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
