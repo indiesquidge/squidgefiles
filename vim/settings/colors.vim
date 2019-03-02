@@ -20,8 +20,10 @@ hi jsThis          cterm=italic ctermfg=216
 hi xmlAttrib       cterm=italic ctermfg=179
 
 " Set 80 character ruler and colors
-let &colorcolumn=join(range(81,999),",")
-highlight ColorColumn cterm=NONE ctermbg=233
+if exists('+colorcolumn')
+  let &colorcolumn=join(range(81,999),",")
+  highlight ColorColumn cterm=NONE ctermbg=233
+endif
 
 " Highlight current line and colors (must come last)
 set cursorline

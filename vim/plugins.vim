@@ -40,7 +40,7 @@ if executable('tmux')
   " Tmux bindings for Vim
   Plug 'christoomey/vim-tmux-navigator'
 
-  " Make Vim autoread option work properly in Tmux session
+  " Make Vim autoread work properly in Tmux session
   Plug 'tmux-plugins/vim-tmux-focus-events'
 endif
 
