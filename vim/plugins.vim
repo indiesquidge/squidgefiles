@@ -22,6 +22,12 @@ Plug 'itchyny/lightline.vim'
 " Git wrapper
 Plug 'tpope/vim-fugitive'
 
+" (Git)Hub wrapper
+Plug 'tpope/vim-rhubarb'
+
+" Quoting/parenthesizing made simple
+Plug 'tpope/vim-surround'
+
 " Markdown syntax highlighting
 Plug 'plasticboy/vim-markdown', { 'for': ['markdown', 'md'] }
 
