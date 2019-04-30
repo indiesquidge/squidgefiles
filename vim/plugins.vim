@@ -43,6 +43,9 @@ Plug 'tpope/vim-sleuth'
 " ripgrep in Vim
 Plug 'jremmen/vim-ripgrep'
 
+" GraphQL detection, syntax highlighting, and indentation
+Plug 'jparise/vim-graphql', { 'for': ['graphql'] }
+
 if executable('tmux')
   " Tmux bindings for Vim
   Plug 'christoomey/vim-tmux-navigator'

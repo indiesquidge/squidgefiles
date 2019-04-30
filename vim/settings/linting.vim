@@ -48,5 +48,7 @@ endif
 let g:ale_linters['ruby'] = ['rubocop']
 let g:ale_ruby_rubocop_options = '--config ~/airlab/repos/airbnb/.rubocop.yml'
 
+let g:ale_linters['graphql'] = ['gqlint']
+
 " Fix linting errors automatically on buffer save
 let g:ale_fix_on_save = 1
