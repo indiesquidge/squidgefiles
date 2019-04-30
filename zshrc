@@ -44,7 +44,7 @@ supervim() {
 
   for f in "$@"; do
     mkdir -p -- "$(dirname -- "$f")"
-    nvim -- "$f"
+    vim -- "$f"
   done
 }
 
@@ -67,14 +67,6 @@ function hpr() {
 alias vimconfig="vim ~/.dotfiles/vimrc"
 alias zshconfig="vim ~/.dotfiles/zshrc"
 alias tmuxconfig="vim ~/.dotfiles/tmux.conf"
-
-# Editor
-
-# if neovim installed, alias vim to neovim
-if hash nvim 2>/dev/null; then
-  alias vim='nvim'
-  alias v='vim'
-fi
 
 # File traversal
 alias c='clear;ls'

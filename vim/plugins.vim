@@ -51,9 +51,9 @@ if executable('tmux')
   Plug 'tmux-plugins/vim-tmux-focus-events'
 endif
 
-" Async plugins work in Vim8 or Neovim
-if v:version >= 800 || has('nvim')
-  " Asynchronous keyword completion, requires (neo)vim python module and ternJS
+" Async plugins work in Vim8
+if v:version >= 800
+  " Asynchronous keyword completion, requires vim python module and ternJS
   Plug 'maralla/completor.vim', { 'do': 'make js' }
 
   " Asynchronous Lint Engine

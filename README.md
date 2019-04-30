@@ -6,7 +6,7 @@
  |____/ \__, |\__,_|_|\__,_|\__, |\___|_| |_|_|\___||___/
            |_|              |___/
 
-Opinionated dotfiles for Zsh, Neovim, and Tmux
+Opinionated dotfiles for Zsh, Vim, and Tmux
 ```
 
 ![](http://i.imgur.com/9uXFru1.jpg)
@@ -72,7 +72,7 @@ Personal configuration of git
 
 ```
 git config --global user.name "Austin Wood"
-git config --global core.editor nvim
+git config --global core.editor vim
 git config --global core.excludesfile ~/.gitignore
 ```
 
@@ -150,20 +150,6 @@ gpg --sign-key <keyid>
 
 Repeat the above steps to migrate keys between machines at your leisure.
 
-### Install Neovim
-
-Neovim is the "next gen Vim". The main goals of creating this fork of Vim were
-to refactor the code to improve maintenance; implement new advanced features;
-expose a better, more powerful plugin system; and have a more open development
-model, where contributions are more easily accepted. So far, they've done a great
-job, and many plugins have come out that make active use of the new features,
-particularly the asynchronous nature of Neovim. Keep in mind that Neovim is still
-very new (v0.1.7). While it is being actively worked on, it may break at times.
-
-```
-brew install neovim/neovim/neovim
-```
-
 There are reported issues with some system commands (e.g. `pbcopy`) when running
 a tmux session. It is recommended to also install this wrapper program to allow
 for tmux and the OS to play nicely together. [Read more here](https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard/blob/master/README.md).
@@ -172,27 +158,10 @@ for tmux and the OS to play nicely together. [Read more here](https://github.com
 brew install reattach-to-user-namespace
 ```
 
-Some Neovim plugins are written in or have build setups in Python, so we need to
-install python.
-
-```
-brew install python3
-```
-
-Then enable the neovim Python3 interface with pip:
-
-```
-pip3 install neovim
-```
-
-### Install Vim (optional)
-
-At this point, I have fully transfered all of my editing tools over to Neovim
-and thus don't really need Vim around anymore. If you'd like it as a fallback
-though, here is the best way to get it.
+### Install Vim 8
 
 macOS ships with Vim by default. However, just like Zsh, it is an outdated
-version.
+version. We also need Vim 8+ in order for some of our async plugins to work.
 
 ```
 brew install vim
@@ -226,7 +195,7 @@ Vim Plugins are handled via [Plug](https://github.com/junegunn/vim-plug),
 which can be installed with this command
 
 ```
-curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
