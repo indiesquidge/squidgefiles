@@ -293,7 +293,7 @@ the terminal.
 Open up preferences (iTerm > Preferences _-or-_ ⌘,)
 
 * Under General,
-  * Uncheck "Native full screen windows" to allow full screen without window switching
+  * Under Window, uncheck "Native full screen windows" to allow full screen without window switching
 * Under Profile,
   * Under General, fill in "tmux" for "Send text at start" to start tmux for new windows automatically
   * Under Colors, check "Smart Cursor Color"
@@ -307,9 +307,9 @@ Open up preferences (iTerm > Preferences _-or-_ ⌘,)
     * Under Terminal Emulation, choose "xterm-256color-italic" for "Report Terminal Type" (manually type in if needed)
     * Under Notifications, check "Silence bell"; uncheck everything else
 * Under Keys
-  * Enable system-wide hotkey to whatever you like. Right now I'm digging `^e`
+  * Under Hotkey, enable system-wide hotkey to whatever you like. Right now I'm digging `^e`
     since it's on home row (`caps lock` mapped to `control`)
-  * Under "Key Mappings", add the following, all of which should have an action of ignore: ⌘t, ⌘r, ⌘w, ⌘k
+  * Under Key Mappings, add the following, all of which should have an action of ignore: ⌘n, ⌘t, ⌘r, ⌘w, ⌘k
 
 _**NOTE**: load and compile the "xterm-256color-italic" file for terminal use, run:_
 
@@ -319,7 +319,7 @@ tic ~/.dotfiles/config/iterm2/xterm-256color-italic.terminfo
 
 ## <a name="packages"></a>Random Useful Packages
 
-* `brew install ag` - better faster stronger `grep` (e.g. `ag "daft punk" some/file/path`)
+* `brew install rg` - better faster stronger `grep` (e.g. `rg "daft punk" some/file/path`)
 * `brew install node` - NodeJS
 * `brew install yarn` - JS package manager
 * `brew install hub` - GitHub CLI commands (e.g. `hub create`, `hub pull-request`)
