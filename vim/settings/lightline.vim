@@ -28,8 +28,8 @@ function! LightLineMode()
 endfunction
 
 function! MyFugitive()
-  if exists('*fugitive#head')
-    let _ = fugitive#head()
+  if exists('*FugitiveHead')
+    let _ = FugitiveHead()
     return winwidth(0) > 70 ? (strlen(_) ? '⭠ '._ : '') : ''
   endif
   return ''
