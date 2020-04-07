@@ -1,14 +1,15 @@
 - clean: ['~']
 
 - link:
-    ~/.agignore:      .agignore
-    ~/.config:        config/
-    ~/.eslintrc:      .eslintrc
-    ~/.gitignore:     .gitignore
-    ~/.tmux.conf:     tmux.conf
-    ~/.vim:           vim/
-    ~/.vimrc:         vimrc
-    ~/.zshrc:         zshrc
+    ~/.agignore:             .agignore
+    ~/.config:               config/
+    ~/.eslintrc:             .eslintrc
+    ~/.gitignore:            .gitignore
+    ~/.gnupg/gpg-agent.conf: gpg-agent.conf
+    ~/.tmux.conf:            tmux.conf
+    ~/.vim:                  vim/
+    ~/.vimrc:                vimrc
+    ~/.zshrc:                zshrc
 
 - shell:
   - [git pull && git submodule update --init --recursive, Installing/updating submodules]
