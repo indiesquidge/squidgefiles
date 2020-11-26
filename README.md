@@ -25,10 +25,10 @@ Opinionated dotfiles for Zsh, Vim, and Tmux
 
 ### Install Xcode Command Line Tools
 
+This is a macOS requirement for Homebrew. The tools may already be installed.
 ```
 xcode-select --install
 ```
-
 ### Download iTerm2
 
 Download latest version from here: https://www.iterm2.com/downloads.html
@@ -39,23 +39,45 @@ Download latest version from here: https://www.iterm2.com/downloads.html
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 ```
 
-### Install Git
+### Install Vim
+
+Vim 8+ ships natively on newer versions of macOS now, but unfortunately it causes some
+major performance issues on certain buffers (e.g. TypeScript files are slow to open and
+almost always freeze when they finally do open). I stick with Homebrew's Vim instead.
 
 ```
-brew install git
+brew install vim
 ```
 
-Personal configuration of git
+### Install Node
 
 ```
-git config --global user.name "Austin Wood"
+brew install node
+```
+
+### Install Tmux
+
+[Tmux][7] is a terminal multiplexer, which is a fancy way of saying you can run
+multiple shell instances on different "panes" within the same terminal window, as
+well as create tabs. Some users prefer this over their terminal's window and tab
+features because it provides more granular control. However, most modern terminals
+(as well as Vim buffers) can perform window and pane splitting without Tmux.
+
+I install this now because some of my Vim plugins rely on its existance.
+
+```
+brew install tmux
+```
+
+### Configure Git
+
+```
 git config --global core.editor vim
 git config --global core.excludesfile ~/.gitignore
 ```
 
-As a matter of personal taste, I prefer to [hide my email address][1] on GitHub.
-I also like to work with different email addresses for different Git repositories,
-generally to separate work and personal projects.
+I [hide my email address][1] on GitHub. I work with different email addresses
+for different repositories, generally to separate work and personal projects.
 
 As of Git 2.8, I can tell Git not to guess, but rather to insist that I set
 `user.name` and `user.email` explicitly before it will let me commit to a new
@@ -72,7 +94,10 @@ will grant you the action to clone using SSH (more secure), and also make it so 
 you don't have to enter in your GitHub username and password every time you e.g. push
 to a remote branch.
 
-Note to self: I keep my private SSH keys on a separate drive.
+If I want to write commits with a new email (e.g. new job), I should add the email
+to my [GitHub account][12] and generate a new set of SSH keys for that new email.
+
+I keep my private SSH keys on a separate flash drive.
 
 ### Signing commits
 
@@ -202,17 +227,7 @@ touch ~/.hushlogin
 
 Opening a new terminal tab should show just your prompt. Nice and clean :sparkles:
 
-### Tmux
-
-[Tmux][7] is a terminal multiplexer, which is a fancy way of saying you can run
-multiple shell instances on different "panes" within the same terminal window, as
-well as create tabs. Some users prefer this over their terminal's window and tab
-features because it provides more granular control.  However, most modern terminals
-(as well as Vim buffers) can perform window and pane splitting without Tmux.
-
-```
-brew install tmux
-```
+### Tmux Setup
 
 There are reported issues with some system commands (e.g. `pbcopy`) when running
 a tmux session. We need to also install this wrapper program to allow for tmux and
@@ -248,7 +263,7 @@ Powerline symbols: `PowerlineSymbols-Powerline.otf`
 Install the fonts:
 
 ```
-cp ~/Dropbox/fonts/DankMono* ~/Library/Fonts
+cp ~/Dropbox/fonts/DankMono/* ~/Library/Fonts
 cp ~/Dropbox/fonts/PowerlineSymbols* ~/Library/Fonts
 ```
 
@@ -260,8 +275,8 @@ font for non-ASCII text. Choose PowerlineSymbols 14pt for non-ASCII font.
 
 Vim ships from this repo already using seoul256. To use the same font within the
 iTerm2 app, do the following: \* Under iTerm > Preferences > Profiles > Colors,
-choose "Load Presets... > Import", press ⇧⌘g (shift-cmd-g) and type in the file
-path for seoul256 colors `~/.dotfiles/config/`, and select `seoul256.itermcolors`.
+choose "Color Presets... > Import", press ⇧⌘g (shift-cmd-g), type in the file path
+`~/.dotfiles/config/iterm2/` and select `seoul256.itermcolors`.
 
 Now the color scheme should be coherent and seamless across both the editor and
 the terminal.
@@ -274,7 +289,7 @@ Open up preferences (iTerm > Preferences _-or-_ ⌘,)
   * Under Window, uncheck "Native full screen windows" to allow full screen without window switching
 * Under Profiles,
   * Under General, fill in "tmux" for "Send text at start" to start tmux for new windows automatically
-  * Under Colors, check "Smart Cursor Color"
+  * Under Colors, check "Smart box cursor color"
   * Under Text
     * check "Italic text" and "Draw bold text in bold font"
     * check "Anti-aliased" and "Use ligatures" under Font
@@ -291,7 +306,6 @@ Open up preferences (iTerm > Preferences _-or-_ ⌘,)
 ## <a name="packages"></a>Useful Packages
 
 * `brew install rg` - better faster stronger `grep` (e.g. `rg "daft punk" some/file/path`)
-* `brew install node` - NodeJS
 * `brew install hub` - GitHub CLI commands (e.g. `hub create`, `hub pull-request`)
 * `brew install tree` - CLI directory structure (e.g. `tree ~/Downloads`)
 * `brew install httpie` - CLI HTTP client (e.g. `http swapi.co/api/planets/1/`)
@@ -311,3 +325,4 @@ Open up preferences (iTerm > Preferences _-or-_ ⌘,)
 [9]: https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard/blob/master/README.md
 [10]: https://help.github.com/en/enterprise/2.14/user/articles/telling-git-about-your-signing-key
 [11]: https://www.gnupg.org/gph/en/manual/x334.html#AEN345
+[12]: https://github.com/settings/emails
