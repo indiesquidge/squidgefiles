@@ -1,7 +1,7 @@
 " ================ Installed plugins ================
 
 " General-purpose fuzzy finder
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 " File tree view
@@ -25,26 +25,11 @@ Plug 'tpope/vim-fugitive'
 " (Git)Hub wrapper
 Plug 'tpope/vim-rhubarb'
 
-" Quoting/parenthesizing made simple
-Plug 'tpope/vim-surround'
-
-" Markdown syntax highlighting
-Plug 'plasticboy/vim-markdown', { 'for': ['markdown', 'md'] }
-
-" JavaScript syntax highlighting and indentation
-Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx', 'markdown', 'md'] }
-
-" JSX highlighting
-Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx', 'markdown', 'md'] }
-
-" Heuristically set buffer indentation
-Plug 'tpope/vim-sleuth'
+" Collection of language packs
+Plug 'sheerun/vim-polyglot'
 
 " ripgrep in Vim
 Plug 'jremmen/vim-ripgrep'
-
-" GraphQL detection, syntax highlighting, and indentation
-Plug 'jparise/vim-graphql', { 'for': ['graphql'] }
 
 if executable('tmux')
   " Tmux bindings for Vim
@@ -56,9 +41,9 @@ endif
 
 " Async plugins work in Vim8
 if v:version >= 800
-  " Asynchronous keyword completion, requires vim python module and ternJS
-  Plug 'maralla/completor.vim', { 'do': 'make js' }
-
   " Asynchronous Lint Engine
   Plug 'w0rp/ale'
+
+  " Benefits of VSCode
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
 endif
