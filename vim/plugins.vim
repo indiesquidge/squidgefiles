@@ -43,7 +43,4 @@ endif
 if v:version >= 800
   " Asynchronous Lint Engine
   Plug 'w0rp/ale'
-
-  " Benefits of VSCode
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
 endif

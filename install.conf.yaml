@@ -2,11 +2,11 @@
 
 - link:
     ~/.agignore:             .agignore
-    ~/.config:               config/
+    ~/.config:               config
     ~/.gitignore:            .gitignore
     ~/.gnupg/gpg-agent.conf: gpg-agent.conf
     ~/.tmux.conf:            tmux.conf
-    ~/.vim:                  vim/
+    ~/.vim:                  vim
     ~/.vimrc:                vimrc
     ~/.zshrc:                zshrc
 
